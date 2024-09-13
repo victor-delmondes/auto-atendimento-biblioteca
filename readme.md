@@ -2,7 +2,7 @@
 
 ## Dashboard Principal
 
-A página principal onde o usuário poderá encontrar algumas funcionalidades de ajuda para auxiliá-lo na biblioteca:
+# A página principal onde o usuário poderá encontrar algumas funcionalidades de ajuda para auxiliá-lo na biblioteca:
 
 1. **Opção de login do estudante**: ícone de login para área exclusiva.
 2. **Barra de pesquisa para os livros**: barra para pesquisar os livros registrados no banco de dados da biblioteca.
@@ -14,10 +14,13 @@ A página principal onde o usuário poderá encontrar algumas funcionalidades de
 
 ## Área Exclusiva
 
-Será a área onde o usuário ou ADM realizará o login e terá acesso a opções exclusivas:
+# Será a área onde o usuário ou ADM realizará o login e terá acesso a opções exclusivas:
 
 1. **Histórico de livros**: o usuário pode visualizar todos os livros já emprestados.
 2. **Opção de locação de livro**: o aluno pode fazer a reserva do livro escaneando o código de barras, escolhendo a data de devolução e aceitando os termos de condição de locação conforme a política da biblioteca.
 3. **Lista de desejos**: onde o usuário pode salvar livros que deseja locar.
 4. **Fazer devolução ou estender a entrega**: o usuário deve devolver o livro na data prevista ou antes, escanear o código do livro para realizar a devolução, ou pode optar por estender a locação do livro.
 5. **Opções exclusivas do ADM**: o ADM do sistema terá opções exclusivas em seu acesso como: gerenciamento de acervo, gerenciamento de usuarios e configurações do sistema.
+
+## Tela Inicial de Bem-Vindo 
+![tela inicial, bem-vindo](Imagens/01.jpg) 
