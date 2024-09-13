@@ -23,4 +23,10 @@
 5. **Opções exclusivas do ADM**: o ADM do sistema terá opções exclusivas em seu acesso como: gerenciamento de acervo, gerenciamento de usuarios e configurações do sistema.
 
 ## Tela Inicial de Bem-Vindo 
-![tela inicial, bem-vindo](Imagens/01.jpg) 
+![Tela de Bem-Vindo](/Imagens/01.JPG) 
+
+
+## Tela 02 
+![Tela de Busca](/Imagens/02.JPG) 
+
+
