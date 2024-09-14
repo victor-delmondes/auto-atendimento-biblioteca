@@ -22,11 +22,40 @@
 4. **Fazer devolução ou estender a entrega**: o usuário deve devolver o livro na data prevista ou antes, escanear o código do livro para realizar a devolução, ou pode optar por estender a locação do livro.
 5. **Opções exclusivas do ADM**: o ADM do sistema terá opções exclusivas em seu acesso como: gerenciamento de acervo, gerenciamento de usuarios e configurações do sistema.
 
-## Tela Inicial de Bem-Vindo 
+## Tela 01 Tela Inicial de Bem-Vindo 
 ![Tela de Bem-Vindo](/Imagens/01.JPG) 
 
 
-## Tela 02 
+## Tela 02 Tela de Busca
 ![Tela de Busca](/Imagens/02.JPG) 
 
+## Tela 03 Tela portifolio
+![Tela portifolio](/Imagens/03.JPG) 
+
+## Tela 04 Tela de Sinopse
+![Tela de Sinopse](/Imagens/04.JPG) 
+
+## Tela 05 Tela de Login
+![Tela de Login ](/Imagens/05.JPG) 
+
+## Tela 06 Tela de Cadastro
+![Tela de Cadastro](/Imagens/06.JPG) 
+
+## Tela 07 Tela de Foto de Perfil
+![Tela de Foto de Perfil](/Imagens/07.JPG) 
+
+## Tela 08 Tela de confirmação de Cadastro
+![Tela de confirmação de Cadastro](/Imagens/08.JPG) 
+
+## Tela 09 Tela de perfil
+![Tela de perfil](/Imagens/09.JPG) 
+
+## Tela 10 Tela de Administrador
+![Tela de Administrador](/Imagens/10.JPG) 
+
+## Tela 11 Tela de Scanner do codigo do livro
+![Tela de Scanner do codigo do livro](/Imagens/1.JPG) 
+
+## Tela 12
+![Tela de Busca](/Imagens/12.JPG) 
 
