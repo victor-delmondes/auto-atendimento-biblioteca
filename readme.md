@@ -1,3 +1,5 @@
+
+
 # Lista de Funcionalidades
 
 ## Dashboard Principal
@@ -54,8 +56,22 @@
 ![Tela de Administrador](/Imagens/10.JPG) 
 
 ## Tela 11 Tela de Scanner do codigo do livro
-![Tela de Scanner do codigo do livro](/Imagens/1.JPG) 
+![Tela de Scanner do codigo do livro](/Imagens/11.JPG) 
 
-## Tela 12
-![Tela de Busca](/Imagens/12.JPG) 
+## MER: Modelo Entidade Relacionamento 
+![Tela de Busca](/Imagens/MER_bd_v1.0.png) 
 
+## Tela Auto Nivel: Area Restrita
+![Tela de Area Restrita](/Imagens/Area_restrita.png) 
+
+## Tela Auto Nivel: Busca
+![Tela de Busca](/Imagens/Busca.png) 
+
+## Tela Auto Nivel: Sinopse
+![Tela de Sinopse](/Imagens/Sinopse.png) 
+
+## Tela Auto Nivel: Login
+![Tela de Login](/Imagens/Tela_de_login.png) 
+
+## Tela Auto Nivel: Tela Inicial
+![Tela Inicial](/Imagens/Tela_inicial.png) 
