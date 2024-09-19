@@ -59,7 +59,7 @@
 ![Tela de Scanner do codigo do livro](/Imagens/11.JPG) 
 
 ## MER: Modelo Entidade Relacionamento 
-![Tela de Busca](/Imagens/MER_bd_v1.0.png) 
+![Tela de Busca](/Imagens/MER_bd_v2.0.png) 
 
 ## Tela Auto Nivel: Area Restrita
 ![Tela de Area Restrita](/Imagens/Area_restrita.png) 
