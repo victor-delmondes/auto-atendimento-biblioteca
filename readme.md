@@ -4,7 +4,7 @@
 
 ## Dashboard Principal
 
-# A página principal onde o usuário poderá encontrar algumas funcionalidades de ajuda para auxiliá-lo na biblioteca:
+### A página principal onde o usuário poderá encontrar algumas funcionalidades de ajuda para auxiliá-lo na biblioteca:
 
 1. **Opção de login do estudante**: ícone de login para área exclusiva.
 2. **Barra de pesquisa para os livros**: barra para pesquisar os livros registrados no banco de dados da biblioteca.
@@ -16,7 +16,7 @@
 
 ## Área Exclusiva
 
-# Será a área onde o usuário ou ADM realizará o login e terá acesso a opções exclusivas:
+### Será a área onde o usuário ou ADM realizará o login e terá acesso a opções exclusivas:
 
 1. **Histórico de livros**: o usuário pode visualizar todos os livros já emprestados.
 2. **Opção de locação de livro**: o aluno pode fazer a reserva do livro escaneando o código de barras, escolhendo a data de devolução e aceitando os termos de condição de locação conforme a política da biblioteca.
@@ -24,54 +24,79 @@
 4. **Fazer devolução ou estender a entrega**: o usuário deve devolver o livro na data prevista ou antes, escanear o código do livro para realizar a devolução, ou pode optar por estender a locação do livro.
 5. **Opções exclusivas do ADM**: o ADM do sistema terá opções exclusivas em seu acesso como: gerenciamento de acervo, gerenciamento de usuarios e configurações do sistema.
 
-## Tela 01 Tela Inicial de Bem-Vindo 
+## Telas de baixo nivel
+
+### Tela 01 - Tela Inicial de Bem-Vindo 
 ![Tela de Bem-Vindo](/Imagens/01.JPG) 
 
 
-## Tela 02 Tela de Busca
+### Tela 02 - Tela de Busca
 ![Tela de Busca](/Imagens/02.JPG) 
 
-## Tela 03 Tela portifolio
+### Tela 03 - Tela portifolio
 ![Tela portifolio](/Imagens/03.JPG) 
 
-## Tela 04 Tela de Sinopse
+### Tela 04 - Tela de Sinopse
 ![Tela de Sinopse](/Imagens/04.JPG) 
 
-## Tela 05 Tela de Login
+### Tela 05 - Tela de Login
 ![Tela de Login ](/Imagens/05.JPG) 
 
-## Tela 06 Tela de Cadastro
+### Tela 06 - Tela de Cadastro
 ![Tela de Cadastro](/Imagens/06.JPG) 
 
-## Tela 07 Tela de Foto de Perfil
+### Tela 07 - Tela de Foto de Perfil
 ![Tela de Foto de Perfil](/Imagens/07.JPG) 
 
-## Tela 08 Tela de confirmação de Cadastro
+### Tela 08 - Tela de confirmação de Cadastro
 ![Tela de confirmação de Cadastro](/Imagens/08.JPG) 
 
-## Tela 09 Tela de perfil
+### Tela 09 - Tela de perfil
 ![Tela de perfil](/Imagens/09.JPG) 
 
-## Tela 10 Tela de Administrador
+### Tela 10 - Tela de Administrador
 ![Tela de Administrador](/Imagens/10.JPG) 
 
-## Tela 11 Tela de Scanner do codigo do livro
+### Tela 11 - Tela de Scanner do codigo do livro
 ![Tela de Scanner do codigo do livro](/Imagens/11.JPG) 
 
 ## MER: Modelo Entidade Relacionamento 
 ![Tela de Busca](/Imagens/MER_bd_v2.0.png) 
 
-## Tela Auto Nivel: Area Restrita
-![Tela de Area Restrita](/Imagens/Area_restrita.png) 
+## Telas de alto nivel
 
-## Tela Auto Nivel: Busca
-![Tela de Busca](/Imagens/Busca.png) 
+### Tela 01 - Tela Inicial de Bem-Vindo 
+![Tela de Bem-Vindo](/Imagens/Tela%20de%20boas%20vindas.png) 
 
-## Tela Auto Nivel: Sinopse
-![Tela de Sinopse](/Imagens/Sinopse.png) 
+### Tela 02 - Tela de Busca
+![Tela de Busca](/Imagens/Tela%20de%20pesquisa.png) 
 
-## Tela Auto Nivel: Login
-![Tela de Login](/Imagens/Tela_de_login.png) 
+### Tela 03 - Tela de resultados
+![Tela portifolio](/Imagens/Tela%20de%20resultado.png) 
 
-## Tela Auto Nivel: Tela Inicial
-![Tela Inicial](/Imagens/Tela_inicial.png) 
+### Tela 04 - Tela de categorias
+![Tela de Sinopse](/Imagens/Tela%20de%20categoria.png) 
+
+### Tela 05 - Tela de informações sobre o livro
+![Tela de Login ](/Imagens/Tela%20de%20informações%20do%20livro.png) 
+
+### Tela 06 - Tela de login
+![Tela de Cadastro](/Imagens/Tela%20de%20Login.png) 
+
+### Tela 07 - Tela de cadastro
+![Tela de Foto de Perfil](/Imagens/Tela%20cadastro%202.png) 
+
+### Tela 08 - Tela de cadastro
+![Tela de Foto de Perfil](/Imagens/Tela%20cadastro%203.png) 
+
+### Tela 09 - Tela de cadastro
+![Tela de Foto de Perfil](/Imagens/Tela%20cadastro%204.png) 
+
+### Tela 10 - Tela de perfil
+![Tela de perfil](/Imagens/Perfil.png) 
+
+### Tela 11 - Tela de Administrador
+![Tela de Administrador](/Imagens/ADM.png) 
+
+### Tela 12 - Tela de Scanner do codigo do livro
+![Tela de Scanner do codigo do livro](/Imagens/Tela%20de%20escanear.png) 
