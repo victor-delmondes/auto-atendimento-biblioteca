@@ -3,19 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Tela de Cadastro de Usuarios </title>
-
+    <style>
+        input {
+            display: block;
+            margin-bottom: 10px; /* Espaço entre os inputs */
+        }
+    </style>
 </head>
 <body>
 
-<h2>Create usuario</h2>
+<h2>cadastro usuario</h2>
 
-<form action="/create-usuario" method="post">
+<form action="/cadastro-usuario" method="post">
 
-    <label>Name usuario</label>
-    <input type="text" name="name-usuario" id="name-usuario">
+    <label>Nome Completo </label>
+    <input type="text" name="name-usuario" id="name-usuario" placeholder="Digite o nome de Usuario">
+
+    <label>CPF</label>
+    <input type="text" name="CPF" id="CPF" placeholder="Digite o CPF">
+
+    <label>Enderecço</label>
+    <input type="text" name="endereco" id="endereco" placeholder="Digite o endereço">
+
+    <label>Telefone</label>
+    <input type="text" name="telefone" id="telefone" placeholder="Digite o Telefone">
+
+    <label>Cidade</label>
+    <input type="text" name="cidade" id="cidade" placeholder="Digite a Cidade">
+
+    <label>Estado</label>
+    <input type="text" name="estado" id="estado" placeholder="Digite o Estado">
+
+    <label>E-Mail</label>
+    <input type="text" name="email" id="email" placeholder="Digite o E-Mail">
+
+    <label>Senha</label>
+    <input type="text" name="senha" id="senha" placeholder="Digite a Senha">
 
     <button type="submit">salvar</button>
-
 </form>
+
 </body>
 </html>
