@@ -5,6 +5,9 @@
 }
 
 body {
+}
+
+.container {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
@@ -15,10 +18,10 @@ body {
   position: absolute;
   left: 0px;
   top: 0px;
-}
-
-.container {
-  text-align: center;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('vecteezy_halftone-dotted-background_11887512.png');
+  background-size: cover; /* Ajusta a imagem para cobrir a tela */
+  background-repeat: no-repeat; /* Impede a repetição da imagem */
+  background-clip: border-box; /* corta a imagem */
 }
 
 h1 {
@@ -90,7 +93,8 @@ p {
   left: 62px;
   top: 1349px;
 }
-button:hover {
+
+button:active {
   background-color: #022840;
 }
 
