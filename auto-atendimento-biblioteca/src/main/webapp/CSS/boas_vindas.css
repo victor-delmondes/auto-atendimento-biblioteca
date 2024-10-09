@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1080px;
+  height: 1920px;
+  background: #f2f2f2;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.container {
+  text-align: center;
+  padding-top: 5vh; /* Proporcional à altura do wrapper */
+}
+
+h1 {
+  position: absolute;
+  left: 0px;
+  top: 99px;
+  width: 1080px;
+  height: 647px;
+  color: #0d0d0d;
+  font-size: 288px;
+  font-weight: 700;
+  line-height: 300px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+p {
+  position: absolute;
+  left: 181px;
+  top: 660px;
+  width: 718px;
+  height: 300px;
+  color: #595959;
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 300px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btnprocurar {
+  position: absolute;
+  width: 957px;
+  height: 350px;
+  color: #f2f2f2;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 300px;
+  text-align: center;
+  align-items: center;
+  width: 957px;
+  height: 350px;
+  border-radius: 10px;
+  background: #024873;
+  left: 62px;
+  top: 928px;
+}
+
+.btnalugar {
+  position: absolute;
+  width: 957px;
+  height: 350px;
+  color: #f2f2f2;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 300px;
+  text-align: center;
+  align-items: center;
+  width: 957px;
+  height: 350px;
+  border-radius: 10px;
+  background: #024873;
+  left: 62px;
+  top: 1349px;
+}
+button:hover {
+  background-color: #022840;
+}
+
+.rodape {
+  position: absolute;
+  left: 0px;
+  top: 1770px;
+  width: 1080px;
+  height: 150px;
+  background: #022840;
+  background-blend-mode: normal;
+}
+
+.rodape a {
+  position: absolute;
+  left: 842px;
+  top: 27px;
+  width: 177px;
+  height: 96px;
+  color: #f2f2f2;
+  font-size: 64px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+
