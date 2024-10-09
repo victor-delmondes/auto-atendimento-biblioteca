@@ -19,7 +19,6 @@ body {
 
 .container {
   text-align: center;
-  padding-top: 5vh; /* Proporcional à altura do wrapper */
 }
 
 h1 {
@@ -117,5 +116,3 @@ button:hover {
   text-align: center;
   text-decoration: none;
 }
-
-
