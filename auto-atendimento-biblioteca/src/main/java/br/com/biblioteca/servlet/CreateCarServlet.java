@@ -15,7 +15,7 @@ public class CreateCarServlet extends HttpServlet {
 
        // super.doPost(request, response);
 
-        String carName = request.getParameter("car-name");
+        String carName = request.getParameter("car-name"); 
 
         System.out.println(carName);
 
