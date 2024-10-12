@@ -7,18 +7,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/create-usuario")
+@WebServlet("/cadastro-usuario")
 public class CreateusuariosServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //super.doPost(request, response);
-        String carName = request.getParameter("car-name");
+        String nameUsuario = request.getParameter("nameUsuario");//recebendo nomeUsuario do input da pagina cadastro-usuario
+        System.out.println("nome usuario " +nameUsuario); //Imprimindo a variavel nomeUsuario
 
-        System.out.println(carName);
+        String CPF = request.getParameter("CPF");//recebendo cpf do input da pagina cadastro-usuario
+        System.out.println("CPF usuario "+CPF);//Imprimindo a variavel CPF
 
-        request.getRequestDispatcher("index.html").forward(request, response);
+        String endereco = request.getParameter("endereco");
+        System.out.println("Endereço Usuario "+endereco);
+
+        String telefone = request.getParameter("telefone");
+        System.out.println("Telefone Usuario "+telefone);
+
+        String cidade = request.getParameter("cidade");
+        System.out.println("Cidade Usuario "+cidade);
+
+        String estado = request.getParameter("estado");
+        System.out.println("Estado usuario "+estado);
+
+        String email = request.getParameter("email");
+        System.out.println("Email Usuario "+email);
+
+        String senha = request.getParameter("senha");
+        System.out.println("Senha Usuario "+senha);
+
+        request.getRequestDispatcher("cadastro-usuario.html").forward(request, response);
 
     }
 }
