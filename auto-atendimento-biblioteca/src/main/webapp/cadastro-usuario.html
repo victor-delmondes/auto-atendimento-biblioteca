@@ -1,48 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tela de Cadastro de Usuarios </title>
-    <style>
-        input {
-            display: block;
-            margin-bottom: 10px; /* Espaço entre os inputs */
-        }
-    </style>
-</head>
-<body>
+<!DOCTYPE html> <!-- Declaração do tipo de documento HTML -->
+<html lang="en"> <!-- Início do elemento HTML, com o idioma definido como inglês -->
+<head> <!-- Cabeçalho do documento -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <title>Tela de Cadastro de Usuarios </title> <!-- Define o título da página -->
+    <style>  /* <!-- Início da seção de estilo interno --> */
+    input { /* <!-- Define o estilo para elementos input --> */
+        display: block; /* <!-- Exibe os inputs como blocos --> */
+        margin-bottom: 10px; /* Espaço entre os inputs  <!-- Espaço entre os inputs --> */
+    }
+    </style> <!-- Fim da seção de estilo interno -->
+</head> <!-- Fim do cabeçalho do documento -->
+<body> <!-- Início do corpo do documento -->
 
-<h2>cadastro usuario</h2>
+<h2>cadastro usuario</h2> <!-- Cabeçalho da seção de cadastro de usuário -->
 
 <form action="/cadastro-usuario" method="post">
+    <!-- Formulário configurado para enviar dados para a URL "/cadastro-usuario" via metodo POST -->
 
-    <label>Nome Completo </label>
-    <input type="text" name="nameUsuario" id="nameUsuario" placeholder="Digite o nome de Usuario">
+    <label>Nome Completo </label> <!-- Rótulo para o campo de nome completo -->
+    <input type="text" name="nome" id="nome" placeholder="Digite o nome de Usuario">
+    <!-- Campo de texto para o nome do usuário -->
 
-    <label>CPF</label>
-    <input type="text" name="CPF" id="CPF" placeholder="Digite o CPF">
+    <label>CPF</label> <!-- Rótulo para o campo de CPF -->
+    <input type="text" name="CPF" id="CPF" placeholder="Digite o CPF"> <!-- Campo de texto para o CPF -->
 
-    <label>Enderecço</label>
+    <label>Endereço</label> <!-- Rótulo para o campo de endereço -->
     <input type="text" name="endereco" id="endereco" placeholder="Digite o endereço">
+    <!-- Campo de texto para o endereço -->
 
-    <label>Telefone</label>
+    <label>Telefone</label> <!-- Rótulo para o campo de telefone -->
     <input type="text" name="telefone" id="telefone" placeholder="Digite o Telefone">
+    <!-- Campo de texto para o telefone -->
 
-    <label>Cidade</label>
-    <input type="text" name="cidade" id="cidade" placeholder="Digite a Cidade">
+    <label>Cidade</label> <!-- Rótulo para o campo de cidade -->
+    <input type="text" name="cidade" id="cidade" placeholder="Digite a Cidade"> <!-- Campo de texto para a cidade -->
 
-    <label>Estado</label>
-    <input type="text" name="estado" id="estado" placeholder="Digite o Estado">
+    <label>Estado</label> <!-- Rótulo para o campo de estado -->
+    <input type="text" name="estado" id="estado" placeholder="Digite o Estado"> <!-- Campo de texto para o estado -->
 
-    <label>E-Mail</label>
-    <input type="text" name="email" id="email" placeholder="Digite o E-Mail">
+    <label>E-Mail</label> <!-- Rótulo para o campo de e-mail -->
+    <input type="text" name="email" id="email" placeholder="Digite o E-Mail"> <!-- Campo de texto para o e-mail -->
 
-    <label>Senha</label>
-    <input type="text" name="senha" id="senha" placeholder="Digite a Senha">
+    <label>Senha</label> <!-- Rótulo para o campo de senha -->
+    <input type="text" name="senha" id="senha" placeholder="Digite a Senha"> <!-- Campo de texto para a senha -->
 
-    <button type="submit">salvar</button>
-    <a href="adm.html" >ADM page </a>
-</form>
+    <button type="submit">salvar</button> <!-- Botão para submeter o formulário -->
+    <a href="adm.html">ADM page </a> <!-- Link para a página de administração -->
+</form> <!-- Fim do formulário -->
 
-</body>
-</html>
+</body> <!-- Fim do corpo do documento -->
+</html> <!-- Fim do elemento HTML -->
