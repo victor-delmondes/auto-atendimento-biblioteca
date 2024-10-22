@@ -1,9 +1,42 @@
 package br.com.biblioteca.model;
 
+import javax.swing.text.StyledEditorKit;
+
 public class Usuarios {
 
     //Declaração de variaveis
     private String nome, CPF, endereco, telefone, cidade, estado, email, senha;
+    private int id;
+    private Boolean tipo;
+
+    public Usuarios(){
+
+    }
+
+    public Usuarios(String nome, String CPF, String endereco, String telefone, String cidade, String estado, String email, String senha, Boolean tipo){
+        this.nome = nome;
+        this.CPF = CPF;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.email = email;
+        this.senha = senha;
+        this.tipo = tipo;
+    }
+
+    public Usuarios(String nome, String CPF, String endereco, String telefone, String cidade, String estado, String email, String senha, int id, Boolean tipo){
+        this.nome = nome;
+        this.CPF = CPF;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.email = email;
+        this.senha = senha;
+        this.id = id;
+        this.tipo = tipo;
+    }
 
     public String getNome() {
         return nome;
@@ -70,4 +103,11 @@ public class Usuarios {
     }
 
 
+    public int getId() {
+        return id;
+    }
+
+    public Boolean getTipo() {
+        return tipo;
+    }
 }
