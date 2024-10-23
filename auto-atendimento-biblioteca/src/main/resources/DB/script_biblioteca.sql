@@ -18,7 +18,9 @@ CREATE TABLE Livros (
     Quantidade INTEGER,
     ISBN VARCHAR(13),
     Editora VARCHAR(100),
-    Ano_publicacao INTEGER
+    Ano_publicacao INTEGER,
+    Categoria VARCHAR(100),
+    Sinopse VARCHAR(20000)
 );
 
 CREATE TABLE Emprestimo (

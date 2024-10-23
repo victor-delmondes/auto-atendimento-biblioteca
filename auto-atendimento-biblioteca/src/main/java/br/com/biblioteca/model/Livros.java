@@ -9,21 +9,25 @@ public class Livros {
     private int quantidade;
     private String editora;
     private int anoPublicacao;
+    private String sinopse;
+    private String categoria;
 
     public Livros(){
 
     }
 
-    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao){
+    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, String sinopse, String categoria){
         this.anoPublicacao = anoPublicacao;
         this.editora = editora;
         this.autor = autor;
         this.isbn = isbn;
         this.quantidade = quantidade;
         this.titulo = titulo;
+        this.sinopse = sinopse;
+        this.categoria = categoria;
     }
 
-    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, int id){
+    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, int id, String sinopse, String categoria){
         this.anoPublicacao = anoPublicacao;
         this.editora = editora;
         this.autor = autor;
@@ -31,6 +35,8 @@ public class Livros {
         this.quantidade = quantidade;
         this.titulo = titulo;
         this.id = id;
+        this.sinopse = sinopse;
+        this.categoria = categoria;
     }
 
     public int getAnoPublicacao() {
@@ -83,5 +89,21 @@ public class Livros {
 
     public int getId() {
         return id;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 }
