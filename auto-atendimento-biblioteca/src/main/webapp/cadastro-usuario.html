@@ -1,55 +1,144 @@
-<!DOCTYPE html> <!-- Declaração do tipo de documento HTML -->
-<html lang="en"> <!-- Início do elemento HTML, com o idioma definido como inglês -->
-<head> <!-- Cabeçalho do documento -->
-    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
-    <title>Tela de Cadastro de Usuarios </title> <!-- Define o título da página -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vindo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>  /* <!-- Início da seção de estilo interno --> */
-    input { /* <!-- Define o estilo para elementos input --> */
-        display: block; /* <!-- Exibe os inputs como blocos --> */
-        margin-bottom: 10px; /* Espaço entre os inputs  <!-- Espaço entre os inputs --> */
-    }
-    </style> <!-- Fim da seção de estilo interno -->
-</head> <!-- Fim do cabeçalho do documento -->
-<body> <!-- Início do corpo do documento -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Conta</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+            rel="stylesheet"
+    />
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.8)
+            ),
+            url("vecteezy_halftone-dotted-background_11887512.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .container {
+            text-align: center;
+            max-width: 400px;
+            max-height: fit-content;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0d0d0d;
+            margin-bottom: 1.5rem;
+        }
+        input {
+            font-size: 1.2rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .btn {
+            width: 100%;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 1rem;
+            background-color: #024873;
+            border: none;
+            color: #f2f2f2;
+            margin-top: 1rem;
+        }
+        .btn:active {
+            background-color: #022840;
+        }
+        .btn:hover {
+            background-color: #022840;
+        }
+        .rodape {
+            position: fixed;
+            width: 100%;
+            background-color: #022840;
+            padding: 0.5rem;
+            bottom: 0;
+            text-align: right;
+            color: #f2f2f2;
+        }
+        .rodape a {
+            color: #f2f2f2;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Criar Conta</h1>
+    <form id="createAccountForm" novalidate>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="nome" placeholder="Nome Completo" required />
+            <div class="invalid-feedback">Por favor, preencha seu nome completo.</div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="cpf" placeholder="CPF" required />
+            <div class="invalid-feedback">Por favor, preencha seu CPF.</div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="endereco" placeholder="Endereço" required />
+            <div class="invalid-feedback">Por favor, preencha seu endereço.</div>
+        </div>
+        <div class="mb-3">
+            <input type="tel" class="form-control" id="telefone" placeholder="Telefone" required />
+            <div class="invalid-feedback">Por favor, preencha seu telefone.</div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="cidade" placeholder="Cidade" required />
+            <div class="invalid-feedback">Por favor, preencha sua cidade.</div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="estado" placeholder="Estado" required />
+            <div class="invalid-feedback">Por favor, preencha seu estado.</div>
+        </div>
+        <div class="mb-3">
+            <input type="email" class="form-control" id="email" placeholder="E-mail" required />
+            <div class="invalid-feedback">Por favor, preencha seu e-mail.</div>
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" id="senha" placeholder="Senha" required />
+            <div class="invalid-feedback">Por favor, crie uma senha.</div>
+        </div>
+        <button type="submit" class="btn">Confirmar</button>
+    </form>
+</div>
 
-<h2>cadastro usuario</h2> <!-- Cabeçalho da seção de cadastro de usuário -->
+<div class="rodape">
+    <a href="#voltar">Voltar</a>
+</div>
 
-<form action="/cadastro-usuario" method="post">
-    <!-- Formulário configurado para enviar dados para a URL "/cadastro-usuario" via metodo POST -->
-
-    <label>Nome Completo </label> <!-- Rótulo para o campo de nome completo -->
-    <input type="text" name="nome" id="nome" placeholder="Digite o nome de Usuario">
-    <!-- Campo de texto para o nome do usuário -->
-
-    <label>CPF</label> <!-- Rótulo para o campo de CPF -->
-    <input type="text" name="CPF" id="CPF" placeholder="Digite o CPF"> <!-- Campo de texto para o CPF -->
-
-    <label>Endereço</label> <!-- Rótulo para o campo de endereço -->
-    <input type="text" name="endereco" id="endereco" placeholder="Digite o endereço">
-    <!-- Campo de texto para o endereço -->
-
-    <label>Telefone</label> <!-- Rótulo para o campo de telefone -->
-    <input type="text" name="telefone" id="telefone" placeholder="Digite o Telefone">
-    <!-- Campo de texto para o telefone -->
-
-    <label>Cidade</label> <!-- Rótulo para o campo de cidade -->
-    <input type="text" name="cidade" id="cidade" placeholder="Digite a Cidade"> <!-- Campo de texto para a cidade -->
-
-    <label>Estado</label> <!-- Rótulo para o campo de estado -->
-    <input type="text" name="estado" id="estado" placeholder="Digite o Estado"> <!-- Campo de texto para o estado -->
-
-    <label>E-Mail</label> <!-- Rótulo para o campo de e-mail -->
-    <input type="text" name="email" id="email" placeholder="Digite o E-Mail"> <!-- Campo de texto para o e-mail -->
-
-    <label>Senha</label> <!-- Rótulo para o campo de senha -->
-    <input type="password" name="senha" id="senha" placeholder="Digite a Senha"> <!-- Campo de texto para a senha -->
-
-    <button type="submit">salvar</button> <!-- Botão para submeter o formulário -->
-    <a href="adm.html">ADM page </a> <!-- Link para a página de administração -->
-</form> <!-- Fim do formulário -->
-
-</body> <!-- Fim do corpo do documento -->
-</html> <!-- Fim do elemento HTML -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // JavaScript para validação do formulário
+    (function () {
+        'use strict'
+        const form = document.getElementById('createAccountForm')
+        form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+    })()
+</script>
+</body>
+</html>

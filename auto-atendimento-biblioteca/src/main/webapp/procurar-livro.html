@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurar Livro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #024873;
+            padding: 1rem;
+            text-align: center;
+            color: #f2f2f2;
+            position: relative;
+        }
+        .header input[type="search"] {
+            width: calc(100% - 50px);
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+        }
+        .header .menu-icon {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #f2f2f2;
+        }
+        .menu-flutuante {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        .menu-flutuante a {
+            display: block;
+            padding: 1rem;
+            text-decoration: none;
+            color: #024873;
+            border-bottom: 1px solid #ddd;
+        }
+        .menu-flutuante a:hover {
+            background-color: #024873;
+            color: #fff;
+        }
+        .livros-container {
+            flex-grow: 1;
+            padding: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 1rem;
+        }
+        .livro {
+            width: 150px;
+            text-align: center;
+        }
+        .livro img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .livro-title {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            color: #333;
+        }
+        .rodape {
+            width: 100%;
+            background-color: #022840;
+            padding: 0.5rem;
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            color: #f2f2f2;
+            font-size: 2rem;
+        }
+        .rodape a {
+            color: #f2f2f2;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <input type="search" id="pesquisa" placeholder="Pesquisar livros" oninput="filtrarLivros()">
+    <span class="menu-icon" onclick="mostrarMenu()">&#9776;</span>
+    <div class="menu-flutuante" id="menu-flutuante">
+        <!-- Categorias do banco de dados -->
+    </div>
+</div>
+
+<div class="livros-container" id="livros-container">
+    <!-- Exemplos de livros -->
+    <div class="livro" data-title="Título do Livro 1">
+        <img src="livro1.jpg" alt="Livro 1">
+        <p class="livro-title">Título do Livro 1</p>
+    </div>
+    <div class="livro" data-title="Título do Livro 2">
+        <img src="livro2.jpg" alt="Livro 2">
+        <p class="livro-title">Título do Livro 2</p>
+    </div>
+    <!-- Fim dos exemplos -->
+</div>
+
+<div class="rodape">
+    <a href="#login">Login</a>
+    <a href="#alugar">Alugar</a>
+</div>
+
+<script>
+    function mostrarMenu() {
+        const menu = document.getElementById('menu-flutuante');
+        menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+    }
+
+    function carregarCategorias() {
+        // Simulação de categorias vindas do banco de dados (substitua com dados reais)
+        const categorias = [
+            { id: 1, nome: 'Ficção' },
+            { id: 2, nome: 'História' },
+            { id: 3, nome: 'Tecnologia' }
+        ];
+
+        const menu = document.getElementById('menu-flutuante');
+        menu.innerHTML = '';
+
+        categorias.forEach(categoria => {
+            const link = document.createElement('a');
+            link.href = `categoria.html?id=${categoria.id}&nome=${encodeURIComponent(categoria.nome)}`;
+            link.innerText = categoria.nome;
+            menu.appendChild(link);
+        });
+    }
+
+    function filtrarLivros() {
+        const input = document.getElementById('pesquisa').value.toLowerCase();
+        const livros = document.querySelectorAll('.livro');
+
+        livros.forEach(livro => {
+            const title = livro.getAttribute('data-title').toLowerCase();
+            if (title.includes(input)) {
+                livro.style.display = 'block';
+            } else {
+                livro.style.display = 'none';
+            }
+        });
+    }
+
+    window.onload = carregarCategorias;
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+
