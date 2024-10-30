@@ -12,7 +12,7 @@ import java.util.List;
 public class LivrosDao {
 
     public void createLivro(Livros livro) {
-        String SQL = "INSERT INTO livros (titulo, autor, isbn, editora, quantidade, ano_publicacao, sinopse, categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String SQL = "INSERT INTO livros (titulo, autor, isbn, editora, quantidade, ano_publicacao, sinopse, categoria, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -26,6 +26,7 @@ public class LivrosDao {
             preparedStatement.setInt(6, livro.getAnoPublicacao());
             preparedStatement.setString(7, livro.getSinopse());
             preparedStatement.setString(8, livro.getCategoria());
+            preparedStatement.setString(9, livro.getImage());
 
             preparedStatement.execute();
             System.out.println("Livro criado com sucesso");
@@ -58,8 +59,9 @@ public class LivrosDao {
                 int anoPublicacao = resultSet.getInt("ano_publicacao");
                 String sinopse = resultSet.getString("sinopse");
                 String categoria = resultSet.getString("categoria");
+                String image = resultSet.getString("image");
 
-                Livros livro = new Livros(titulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria);
+                Livros livro = new Livros(titulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria, image);
                 livros.add(livro);
             }
 
@@ -74,7 +76,7 @@ public class LivrosDao {
     }
 
     public void updateLivro(Livros livro) {
-        String SQL = "UPDATE livros SET titulo = ?, autor = ?, isbn = ?, editora = ?, quantidade = ?, ano_publicacao = ?, sinopse = ?, categoria = ? WHERE id_livros = ?";
+        String SQL = "UPDATE livros SET titulo = ?, autor = ?, isbn = ?, editora = ?, quantidade = ?, ano_publicacao = ?, sinopse = ?, categoria = ?, image = ? WHERE id_livros = ?";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -88,7 +90,8 @@ public class LivrosDao {
             preparedStatement.setInt(6, livro.getAnoPublicacao());
             preparedStatement.setString(7, livro.getSinopse());
             preparedStatement.setString(8, livro.getCategoria());
-            preparedStatement.setInt(9, livro.getId());
+            preparedStatement.setString(9, livro.getImage());
+            preparedStatement.setInt(10, livro.getId());
 
             preparedStatement.executeUpdate();
             System.out.println("Livro atualizado com sucesso");

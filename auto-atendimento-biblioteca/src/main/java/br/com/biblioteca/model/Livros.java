@@ -11,12 +11,13 @@ public class Livros {
     private int anoPublicacao;
     private String sinopse;
     private String categoria;
+    private  String image;
 
     public Livros(){
 
     }
 
-    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, String sinopse, String categoria){
+    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, String sinopse, String categoria, String image){
         this.anoPublicacao = anoPublicacao;
         this.editora = editora;
         this.autor = autor;
@@ -25,9 +26,10 @@ public class Livros {
         this.titulo = titulo;
         this.sinopse = sinopse;
         this.categoria = categoria;
+        this.image = image;
     }
 
-    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, int id, String sinopse, String categoria){
+    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, int id, String sinopse, String categoria, String image){
         this.anoPublicacao = anoPublicacao;
         this.editora = editora;
         this.autor = autor;
@@ -37,6 +39,7 @@ public class Livros {
         this.id = id;
         this.sinopse = sinopse;
         this.categoria = categoria;
+        this.image = image;
     }
 
     public int getAnoPublicacao() {
@@ -105,5 +108,13 @@ public class Livros {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
