@@ -104,7 +104,7 @@
                                         <div class="row">
                                             <div class="col">
                                                 <h5>Sinopse</h5>
-                                                <p id="modal-sinopse"><span id="modal-sinopse"</span></p>
+                                                <p><span id="modal-sinopse"></span></p>
                                             </div>
                                         </div>
                                     </div>

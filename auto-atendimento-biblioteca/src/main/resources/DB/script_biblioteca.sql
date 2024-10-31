@@ -22,7 +22,7 @@ CREATE TABLE Livros (
     Categoria VARCHAR(100),
     Sinopse VARCHAR(20000),
     Image VARCHAR(300),
-    locacion VARCHAR(200)
+    location VARCHAR(200)
 );
 
 CREATE TABLE Emprestimo (
