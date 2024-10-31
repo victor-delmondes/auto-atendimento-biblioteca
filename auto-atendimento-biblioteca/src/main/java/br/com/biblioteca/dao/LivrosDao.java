@@ -61,8 +61,9 @@ public class LivrosDao {
                 String sinopse = resultSet.getString("sinopse");
                 String categoria = resultSet.getString("categoria");
                 String image = resultSet.getString("image");
+                String location = resultSet.getString("location");
 
-                Livros livro = new Livros(titulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria, image);
+                Livros livro = new Livros(titulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria, image, location);
                 livros.add(livro);
             }
 
@@ -77,7 +78,7 @@ public class LivrosDao {
     }
 
     public void updateLivro(Livros livro) {
-        String SQL = "UPDATE livros SET titulo = ?, autor = ?, isbn = ?, editora = ?, quantidade = ?, ano_publicacao = ?, sinopse = ?, categoria = ?, image = ? WHERE id_livros = ?";
+        String SQL = "UPDATE livros SET titulo = ?, autor = ?, isbn = ?, editora = ?, quantidade = ?, ano_publicacao = ?, sinopse = ?, categoria = ?, image = ?, location = ? WHERE id_livros = ?";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -92,7 +93,8 @@ public class LivrosDao {
             preparedStatement.setString(7, livro.getSinopse());
             preparedStatement.setString(8, livro.getCategoria());
             preparedStatement.setString(9, livro.getImage());
-            preparedStatement.setInt(10, livro.getId());
+            preparedStatement.setString(10, livro.getLocation());
+            preparedStatement.setInt(11, livro.getId());
 
             preparedStatement.executeUpdate();
             System.out.println("Livro atualizado com sucesso");
@@ -143,8 +145,9 @@ public class LivrosDao {
                     int anoPublicacao = resultSet.getInt("ano_publicacao");
                     String sinopse = resultSet.getString("sinopse");
                     String image = resultSet.getString("image");
+                    String location = resultSet.getString("location");
 
-                    Livros livro = new Livros(titulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria, image);
+                    Livros livro = new Livros(titulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria, image, location);
                     livros.add(livro);
                 }
             }

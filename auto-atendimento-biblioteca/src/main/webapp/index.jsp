@@ -45,7 +45,7 @@
                             <div class="dropdown-menu dropdown-menu-lg-end">
                                 <a class="dropdown-item" href="index">Todos os Livros</a>
                                 <c:forEach var="categoria" items="${categorias}">
-                                    <a class="dropdown-item" href="index?categoria=${categoria.categoria}">${categoria.categoria}</a>
+                                    <a class="dropdown-item" href="index?categoria=${categoria}">${categoria}</a>
                                 </c:forEach>
                             </div>
                         </div>
@@ -67,7 +67,8 @@
                                            data-ano="${livro.anoPublicacao}"
                                            data-categoria="${livro.categoria}"
                                            data-sinopse="${livro.sinopse}"
-                                           data-unidades="${livro.quantidade}">
+                                           data-unidades="${livro.quantidade}"
+                                           data-location="${livro.location}">
                                     <div class="card" style="text-align: center;">
                                         <div class="card-body">
                                             <h4 class="card-title">${livro.titulo}</h4>
@@ -97,6 +98,7 @@
                                                 <p>Ano de publicação: <span id="modal-ano"></span></p>
                                                 <p>Categoria: <span id="modal-categoria"></span></p>
                                                 <p>Unidades disponíveis: <span id="modal-unidades"></span></p>
+                                                <p>Localização: <span id="modal-location"></span></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -133,6 +135,7 @@
             var categoria = link.getAttribute('data-categoria');
             var unidades = link.getAttribute('data-unidades');
             var sinopse = link.getAttribute('data-sinopse');
+            var location = link.getAttribute('data-location');
 
             // Atualiza o conteúdo do modal
             modal.querySelector('#modal-titulo').textContent = titulo;
@@ -143,6 +146,7 @@
             modal.querySelector('#modal-categoria').textContent = categoria;
             modal.querySelector('#modal-unidades').textContent = unidades;
             modal.querySelector('#modal-sinopse').textContent = sinopse;
+            modal.querySelector('#modal-location').textContent = location;
         });
     </script>
 

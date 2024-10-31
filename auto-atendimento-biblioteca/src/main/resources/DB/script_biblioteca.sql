@@ -21,7 +21,8 @@ CREATE TABLE Livros (
     Ano_publicacao INTEGER,
     Categoria VARCHAR(100),
     Sinopse VARCHAR(20000),
-    Image VARCHAR(300)
+    Image VARCHAR(300),
+    locacion VARCHAR(200)
 );
 
 CREATE TABLE Emprestimo (

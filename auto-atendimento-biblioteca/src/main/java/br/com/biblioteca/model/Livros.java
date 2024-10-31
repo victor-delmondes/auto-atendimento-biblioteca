@@ -12,12 +12,13 @@ public class Livros {
     private String sinopse;
     private String categoria;
     private  String image;
+    private String location;
 
     public Livros(){
 
     }
 
-    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, String sinopse, String categoria, String image){
+    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, String sinopse, String categoria, String image, String location){
         this.anoPublicacao = anoPublicacao;
         this.editora = editora;
         this.autor = autor;
@@ -27,9 +28,10 @@ public class Livros {
         this.sinopse = sinopse;
         this.categoria = categoria;
         this.image = image;
+        this.location = location;
     }
 
-    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, int id, String sinopse, String categoria, String image){
+    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, int id, String sinopse, String categoria, String image, String location){
         this.anoPublicacao = anoPublicacao;
         this.editora = editora;
         this.autor = autor;
@@ -40,6 +42,7 @@ public class Livros {
         this.sinopse = sinopse;
         this.categoria = categoria;
         this.image = image;
+        this.location = location;
     }
 
     public int getAnoPublicacao() {
@@ -116,5 +119,13 @@ public class Livros {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
