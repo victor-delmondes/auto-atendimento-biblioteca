@@ -38,8 +38,8 @@
             <div id="content">
                 <nav class="navbar navbar-expand bg-white shadow mb-4 topbar">
                     <div class="container-fluid">
-                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Pesquisar"><button class="btn btn-primary py-0" type="button" style="background: rgb(2,72,115);"><i class="fas fa-search"></i></button></div>
+                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" method="get" action="index">
+                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Pesquisar" name="pesquisa"><button class="btn btn-primary py-0" type="submit" style="background: rgb(2,72,115);"><i class="fas fa-search"></i></button></div>
                         </form>
                         <div class="dropdown"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: #3a3b45;margin-left: 10px;">Categorias</a>
                             <div class="dropdown-menu dropdown-menu-lg-end">

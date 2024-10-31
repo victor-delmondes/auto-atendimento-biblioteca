@@ -157,5 +157,37 @@ public class LivrosDao {
         return livros;
     }
 
+    public List<Livros> findLivrosByTitulo(String titulo) {
+        String SQL = "SELECT * FROM livros WHERE titulo = ?";
+        List<Livros> livros = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, titulo);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("id_livros");
+                    String categoria = resultSet.getString("categoria");
+                    String autor = resultSet.getString("autor");
+                    String isbn = resultSet.getString("isbn");
+                    String editora = resultSet.getString("editora");
+                    int quantidade = resultSet.getInt("quantidade");
+                    int anoPublicacao = resultSet.getInt("ano_publicacao");
+                    String sinopse = resultSet.getString("sinopse");
+                    String image = resultSet.getString("image");
+                    String location = resultSet.getString("location");
+
+                    Livros livro = new Livros(titulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria, image, location);
+                    livros.add(livro);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Falha ao conectar no banco de dados " + e.getMessage());
+        }
+        return livros;
+    }
+
 }
 

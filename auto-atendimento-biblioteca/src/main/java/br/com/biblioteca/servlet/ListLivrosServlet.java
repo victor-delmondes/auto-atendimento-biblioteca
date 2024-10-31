@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -31,11 +29,19 @@ public class ListLivrosServlet extends HttpServlet {
 
         // Obtém a categoria selecionada, se houver
         String categoria = req.getParameter("categoria");
+        // Obtém a pesquisa, se houver
+        String pesquisa = req.getParameter("pesquisa");
 
         // Se uma categoria foi selecionada, busca livros dessa categoria, senão busca todos os livros
         if (categoria != null && !categoria.isEmpty()) {
             livros = livrosDao.findLivrosByCategoria(categoria);
-        } else {
+        }
+        // Se uma pesquisa foi feita, busca livros com esse título, senão busca todos os livros
+        else if (pesquisa != null && !pesquisa.isEmpty()){
+            livros = livrosDao.findLivrosByTitulo(pesquisa);
+        }
+
+        else {
             livros = livrosDao.findAllLivros();
         }
 
