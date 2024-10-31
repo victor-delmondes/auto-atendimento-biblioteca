@@ -1,6 +1,7 @@
 package br.com.biblioteca.dao;
 
 import br.com.biblioteca.model.Livros;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -121,5 +122,37 @@ public class LivrosDao {
             System.out.println("Falha ao conectar no banco de dados " + e.getMessage());
         }
     }
+
+    public List<Livros> findLivrosByCategoria(String categoria) {
+        String SQL = "SELECT * FROM livros WHERE categoria = ?";
+        List<Livros> livros = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, categoria);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("id_livros");
+                    String titulo = resultSet.getString("titulo");
+                    String autor = resultSet.getString("autor");
+                    String isbn = resultSet.getString("isbn");
+                    String editora = resultSet.getString("editora");
+                    int quantidade = resultSet.getInt("quantidade");
+                    int anoPublicacao = resultSet.getInt("ano_publicacao");
+                    String sinopse = resultSet.getString("sinopse");
+                    String image = resultSet.getString("image");
+
+                    Livros livro = new Livros(titulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria, image);
+                    livros.add(livro);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Falha ao conectar no banco de dados " + e.getMessage());
+        }
+        return livros;
+    }
+
 }
 

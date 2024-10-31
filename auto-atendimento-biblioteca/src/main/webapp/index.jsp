@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%-- <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html data-bs-theme="light" lang="pt-br">
 
@@ -41,7 +42,12 @@
                             <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Pesquisar"><button class="btn btn-primary py-0" type="button" style="background: rgb(2,72,115);"><i class="fas fa-search"></i></button></div>
                         </form>
                         <div class="dropdown"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: #3a3b45;margin-left: 10px;">Categorias</a>
-                            <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                            <div class="dropdown-menu dropdown-menu-lg-end">
+                                <a class="dropdown-item" href="index">Todos os Livros</a>
+                                <c:forEach var="categoria" items="${categorias}">
+                                    <a class="dropdown-item" href="index?categoria=${categoria.categoria}">${categoria.categoria}</a>
+                                </c:forEach>
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -51,17 +57,61 @@
                         <div class="row">
                             <c:forEach var="livro" items="${livros}">
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="padding-bottom: 12px;width: 300px;;">
+                                        <a href="#" class="text-decoration-none"
+                                           data-bs-toggle="modal"
+                                           data-bs-target="#modal-1"
+                                           data-titulo="${livro.titulo}"
+                                           data-imagem="${livro.image}"
+                                           data-autor="${livro.autor}"
+                                           data-editora="${livro.editora}"
+                                           data-ano="${livro.anoPublicacao}"
+                                           data-categoria="${livro.categoria}"
+                                           data-sinopse="${livro.sinopse}"
+                                           data-unidades="${livro.quantidade}">
                                     <div class="card" style="text-align: center;">
-
                                         <div class="card-body">
                                             <h4 class="card-title">${livro.titulo}</h4>
                                             <img src="${livro.image}" alt="imagem de um livro" style="width: 200px; height: 300px;">
                                         </div>
                                     </div>
+                                    </a>
                                  </div>
                             </c:forEach>
                         </div>
                     </div>
+                        <div id="modal-1" class="modal fade" role="dialog" tabindex="-1" style="width: 862px;">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="modal-titulo">Titulo</h4>
+                                        <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col" style="text-align: center;">
+                                                <img id="modal-imagem" style="height: 300px;width: 200px;margin-right: 10px;margin-bottom: 10px;" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Autor: <span id="modal-autor"></span></p>
+                                                <p>Editora: <span id="modal-editora"></span></p>
+                                                <p>Ano de publicação: <span id="modal-ano"></span></p>
+                                                <p>Categoria: <span id="modal-categoria"></span></p>
+                                                <p>Unidades disponíveis: <span id="modal-unidades"></span></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <h5>Sinopse</h5>
+                                                <p id="modal-sinopse"><span id="modal-sinopse"</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-light" type="button" data-bs-dismiss="modal" style="background: rgb(2,72,115);color: var(--bs-btn-bg);">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
             <footer class="bg-white sticky-footer">
@@ -71,6 +121,31 @@
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
+    <script>
+        var modal = document.getElementById('modal-1');
+        modal.addEventListener('show.bs.modal', function (event) {
+            var link = event.relatedTarget; // O link que abriu o modal
+            var titulo = link.getAttribute('data-titulo');
+            var imagem = link.getAttribute('data-imagem');
+            var autor = link.getAttribute('data-autor');
+            var editora = link.getAttribute('data-editora');
+            var ano = link.getAttribute('data-ano');
+            var categoria = link.getAttribute('data-categoria');
+            var unidades = link.getAttribute('data-unidades');
+            var sinopse = link.getAttribute('data-sinopse');
+
+            // Atualiza o conteúdo do modal
+            modal.querySelector('#modal-titulo').textContent = titulo;
+            modal.querySelector('#modal-imagem').src = imagem;
+            modal.querySelector('#modal-autor').textContent = autor;
+            modal.querySelector('#modal-editora').textContent = editora;
+            modal.querySelector('#modal-ano').textContent = ano;
+            modal.querySelector('#modal-categoria').textContent = categoria;
+            modal.querySelector('#modal-unidades').textContent = unidades;
+            modal.querySelector('#modal-sinopse').textContent = sinopse;
+        });
+    </script>
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/theme.js"></script>
 </body>
