@@ -52,7 +52,10 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-0" style="padding-bottom: 12px;">Livros</h3>
+                    <h3 class="text-dark mb-0" style="padding-bottom: 12px;">
+                        Livros<c:if test="${not empty param.categoria}"> - ${param.categoria}</c:if>
+                    </h3>
+
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <div class="row">
                             <c:forEach var="livro" items="${livros}">
