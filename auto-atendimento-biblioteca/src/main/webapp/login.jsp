@@ -18,14 +18,15 @@
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex">
-                                <div class="flex-grow-1 bg-login-image" style="background: url(&quot;assets/img/dogs/books-bookstore-book-reading-159711.jpeg&quot;);"></div>
+                              <!--  <div class="flex-grow-1 bg-login-image" style="background: url(&quot;assets/img/dogs/books-bookstore-book-reading-159711.jpeg&quot;);"></div> -->
                             </div>
                             <div class="col-lg-6" style="height: 553.359px;">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Bem vindo de volta</h4>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="/login">
+                                        <span>${requestScope.message}</span>
                                         <div class="mb-3"><input class="form-control form-control-user" type="email" id="emailinput" aria-describedby="emailHelp" placeholder="Email" name="email"></div>
                                         <div class="mb-3"><input class="form-control form-control-user" type="password" id="senhainput" placeholder="Senha" name="senha"></div>
                                         <div class="mb-3"></div><button class="btn btn-primary d-block btn-user w-100" type="submit" style="background: rgb(2,72,115);">Login</button>
