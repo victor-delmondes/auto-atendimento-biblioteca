@@ -12,6 +12,9 @@ public class Usuarios {
     public Usuarios(){
 
     }
+    public Usuarios(String email, String senha){
+
+    }
 
     public Usuarios(String nome, String CPF, String endereco, String telefone, String cidade, String estado, String email, String senha, Boolean tipo){
         this.nome = nome;

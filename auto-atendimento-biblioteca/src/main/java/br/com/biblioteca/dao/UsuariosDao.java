@@ -2,10 +2,7 @@ package br.com.biblioteca.dao;
 
 import br.com.biblioteca.model.Usuarios;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,7 +14,7 @@ public class UsuariosDao {
         String SQL = "INSERT INTO USUARIOS (nome,CPF,endereco, telefone, cidade, estado, email, senha) VALUES (?,?,?,?,?,?,?,?)";
 
         try {
-            //Instanciando a conexão com o banco, apontando o caminho , usuario e senha
+            //Instanciando a conexão com o banco, apontando o caminho;
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
             System.out.println("banco conectado com sucesso");//mensagem de conexão bem sucedida
@@ -147,6 +144,43 @@ public class UsuariosDao {
         } catch (Exception e) {
 
             System.out.println("Falha ao Conectar no Banco de dados " + e.getMessage());
+        }
+    }
+    public boolean verificaCredencial(Usuarios usuarios){
+        String SQL = "SELECT * FROM  USUARIOS WHERE EMAIL = ?";
+        try {
+
+            //Instanciando a conexão com o banco, apontando o caminho , usuario e senha
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            System.out.println("banco conectado com sucesso");//mensagem de conexão bem sucedida
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL); // Prepara uma instrução SQL parametrizada para execução no banco de dados;
+
+            //Recebendo os parametros da Classe Usuarios , p/ gravar no DB
+            preparedStatement.setString(1, usuarios.getEmail());//Recebendo os parametros email
+            //preparedStatement.setString(8, usuarios.getSenha());//Recebendo os parametros senha
+
+            ResultSet resultSet = preparedStatement.executeQuery();//Executando o envio para o banco
+
+            System.out.println("Sucesso em Selecionar o usuario e senha ");//Mensagem de conexão com o DB
+
+            while(resultSet.next()){
+                String senha = resultSet.getString("senha");
+
+                if(senha.equals(usuarios.getSenha())){
+
+                    return true;
+                }
+            }
+
+            connection.close();//Fechando a conexão com o DB
+
+            return false;
+
+        }catch(Exception e){
+            System.out.println("Erro: " + e.getMessage());
+            return false;
         }
     }
 }
