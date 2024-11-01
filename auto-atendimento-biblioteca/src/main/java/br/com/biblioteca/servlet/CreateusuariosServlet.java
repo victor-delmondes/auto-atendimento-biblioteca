@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/cadastro-usuario")// Anota a classe para que ela seja acessível via URL "/cadastro-usuario".
+@WebServlet("/register")// Anota a classe para que ela seja acessível via URL "/register".
 public class CreateusuariosServlet extends HttpServlet { // Define uma classe pública que herda de HttpServlet, permitindo que ela trate requisições HTTP.
 
     @Override // Sobrescreve o metodo doPost para tratar requisições POST.
@@ -24,12 +24,12 @@ public class CreateusuariosServlet extends HttpServlet { // Define uma classe p�
         Usuarios usuario = new Usuarios();//instanciando a classe Usuarios
         UsuariosDao usuarioDao = new UsuariosDao();//Instanciando a classe UsuariosDao
 
-        //todas as entradas(inputs) da pagina Index aqui
+        //todas as entradas(inputs) da pagina register aqui
         String nome = request.getParameter("nome");// Recebe o parâmetro "nome" do input da página "cadastro-usuario".
         usuario.setNome(nome);//chamando a função nome
         System.out.println("nome usuario " + nome); // Imprime no console o valor do parâmetro "nome".
 
-        String CPF = request.getParameter("CPF");// Recebe o parâmetro "CPF" do input da página "cadastro-usuario".
+        String CPF = request.getParameter("cpf");// Recebe o parâmetro "CPF" do input da página "cadastro-usuario".
         usuario.setCPF(CPF);
         System.out.println("CPF usuario " + CPF);// Imprime no console o valor do parâmetro "CPF".
 
@@ -62,7 +62,7 @@ public class CreateusuariosServlet extends HttpServlet { // Define uma classe p�
 
         usuarioDao.createUsuario(usuario);
 
-        request.getRequestDispatcher("cadastro-usuario.html").forward(request, response);// Encaminha a requisição e resposta para a página "cadastro-usuario.html".
+        request.getRequestDispatcher("register.html").forward(request, response);// Encaminha a requisição e resposta para a página "register.html".
 
     }
 }

@@ -63,7 +63,7 @@ public class UsuariosDao {
             while (resultSet.next()) {
 
                 String userNome = resultSet.getString("nome");
-                String userCPF = resultSet.getString("CPF");
+                String userCPF = resultSet.getString("cpf");
                 String userEndereco = resultSet.getString("endereco");
                 String userTelefone = resultSet.getString("telefone");
                 String userCidade = resultSet.getString("cidade");
