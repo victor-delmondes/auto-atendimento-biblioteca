@@ -19,9 +19,16 @@ public class ListLivrosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
+//        req.getCharacterEncoding("UTF-8");
+//        req.setCharacterEncoding("UTF-8");
+//        req.setCharacterEncoding("charset=UTF-8");
+//        resp.setContentType("text/html;charset=UTF-8");
+
         LivrosDao livrosDao = new LivrosDao();
         List<Livros> livros;
         List<Livros> todasCategorias = livrosDao.findAllLivros();
+
         Set<String> categorias = todasCategorias.stream()
                 .map(Livros::getCategoria) // Pega apenas o campo de categoria
                 .collect(Collectors.toSet()); // Usa um Set para remover duplicados
