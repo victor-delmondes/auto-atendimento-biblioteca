@@ -61,42 +61,30 @@
 ![Tela de Scanner do codigo do livro](/Imagens/11.JPG) 
 
 ## MER: Modelo Entidade Relacionamento 
-![Tela de Busca](/Imagens/MER_bd_v2.0.png) 
+![MER](/Imagens/MER.png)
 
 ## Telas de alto nivel
 
-### Tela 01 - Tela Inicial de Bem-Vindo 
-![Tela de Bem-Vindo](/Imagens/Tela%20de%20boas%20vindas.png) 
+### Tela 01 - Tela Inicial
+![Tela incial](/Imagens/t8.png) 
 
-### Tela 02 - Tela de Busca
-![Tela de Busca](/Imagens/Tela%20de%20pesquisa.png) 
+### Tela 02 - Tela de confirmar aluguel
+![Tela de alugar](/Imagens/t1.jpg) 
 
-### Tela 03 - Tela de resultados
-![Tela portifolio](/Imagens/Tela%20de%20resultado.png) 
+### Tela 03 - Tela de Categoria
+![Tela categoria](/Imagens/t2.jpg) 
 
-### Tela 04 - Tela de categorias
-![Tela de Sinopse](/Imagens/Tela%20de%20categoria.png) 
+### Tela 04 - Tela de informações do livro
+![Tela de Sinopse](/Imagens/t3.jpg) 
 
-### Tela 05 - Tela de informações sobre o livro
-![Tela de Login ](/Imagens/Tela%20de%20informações%20do%20livro.png) 
+### Tela 05 - Tela de login
+![Tela de Login ](/Imagens/t4.jpg) 
 
-### Tela 06 - Tela de login
-![Tela de Cadastro](/Imagens/Tela%20de%20Login.png) 
+### Tela 06 - Tela de perfil
+![Tela de perfil](/Imagens/t5.jpg) 
 
 ### Tela 07 - Tela de cadastro
-![Tela de Foto de Perfil](/Imagens/Tela%20cadastro%202.png) 
+![Tela de cadastro](/Imagens/t6.jpg) 
 
-### Tela 08 - Tela de cadastro
-![Tela de Foto de Perfil](/Imagens/Tela%20cadastro%203.png) 
-
-### Tela 09 - Tela de cadastro
-![Tela de Foto de Perfil](/Imagens/Tela%20cadastro%204.png) 
-
-### Tela 10 - Tela de perfil
-![Tela de perfil](/Imagens/Perfil.png) 
-
-### Tela 11 - Tela de Administrador
-![Tela de Administrador](/Imagens/ADM.png) 
-
-### Tela 12 - Tela de Scanner do codigo do livro
-![Tela de Scanner do codigo do livro](/Imagens/Tela%20de%20escanear.png) 
+### Tela 08 - Tela de Scanner
+![Tela de Scanner(/Imagens/t7) 
