@@ -109,7 +109,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <h5>Sinópse</h5>
+                                                <h5>Sinopse</h5>
                                                 <p><span id="modal-sinopse"></span></p>
                                             </div>
                                         </div>
