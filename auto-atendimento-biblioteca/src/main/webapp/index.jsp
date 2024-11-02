@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html data-bs-theme="light" lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Dashboard - Brand</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -110,7 +109,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <h5>Sinopse</h5>
+                                                <h5>Sinópse</h5>
                                                 <p><span id="modal-sinopse"></span></p>
                                             </div>
                                         </div>
