@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html data-bs-theme="light" lang="pt-br">
 
@@ -86,7 +86,7 @@
                             </c:forEach>
                         </div>
                     </div>
-                        <div id="modal-1" class="modal fade" role="dialog" tabindex="-1" style="width: 862px;">
+                        <div id="modal-1" class="modal fade" role="dialog" tabindex="-1">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -101,15 +101,15 @@
                                             <div class="col-md-6">
                                                 <p>Autor: <span id="modal-autor"></span></p>
                                                 <p>Editora: <span id="modal-editora"></span></p>
-                                                <p>Ano de publicaÃ§Ã£o: <span id="modal-ano"></span></p>
+                                                <p>Ano de publicação: <span id="modal-ano"></span></p>
                                                 <p>Categoria: <span id="modal-categoria"></span></p>
-                                                <p>Unidades disponÃ­veis: <span id="modal-unidades"></span></p>
-                                                <p>LocalizaÃ§Ã£o: <span id="modal-location"></span></p>
+                                                <p>Unidades disponíveis: <span id="modal-unidades"></span></p>
+                                                <p>Localização: <span id="modal-location"></span></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <h5>SinÃ³pse</h5>
+                                                <h5>Sinópse</h5>
                                                 <p><span id="modal-sinopse"></span></p>
                                             </div>
                                         </div>
@@ -143,7 +143,7 @@
             var sinopse = link.getAttribute('data-sinopse');
             var location = link.getAttribute('data-location');
 
-            // Atualiza o conteÃºdo do modal
+            // Atualiza o conteúdo do modal
             modal.querySelector('#modal-titulo').textContent = titulo;
             modal.querySelector('#modal-imagem').src = imagem;
             modal.querySelector('#modal-autor').textContent = autor;
