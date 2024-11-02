@@ -87,4 +87,4 @@
 ![Tela de cadastro](/Imagens/t6.jpg) 
 
 ### Tela 08 - Tela de Scanner
-![Tela de Scanner(/Imagens/t7) 
+![Tela de Scanner(/Imagens/t7.jpg) 
