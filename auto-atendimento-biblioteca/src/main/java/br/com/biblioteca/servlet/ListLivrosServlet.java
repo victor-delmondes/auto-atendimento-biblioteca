@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@WebServlet({"", "/index"})
+@WebServlet({"", "/index", "/indexADM"})
 public class ListLivrosServlet extends HttpServlet {
 
     @Override
@@ -54,6 +54,6 @@ public class ListLivrosServlet extends HttpServlet {
 
         req.setAttribute("livros", livros);
 
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        req.getRequestDispatcher("indexADM.jsp").forward(req, resp);
     }
 }
