@@ -57,10 +57,9 @@ public class CreateLivrosServlet extends HttpServlet {
             String filePath = this.getServletContext().getRealPath("img").concat(File.separator).concat(fileName);
             fileItem.write(new File(filePath));
 
-            return fileName;
+            return "img/" + fileName;
         } else {
-            // Se nenhum arquivo foi enviado, você pode definir um valor padrão
-            return "img/imagenotfound.webp";  // Ou qualquer outro nome de arquivo padrão
+            return "img/imagenotfound.webp";
         }
     }
 

@@ -13,7 +13,7 @@ import java.util.List;
 public class LivrosDao {
 
     public void createLivro(Livros livro) {
-        String SQL = "INSERT INTO livros (titulo, autor, isbn, editora, quantidade, ano_publicacao, sinopse, categoria, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String SQL = "INSERT INTO livros (titulo, autor, isbn, editora, quantidade, ano_publicacao, sinopse, categoria, image, location) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -28,6 +28,7 @@ public class LivrosDao {
             preparedStatement.setString(7, livro.getSinopse());
             preparedStatement.setString(8, livro.getCategoria());
             preparedStatement.setString(9, livro.getImage());
+            preparedStatement.setString(10, livro.getLocation());
 
             preparedStatement.execute();
             System.out.println("Livro criado com sucesso");
