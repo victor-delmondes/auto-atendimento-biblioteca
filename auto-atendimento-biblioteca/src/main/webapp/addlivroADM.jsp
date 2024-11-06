@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <html data-bs-theme="light" lang="pt-br">
 
 <head>
@@ -23,9 +24,9 @@
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link" href="indexADM.html"><i class="fa fa-book"></i><span>Livros</span></a></li>
                     <li class="nav-item"><a class="nav-link active" href="addlivroADM.html"><i class="far fa-edit" style="margin-right: 4px;font-size: 12px;"></i><span>Adicionar livro</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="gerenciarusersADM.html"><i class="fas fa-user"></i><span>Gerenciar usuÃ¡rios</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="gerenciaremprestimosADM.html"><i class="far fa-calendar-alt"></i><span>Gerenciar emprÃ©stimos</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="confADM.html"><i class="fas fa-user-circle"></i><span>ConfiguraÃ§Ãµes de ADM</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="gerenciarusersADM.html"><i class="fas fa-user"></i><span>Gerenciar usuários</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="gerenciaremprestimosADM.html"><i class="far fa-calendar-alt"></i><span>Gerenciar empréstimos</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="confADM.html"><i class="fas fa-user-circle"></i><span>Configurações de ADM</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -42,49 +43,49 @@
                                 <p class="text-primary m-0 fw-bold">Dados do livro</p>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form action="/create-livro" method="post" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="username"><strong>Titulo</strong></label><input class="form-control" type="text" id="titulo" placeholder="Titulo" name="titulo"></div>
+                                            <div class="mb-3"><label class="form-label" for="titulo"><strong>Titulo</strong></label><input class="form-control" type="text" id="titulo" placeholder="Titulo" name="titulo"></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="email"><strong>Autor</strong></label><input class="form-control" type="text" id="autor" placeholder="Autor" name="autor"></div>
+                                            <div class="mb-3"><label class="form-label" for="autor"><strong>Autor</strong></label><input class="form-control" type="text" id="autor" placeholder="Autor" name="autor"></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="first_name"><strong>Editora</strong></label><input class="form-control" type="text" id="editora" placeholder="Editora" name="editora"></div>
+                                            <div class="mb-3"><label class="form-label" for="editora"><strong>Editora</strong></label><input class="form-control" type="text" id="editora" placeholder="Editora" name="editora"></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="first_name-1"><strong>Quantidade</strong></label><input class="form-control" type="text" id="quantidade" placeholder="Quantidade" name="quantidade"></div>
+                                            <div class="mb-3"><label class="form-label" for="quantidade"><strong>Quantidade</strong></label><input class="form-control" type="text" id="quantidade" placeholder="Quantidade" name="quantidade"></div>
                                         </div>
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="first_name-1"><strong>Ano de publicaÃ§Ã£o</strong></label><input class="form-control" type="text" id="ano" placeholder="Ano de publicaÃ§Ã£o" name="ano"></div>
+                                            <div class="mb-3"><label class="form-label" for="anoPublicacao"><strong>Ano de publicação</strong></label><input class="form-control" type="text" id="anoPublicacao" placeholder="Ano de publicação" name="anoPublicacao"></div>
                                         </div>
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="first_name-2"><strong>ISBN 10 ou 13</strong></label><input class="form-control" type="text" id="isbn" placeholder="ISBN" name="isbn"></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="first_name-1"><strong>LocalizaÃ§Ã£o</strong></label><input class="form-control" type="text" id="loc" placeholder="LocalizaÃ§Ã£o" name="loc"></div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="first_name-4"><strong>Categoria</strong></label><input class="form-control" type="text" id="categoria" placeholder="Categoria" name="categoria"></div>
+                                            <div class="mb-3"><label class="form-label" for="isbn"><strong>ISBN 10 ou 13</strong></label><input class="form-control" type="text" id="isbn" placeholder="ISBN" name="isbn"></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="first_name"><strong>Sinopse</strong></label><textarea class="form-control" id="sinopse" style="height: 160px;" name="sinopse"></textarea></div>
+                                            <div class="mb-3"><label class="form-label" for="location"><strong>Localização</strong></label><input class="form-control" type="text" id="location" placeholder="Localização" name="location"></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label" for="categoria"><strong>Categoria</strong></label><input class="form-control" type="text" id="categoria" placeholder="Categoria" name="categoria"></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="first_name"><strong>Imagem de capa</strong></label><input class="form-control" type="file"></div>
+                                            <div class="mb-3"><label class="form-label" for="sinopse"><strong>Sinopse</strong></label><textarea class="form-control" id="sinopse" style="height: 160px;" name="sinopse"></textarea></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>Imagem de capa</strong></label><input class="form-control" type="file" name="image" id="image"></div>
                                         </div>
                                     </div>
                                     <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Salvar</button></div>

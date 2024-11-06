@@ -2,23 +2,23 @@ package br.com.biblioteca.model;
 
 public class Livros {
 
-    private int id;
+    private String id;
     private String titulo;
     private String autor;
     private String isbn;
-    private int quantidade;
+    private String quantidade;
     private String editora;
-    private int anoPublicacao;
+    private String anoPublicacao;
     private String sinopse;
     private String categoria;
-    private  String image;
+    private String image;
     private String location;
 
     public Livros(){
 
     }
 
-    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, String sinopse, String categoria, String image, String location){
+    public Livros(String titulo, String autor, String isbn, String editora, String quantidade, String anoPublicacao, String sinopse, String categoria, String image, String location){
         this.anoPublicacao = anoPublicacao;
         this.editora = editora;
         this.autor = autor;
@@ -31,7 +31,7 @@ public class Livros {
         this.location = location;
     }
 
-    public Livros(String titulo, String autor, String isbn, String editora, int quantidade, int anoPublicacao, int id, String sinopse, String categoria, String image, String location){
+    public Livros(String titulo, String autor, String isbn, String editora, String quantidade, String anoPublicacao, String id, String sinopse, String categoria, String image, String location){
         this.anoPublicacao = anoPublicacao;
         this.editora = editora;
         this.autor = autor;
@@ -45,11 +45,11 @@ public class Livros {
         this.location = location;
     }
 
-    public int getAnoPublicacao() {
+    public String getAnoPublicacao() {
         return anoPublicacao;
     }
 
-    public void setAnoPublicacao(int anoPublicacao) {
+    public void setAnoPublicacao(String anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
     }
 
@@ -61,11 +61,11 @@ public class Livros {
         this.editora = editora;
     }
 
-    public int getQuantidade() {
+    public String getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(String quantidade) {
         this.quantidade = quantidade;
     }
 
@@ -93,7 +93,7 @@ public class Livros {
         this.titulo = titulo;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

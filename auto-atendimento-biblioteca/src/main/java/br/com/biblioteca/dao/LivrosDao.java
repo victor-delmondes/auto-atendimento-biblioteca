@@ -23,8 +23,8 @@ public class LivrosDao {
             preparedStatement.setString(2, livro.getAutor());
             preparedStatement.setString(3, livro.getIsbn());
             preparedStatement.setString(4, livro.getEditora());
-            preparedStatement.setInt(5, livro.getQuantidade());
-            preparedStatement.setInt(6, livro.getAnoPublicacao());
+            preparedStatement.setString(5, livro.getQuantidade());
+            preparedStatement.setString(6, livro.getAnoPublicacao());
             preparedStatement.setString(7, livro.getSinopse());
             preparedStatement.setString(8, livro.getCategoria());
             preparedStatement.setString(9, livro.getImage());
@@ -51,13 +51,13 @@ public class LivrosDao {
             List<Livros> livros = new ArrayList<>();
 
             while (resultSet.next()) {
-                int id = resultSet.getInt("id_livros");
+                String id = resultSet.getString("id_livros");
                 String titulo = resultSet.getString("titulo");
                 String autor = resultSet.getString("autor");
                 String isbn = resultSet.getString("isbn");
                 String editora = resultSet.getString("editora");
-                int quantidade = resultSet.getInt("quantidade");
-                int anoPublicacao = resultSet.getInt("ano_publicacao");
+                String quantidade = resultSet.getString("quantidade");
+                String anoPublicacao = resultSet.getString("ano_publicacao");
                 String sinopse = resultSet.getString("sinopse");
                 String categoria = resultSet.getString("categoria");
                 String image = resultSet.getString("image");
@@ -88,13 +88,13 @@ public class LivrosDao {
             preparedStatement.setString(2, livro.getAutor());
             preparedStatement.setString(3, livro.getIsbn());
             preparedStatement.setString(4, livro.getEditora());
-            preparedStatement.setInt(5, livro.getQuantidade());
-            preparedStatement.setInt(6, livro.getAnoPublicacao());
+            preparedStatement.setString(5, livro.getQuantidade());
+            preparedStatement.setString(6, livro.getAnoPublicacao());
             preparedStatement.setString(7, livro.getSinopse());
             preparedStatement.setString(8, livro.getCategoria());
             preparedStatement.setString(9, livro.getImage());
             preparedStatement.setString(10, livro.getLocation());
-            preparedStatement.setInt(11, livro.getId());
+            preparedStatement.setString(11, livro.getId());
 
             preparedStatement.executeUpdate();
             System.out.println("Livro atualizado com sucesso");
@@ -106,14 +106,14 @@ public class LivrosDao {
         }
     }
 
-    public void deleteLivro(int id) {
+    public void deleteLivro(String id) {
         String SQL = "DELETE FROM livros WHERE id_livros = ?";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
 
             preparedStatement.executeUpdate();
             System.out.println("Livro deletado com sucesso");
@@ -136,13 +136,13 @@ public class LivrosDao {
 
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 while (resultSet.next()) {
-                    int id = resultSet.getInt("id_livros");
+                    String id = resultSet.getString("id_livros");
                     String titulo = resultSet.getString("titulo");
                     String autor = resultSet.getString("autor");
                     String isbn = resultSet.getString("isbn");
                     String editora = resultSet.getString("editora");
-                    int quantidade = resultSet.getInt("quantidade");
-                    int anoPublicacao = resultSet.getInt("ano_publicacao");
+                    String quantidade = resultSet.getString("quantidade");
+                    String anoPublicacao = resultSet.getString("ano_publicacao");
                     String sinopse = resultSet.getString("sinopse");
                     String image = resultSet.getString("image");
                     String location = resultSet.getString("location");
@@ -168,13 +168,13 @@ public class LivrosDao {
 
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 while (resultSet.next()) {
-                    int id = resultSet.getInt("id_livros");
+                    String id = resultSet.getString("id_livros");
                     String categoria = resultSet.getString("categoria");
                     String autor = resultSet.getString("autor");
                     String isbn = resultSet.getString("isbn");
                     String editora = resultSet.getString("editora");
-                    int quantidade = resultSet.getInt("quantidade");
-                    int anoPublicacao = resultSet.getInt("ano_publicacao");
+                    String quantidade = resultSet.getString("quantidade");
+                    String anoPublicacao = resultSet.getString("ano_publicacao");
                     String sinopse = resultSet.getString("sinopse");
                     String image = resultSet.getString("image");
                     String location = resultSet.getString("location");
