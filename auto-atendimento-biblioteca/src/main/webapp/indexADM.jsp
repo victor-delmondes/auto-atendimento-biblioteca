@@ -60,7 +60,22 @@
                                                 <td style="text-align: center;">
                                                     <div class="dropdown" style="text-align: right;"><button class="btn btn-primary dropdown-toggle data-bs-container" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="border-color: rgb(2,72,115);background: rgb(2,72,115);overflow: visible;" data-bs-container="body">Ações</button>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-editar">Editar</a>
+                                                            <a class="dropdown-item" href="#modal-editar"
+                                                               data-bs-toggle="modal"
+                                                               data-bs-target="#modal-editar"
+                                                               data-tituloEditar="${livro.titulo}"
+                                                               data-autorEditar="${livro.autor}"
+                                                               data-editoraEditar="${livro.editora}"
+                                                               data-anoEditar="${livro.anoPublicacao}"
+                                                               data-categoriaEditar="${livro.categoria}"
+                                                               data-sinopseEditar="${livro.sinopse}"
+                                                               data-unidadesEditar="${livro.quantidade}"
+                                                               data-locationEditar="${livro.location}"
+                                                               data-idLivroEditar="${livro.id}"
+                                                               data-isbnEditar="${livro.isbn}"
+                                                               data-imageEditar="${livro.image}"
+                                                            >Editar</a>
+
                                                             <a class="dropdown-item" href="#modal-info"
                                                                data-bs-target="#modal-info"
                                                                data-bs-toggle="modal"
@@ -73,7 +88,11 @@
                                                                data-sinopse="${livro.sinopse}"
                                                                data-unidades="${livro.quantidade}"
                                                                data-location="${livro.location}">Mais informações</a>
-                                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-deletar">Deletar</a>
+
+                                                            <a class="dropdown-item" href="#modal-deletar"
+                                                               data-bs-toggle="modal"
+                                                               data-bs-target="#modal-deletar"
+                                                               data-idLivroDelete="${livro.id}">Deletar</a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -102,7 +121,7 @@
                     <div class="modal-body">
                         <p>Isso apagara permanentemente o livro do banco de dados. Deseja confirmar?</p>
                     </div>
-                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Fechar</button><button class="btn btn-primary" type="button" style="background: var(--bs-red);border-color: var(--bs-red);">Sim</button></div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Fechar</button><form action="/deletelivro" method="post"><input type="hidden" id="modal-idLivroDelete" name="id"><button class="btn btn-primary" type="submit" style="background: var(--bs-red);border-color: var(--bs-red);">Sim</button></form></div>
                 </div>
             </div>
         </div>
@@ -137,6 +156,7 @@
                 </div>
             </div>
         </div>
+
         <div class="modal fade" role="dialog" tabindex="-1" id="modal-editar">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -144,51 +164,55 @@
                         <h4 class="modal-title">Editar</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form id="form-editar" action="/update-livro" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="titulo"><strong>Titulo</strong></label><input class="form-control" type="text" id="titulo" placeholder="Titulo" name="titulo"></div>
+                                    <div class="mb-3"><label class="form-label" for="modal-tituloEditar"><strong>Titulo</strong></label><input class="form-control" type="text" id="modal-tituloEditar" placeholder="Titulo" name="titulo"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="autor"><strong>Autor</strong></label><input class="form-control" type="text" id="autor" placeholder="Autor" name="autor"></div>
+                                    <div class="mb-3"><label class="form-label" for="modal-autorEditar"><strong>Autor</strong></label><input class="form-control" type="text" id="modal-autorEditar" placeholder="Autor" name="autor"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="editora"><strong>Editora</strong></label><input class="form-control" type="text" id="editora" placeholder="Editora" name="editora"></div>
+                                    <div class="mb-3"><label class="form-label" for="modal-editoraEditar"><strong>Editora</strong></label><input class="form-control" type="text" id="modal-editoraEditar" placeholder="Editora" name="editora"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="quantidade"><strong>Quantidade</strong></label><input class="form-control" type="text" id="quantidade" placeholder="Quantidade" name="quantidade"></div>
+                                    <div class="mb-3"><label class="form-label" for="modal-unidadesEditar"><strong>Quantidade</strong></label><input class="form-control" type="text" id="modal-unidadesEditar" placeholder="Quantidade" name="quantidade"></div>
                                 </div>
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="anoPublicacao"><strong>Ano de publicação</strong></label><input class="form-control" type="text" id="anoPublicacao" placeholder="Ano de publicação" name="anoPublicacao"></div>
+                                    <div class="mb-3"><label class="form-label" for="modal-anoEditar"><strong>Ano de publicação</strong></label><input class="form-control" type="text" id="modal-anoEditar" placeholder="Ano de publicação" name="anoPublicacao"></div>
                                 </div>
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="isbn"><strong>ISBN 10 ou 13</strong></label><input class="form-control" type="text" id="isbn" placeholder="ISBN" name="isbn"></div>
+                                    <div class="mb-3"><label class="form-label" for="modal-isbnEditar"><strong>ISBN 10 ou 13</strong></label><input class="form-control" type="text" id="modal-isbnEditar" placeholder="ISBN" name="isbn"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="location"><strong>Localização</strong></label><input class="form-control" type="text" id="location" placeholder="Localização" name="location"></div>
+                                    <div class="mb-3"><label class="form-label" for="modal-locationEditar"><strong>Localização</strong></label><input class="form-control" type="text" id="modal-locationEditar" placeholder="Localização" name="location"></div>
                                 </div>
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="categoria"><strong>Categoria</strong></label><input class="form-control" type="text" id="categoria" placeholder="Categoria" name="categoria"></div>
+                                    <div class="mb-3"><label class="form-label" for="modal-categoriaEditar"><strong>Categoria</strong></label><input class="form-control" type="text" id="modal-categoriaEditar" placeholder="Categoria" name="categoria"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="sinopse"><strong>Sinopse</strong></label><textarea class="form-control" id="sinopse" style="height: 160px;" name="sinopse"></textarea></div>
+                                    <div class="mb-3"><label class="form-label" for="modal-sinopseEditar"><strong>Sinopse</strong></label><textarea class="form-control" id="modal-sinopseEditar" style="height: 160px;" name="sinopse"></textarea></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="image"><strong>Imagem de capa</strong></label><input class="form-control" type="file" id="image" name="image"></div>
+                                    <div class="mb-3"><label class="form-label" for="modal-imageEditar"><strong>Imagem de capa</strong></label><input class="form-control" type="file" id="image" name="image"></div>
                                 </div>
                             </div>
+                            <div><input type="hidden" id="modal-idLivroEditar" name="id">
+                                <input type="hidden" id="modal-imageEditar" name="existingImage">
+                            </div>
+
                         </form>
                     </div>
                     <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Fechar</button><button class="btn btn-primary" type="button" onclick="submitForm()" style="background: rgb(2,72,115);border-color: rgb(2,72,115);">Salvar</button></div>
@@ -227,6 +251,48 @@
             modal.querySelector('#modal-unidades').textContent = unidades;
             modal.querySelector('#modal-sinopse').textContent = sinopse;
             modal.querySelector('#modal-location').textContent = location;
+        });
+    </script>
+
+    <script>
+        var modalDeletar = document.getElementById('modal-deletar');
+        modalDeletar.addEventListener('show.bs.modal', function (event) {
+            var link = event.relatedTarget; // O link que abriu o modal
+            var idLivro = link.getAttribute('data-idLivroDelete');
+
+            // Atualiza o conteúdo do modal
+            modalDeletar.querySelector('#modal-idLivroDelete').value = idLivro;
+        });
+    </script>
+
+    <script>
+        var modalEditar = document.getElementById('modal-editar');
+        modalEditar.addEventListener('show.bs.modal', function (event) {
+            var link = event.relatedTarget; // O link que abriu o modal
+            var titulo = link.getAttribute('data-tituloEditar');
+            var autor = link.getAttribute('data-autorEditar');
+            var editora = link.getAttribute('data-editoraEditar');
+            var unidades = link.getAttribute('data-unidadesEditar');
+            var ano = link.getAttribute('data-anoEditar');
+            var isbn = link.getAttribute('data-isbnEditar');
+            var location = link.getAttribute('data-locationEditar');
+            var categoria = link.getAttribute('data-categoriaEditar');
+            var sinopse = link.getAttribute('data-sinopseEditar');
+            var idLivro = link.getAttribute('data-idLivroEditar');
+            var image = link.getAttribute('data-imageEditar');
+
+            // Atualiza o conteúdo do modal
+            modalEditar.querySelector('#modal-tituloEditar').value = titulo;
+            modalEditar.querySelector('#modal-autorEditar').value = autor;
+            modalEditar.querySelector('#modal-editoraEditar').value = editora;
+            modalEditar.querySelector('#modal-unidadesEditar').value = unidades;
+            modalEditar.querySelector('#modal-anoEditar').value = ano;
+            modalEditar.querySelector('#modal-isbnEditar').value = isbn;
+            modalEditar.querySelector('#modal-locationEditar').value = location;
+            modalEditar.querySelector('#modal-categoriaEditar').value = categoria;
+            modalEditar.querySelector('#modal-sinopseEditar').value = sinopse;
+            modalEditar.querySelector('#modal-idLivroEditar').value = idLivro;
+            modalEditar.querySelector('#modal-imageEditar').value = image;
         });
     </script>
 </body>

@@ -111,6 +111,8 @@ public class LivrosDao {
         String SQL = "DELETE FROM livros WHERE id_livros = ?";
 
         try {
+
+
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
