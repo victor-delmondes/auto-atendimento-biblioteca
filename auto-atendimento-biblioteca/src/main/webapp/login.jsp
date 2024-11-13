@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <html data-bs-theme="light" lang="pt-br">
 
 <head>
@@ -25,7 +26,7 @@
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Bem vindo de volta</h4>
                                     </div>
-                                    <form class="user" action="/login">
+                                    <form class="user" action="/login" method="post">
                                         <span>${requestScope.message}</span>
                                         <div class="mb-3"><input class="form-control form-control-user" type="email" id="emailinput" aria-describedby="emailHelp" placeholder="Email" name="email"></div>
                                         <div class="mb-3"><input class="form-control form-control-user" type="password" id="senhainput" placeholder="Senha" name="senha"></div>

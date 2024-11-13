@@ -49,7 +49,7 @@ public class UpdateLivroServlet extends HttpServlet {
 
         livrosDao.updateLivro(livro);
 
-        resp.sendRedirect("/indexADM");
+        resp.sendRedirect("/admin/indexADM");
 
         System.out.println("Título: " + titulo);
         System.out.println("Autor: " + autor);

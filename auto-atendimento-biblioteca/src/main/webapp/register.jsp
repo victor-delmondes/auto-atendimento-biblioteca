@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <html data-bs-theme="light" lang="pt-br">
 
 <head>
@@ -29,12 +30,12 @@
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="cpfinput" placeholder="CPF" name="cpf"></div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="telefoneinput" placeholder="Telefone" name="telefone"></div>
                                 </div>
-                                <div class="row mb-3" style="padding-left: 0px;margin-left: 0px;margin-right: 0px;"><input class="form-control form-control-user" type="text" id="enderecoinput" placeholder="EndereÃ§o" name="endereco" style="width: 636px;"></div>
+                                <div class="row mb-3" style="padding-left: 0px;margin-left: 0px;margin-right: 0px;"><input class="form-control form-control-user" type="text" id="enderecoinput" placeholder="Endereço" name="endereco" style="width: 636px;"></div>
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="cidadeinput" placeholder="Cidade" name="cidade"></div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="estadoinput" placeholder="Estado" name="estado"></div>
                                 </div>
-                                <div class="mb-3"><input class="form-control form-control-user" type="email" id="emailinput" aria-describedby="emailHelp" placeholder="EndereÃ§o de email" name="email"></div>
+                                <div class="mb-3"><input class="form-control form-control-user" type="email" id="emailinput" aria-describedby="emailHelp" placeholder="Endereço de email" name="email"></div>
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="senhainput" placeholder="Senha" name="senha"></div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="repetirsenhainput" placeholder="Repita a senha" name="repita_senha"></div>

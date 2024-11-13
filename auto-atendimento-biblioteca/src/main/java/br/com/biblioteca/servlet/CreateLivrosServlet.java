@@ -45,7 +45,7 @@ public class CreateLivrosServlet extends HttpServlet {
 
         livrosDao.createLivro(livro);
 
-        resp.sendRedirect("/addlivroADM.jsp");
+        resp.sendRedirect("/admin/addlivroADM.jsp");
     }
 
     private String processUploadFile(FileItem fileItem) throws Exception {

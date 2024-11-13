@@ -1,5 +1,6 @@
 package br.com.biblioteca.dao;
 
+import br.com.biblioteca.config.ConnectionpoolConfig;
 import br.com.biblioteca.model.Emprestimo;
 
 import java.sql.*;
@@ -15,9 +16,7 @@ public class EmprestimoDao {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("Banco de dados conectado com sucesso");
+            Connection connection = ConnectionpoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -47,9 +46,7 @@ public class EmprestimoDao {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("Banco de dados conectado com sucesso");
+            Connection connection = ConnectionpoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -92,9 +89,7 @@ public class EmprestimoDao {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("banco conectado com sucesso");
+            Connection connection = ConnectionpoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -116,9 +111,7 @@ public class EmprestimoDao {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("Banco de dados conectado com sucesso");
+            Connection connection = ConnectionpoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 

@@ -15,10 +15,6 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <c:if test="${sessionScope.loggedUser != null}">
-            <span>${sessionScope.loggedUser}</span>
-            <a href="/logout=">logout</a>
-        </c:if>
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" style="background: linear-gradient(rgb(2,72,115), #022840), rgb(2,72,115);">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-book"></i></div>
@@ -32,7 +28,7 @@
                             </svg><span>Alugar</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Perfil</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="login.jsp"><i class="far fa-user-circle"></i><span>Login</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Registro</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.jsp"><i class="fas fa-user-circle"></i><span>Registro</span></a></li>
                 </ul>
 
             </div>
@@ -44,6 +40,13 @@
                         <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" method="get" action="index">
                             <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Pesquisar" name="pesquisa"><button class="btn btn-primary py-0" type="submit" style="background: rgb(2,72,115);"><i class="fas fa-search"></i></button></div>
                         </form>
+                        <c:if test="${sessionScope.loggedUser != null}">
+                            <div class="container-fluid">
+                                <button class="btn btn-primary" type="button" onclick="window.location.href='/logout'" style="background: rgb(2,72,115);border-color: rgb(2,72,115);">
+                                        ${sessionScope.loggedUser} - Sair
+                                </button>
+                            </div>
+                        </c:if>
                         <div class="dropdown"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: #3a3b45;margin-left: 10px;">Categorias</a>
                             <div class="dropdown-menu dropdown-menu-lg-end">
                                 <a class="dropdown-item" href="index">Todos os Livros</a>

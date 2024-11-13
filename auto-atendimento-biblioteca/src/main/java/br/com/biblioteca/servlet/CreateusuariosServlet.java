@@ -62,7 +62,7 @@ public class CreateusuariosServlet extends HttpServlet { // Define uma classe p�
 
         usuarioDao.createUsuario(usuario);
 
-        request.getRequestDispatcher("register.html").forward(request, response);// Encaminha a requisição e resposta para a página "register.html".
+        request.getRequestDispatcher("register.jsp").forward(request, response);// Encaminha a requisição e resposta para a página "register.jsp".
 
     }
 }

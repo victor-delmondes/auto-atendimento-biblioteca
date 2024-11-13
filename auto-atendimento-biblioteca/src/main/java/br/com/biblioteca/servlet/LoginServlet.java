@@ -15,33 +15,34 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
 
     @Override
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-
-        //super.doGet(request, response);
 
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
 
-        Usuarios usuarios = new Usuarios(email,senha);
+        Usuarios usuarios = new Usuarios(email, senha);
 
-        boolean validausuario = new UsuariosDao().verificaCredencial(usuarios);
-        if(validausuario){
+        boolean isValidUser = new UsuariosDao().verificaCredencial(usuarios);
 
-            request.getSession().setAttribute("usuario Logado", email);
+        if (isValidUser) {
+
+            request.getSession().setAttribute("loggedUser", email);
 
             response.sendRedirect("/index");
-        }else {
 
-            request.setAttribute("Mensagem",  "Credencial Invalida");
+        } else {
 
-            request.getRequestDispatcher("login.jsp").forward(request,response);
+            request.setAttribute("message", "Credenciais inválidas!");
+
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
 
         }
+
     }
+
 }

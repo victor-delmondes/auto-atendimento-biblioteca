@@ -19,7 +19,7 @@ public class DeleteLivroServlet extends HttpServlet {
 
         new LivrosDao().deleteLivro(id);
 
-        resp.sendRedirect("/indexADM");
+        resp.sendRedirect("/admin/indexADM");
 
     }
 }

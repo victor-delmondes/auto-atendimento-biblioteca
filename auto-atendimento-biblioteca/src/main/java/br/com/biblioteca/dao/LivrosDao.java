@@ -1,5 +1,6 @@
 package br.com.biblioteca.dao;
 
+import br.com.biblioteca.config.ConnectionpoolConfig;
 import br.com.biblioteca.model.Livros;
 
 import java.sql.Connection;
@@ -16,7 +17,7 @@ public class LivrosDao {
         String SQL = "INSERT INTO livros (titulo, autor, isbn, editora, quantidade, ano_publicacao, sinopse, categoria, image, location) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            Connection connection = ConnectionpoolConfig.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             preparedStatement.setString(1, livro.getTitulo());
@@ -44,7 +45,7 @@ public class LivrosDao {
         String SQL = "SELECT * FROM livros";
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            Connection connection = ConnectionpoolConfig.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -82,7 +83,7 @@ public class LivrosDao {
         String SQL = "UPDATE livros SET titulo = ?, autor = ?, isbn = ?, editora = ?, quantidade = ?, ano_publicacao = ?, sinopse = ?, categoria = ?, image = ?, location = ? WHERE id_livros = ?";
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            Connection connection = ConnectionpoolConfig.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             preparedStatement.setString(1, livro.getTitulo());
@@ -113,7 +114,7 @@ public class LivrosDao {
         try {
 
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            Connection connection = ConnectionpoolConfig.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             preparedStatement.setString(1, id);
@@ -132,7 +133,7 @@ public class LivrosDao {
         String SQL = "SELECT * FROM livros WHERE categoria = ?";
         List<Livros> livros = new ArrayList<>();
 
-        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+        try (Connection connection = ConnectionpoolConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
 
             preparedStatement.setString(1, categoria);
@@ -164,7 +165,7 @@ public class LivrosDao {
         String SQL = "SELECT * FROM livros WHERE titulo = ?";
         List<Livros> livros = new ArrayList<>();
 
-        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+        try (Connection connection = ConnectionpoolConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
 
             preparedStatement.setString(1, titulo);

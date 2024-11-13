@@ -1,5 +1,6 @@
 package br.com.biblioteca.dao;
 
+import br.com.biblioteca.config.ConnectionpoolConfig;
 import br.com.biblioteca.model.Usuarios;
 
 import java.sql.*;
@@ -11,13 +12,11 @@ public class UsuariosDao {
 
     public void createUsuario(Usuarios usuario) {
 
-        String SQL = "INSERT INTO USUARIOS (nome,CPF,endereco, telefone, cidade, estado, email, senha) VALUES (?,?,?,?,?,?,?,?)";
+        String SQL = "INSERT INTO USUARIOS (nome,CPF,endereco, telefone, cidade, estado, e_mail, senha, tipo) VALUES (?,?,?,?,?,?,?,?, ?)";
 
         try {
-            //Instanciando a conexão com o banco, apontando o caminho;
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
-            System.out.println("banco conectado com sucesso");//mensagem de conexão bem sucedida
+            Connection connection = ConnectionpoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -30,6 +29,7 @@ public class UsuariosDao {
             preparedStatement.setString(6, usuario.getEstado());//Recebendo os parametros estado
             preparedStatement.setString(7, usuario.getEmail());//Recebendo os parametros email
             preparedStatement.setString(8, usuario.getSenha());//Recebendo os parametros senha
+            preparedStatement.setBoolean(9, false);
 
             preparedStatement.execute();//Executando o envio para o banco
             System.out.println("Sucesso em Inserir os dados no DB ");
@@ -47,9 +47,7 @@ public class UsuariosDao {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("Banco conectado com sucesso");
+            Connection connection = ConnectionpoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -65,9 +63,9 @@ public class UsuariosDao {
                 String userTelefone = resultSet.getString("telefone");
                 String userCidade = resultSet.getString("cidade");
                 String userEstado = resultSet.getString("estado");
-                String userEmail = resultSet.getString("email");
+                String userEmail = resultSet.getString("e_mail");
                 String userSenha = resultSet.getString("senha");
-                int userId = resultSet.getInt("id");
+                String userId = resultSet.getString("id");
                 Boolean userTipo = resultSet.getBoolean("tipo");
 
                 Usuarios user = new Usuarios(userNome, userCPF, userEndereco, userTelefone, userCidade, userEstado, userEmail, userSenha, userId, userTipo);
@@ -88,15 +86,13 @@ public class UsuariosDao {
             return Collections.emptyList();
         }
     }
-    
+
     public void deleteUsuario(int id) {
         String SQL = "DELETE FROM USUARIOS WHERE id =?";
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("banco conectado com sucesso");
+            Connection connection = ConnectionpoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -112,16 +108,14 @@ public class UsuariosDao {
             System.out.println("Falha ao Conectar no Banco de dados " + e.getMessage());
         }
     }
-    
-    public void updateUsuario(Usuarios usuario){
 
-        String SQL = "UPDATE USUARIOS SET NOME = ?, CPF = ?, ENDERECO = ?, TELEFONE = ?, CIDADE = ?, ESTADO = ?, EMAIL = ?, SENHA = ?, TIPO = ? WHERE ID = ?";
+    public void updateUsuario(Usuarios usuario) {
+
+        String SQL = "UPDATE USUARIOS SET NOME = ?, CPF = ?, ENDERECO = ?, TELEFONE = ?, CIDADE = ?, ESTADO = ?, E_MAIL = ?, SENHA = ?, TIPO = ? WHERE ID = ?";
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("Banco conectado com sucesso");
+            Connection connection = ConnectionpoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -134,7 +128,7 @@ public class UsuariosDao {
             preparedStatement.setString(7, usuario.getEmail());
             preparedStatement.setString(8, usuario.getSenha());
             preparedStatement.setBoolean(9, usuario.getTipo());
-            preparedStatement.setInt(10, usuario.getId());
+            preparedStatement.setString(10, usuario.getId());
             preparedStatement.execute();
 
             System.out.println("Usuario atualizado com sucesso");
@@ -146,41 +140,45 @@ public class UsuariosDao {
             System.out.println("Falha ao Conectar no Banco de dados " + e.getMessage());
         }
     }
-    public boolean verificaCredencial(Usuarios usuarios){
-        String SQL = "SELECT * FROM  USUARIOS WHERE EMAIL = ?";
+
+    public Boolean verificaCredencial(Usuarios usuarios) {
+
+        String SQL = "SELECT * FROM USUARIOS WHERE E_MAIL = ?";
+
         try {
 
-            //Instanciando a conexão com o banco, apontando o caminho , usuario e senha
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            Connection connection = ConnectionpoolConfig.getConnection();
 
-            System.out.println("banco conectado com sucesso");//mensagem de conexão bem sucedida
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL); // Prepara uma instrução SQL parametrizada para execução no banco de dados;
+            preparedStatement.setString(1, usuarios.getEmail());
 
-            //Recebendo os parametros da Classe Usuarios , p/ gravar no DB
-            preparedStatement.setString(1, usuarios.getEmail());//Recebendo os parametros email
-            //preparedStatement.setString(8, usuarios.getSenha());//Recebendo os parametros senha
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-            ResultSet resultSet = preparedStatement.executeQuery();//Executando o envio para o banco
+            while (resultSet.next()) {
 
-            System.out.println("Sucesso em Selecionar o usuario e senha ");//Mensagem de conexão com o DB
-
-            while(resultSet.next()){
                 String senha = resultSet.getString("senha");
 
-                if(senha.equals(usuarios.getSenha())){
+                if (senha.equals(usuarios.getSenha())) {
 
                     return true;
+
                 }
+
             }
 
-            connection.close();//Fechando a conexão com o DB
+            connection.close();
+
+            return true;
+
+        } catch (Exception e) {
+
+            System.out.println("Error: " + e.getMessage());
 
             return false;
 
-        }catch(Exception e){
-            System.out.println("Erro: " + e.getMessage());
-            return false;
         }
+
     }
+
 }

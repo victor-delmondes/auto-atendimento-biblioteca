@@ -1,18 +1,18 @@
 package br.com.biblioteca.model;
 
-import javax.swing.text.StyledEditorKit;
-
 public class Usuarios {
 
     //Declaração de variaveis
-    private String nome, CPF, endereco, telefone, cidade, estado, email, senha;
-    private int id;
+    private String nome, CPF, endereco, telefone, cidade, estado, email, senha, id;
     private Boolean tipo;
 
     public Usuarios(){
 
     }
     public Usuarios(String email, String senha){
+
+        this.email = email;
+        this.senha = senha;
 
     }
 
@@ -28,7 +28,7 @@ public class Usuarios {
         this.tipo = tipo;
     }
 
-    public Usuarios(String nome, String CPF, String endereco, String telefone, String cidade, String estado, String email, String senha, int id, Boolean tipo){
+    public Usuarios(String nome, String CPF, String endereco, String telefone, String cidade, String estado, String email, String senha, String id, Boolean tipo){
         this.nome = nome;
         this.CPF = CPF;
         this.endereco = endereco;
@@ -106,7 +106,7 @@ public class Usuarios {
     }
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
