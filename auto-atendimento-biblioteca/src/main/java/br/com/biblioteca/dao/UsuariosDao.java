@@ -131,6 +131,8 @@ public class UsuariosDao {
             preparedStatement.setString(10, usuario.getId());
             preparedStatement.execute();
 
+            System.out.println(usuario.getNome());
+            System.out.println(usuario.getId());
             System.out.println("Usuario atualizado com sucesso");
 
             connection.close();
@@ -163,6 +165,7 @@ public class UsuariosDao {
                         resultSet.getString("estado"),
                         resultSet.getString("e_mail"),
                         resultSet.getString("senha"),
+                        resultSet.getString("id"),
                         resultSet.getBoolean("tipo")
                 );
                 return user;

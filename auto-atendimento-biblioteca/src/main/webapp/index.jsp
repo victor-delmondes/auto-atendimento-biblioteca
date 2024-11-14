@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html data-bs-theme="light" lang="pt-br">
 
 <head>
+    <%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Dashboard - Brand</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -23,10 +23,29 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link active" href="index"><i class="fa fa-book"></i><span>Livros</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="scanner.html"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-upc-scan" style="margin-right: 4px;font-size: 19px;">
+                    <!-- Link Alugar com Popover -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:if test='${sessionScope.user != null}'>scanner.html</c:if>"
+                                <c:if test="${sessionScope.user == null}">
+                                    onclick="showLoginPopover(this, 'Faça login para alugar um livro'); return false;"
+                                    data-bs-toggle="popover" data-bs-content="Faça login para alugar um livro"
+                                </c:if>>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-upc-scan" style="margin-right: 4px;font-size: 19px;">
                                 <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0z"></path>
-                            </svg><span>Alugar</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Perfil</span></a></li>
+                            </svg>
+                            <span>Alugar</span>
+                        </a>
+                    </li>
+                    <!-- Link Perfil com Popover -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:if test='${sessionScope.user != null}'>profile.jsp</c:if>"
+                                <c:if test="${sessionScope.user == null}">
+                                    onclick="showLoginPopover(this, 'Por favor, faça login para acessar o perfil'); return false;"
+                                    data-bs-toggle="popover" data-bs-content="Por favor, faça login para acessar o perfil"
+                                </c:if>>
+                            <i class="fas fa-user"></i><span>Perfil</span>
+                        </a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="login.jsp"><i class="far fa-user-circle"></i><span>Login</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="register.jsp"><i class="fas fa-user-circle"></i><span>Registro</span></a></li>
                 </ul>
@@ -158,6 +177,27 @@
             modal.querySelector('#modal-sinopse').textContent = sinopse;
             modal.querySelector('#modal-location').textContent = location;
         });
+    </script>
+
+    <!-- Popover Script -->
+    <script>
+        function showLoginPopover(element, message) {
+            var existingPopover = bootstrap.Popover.getInstance(element);
+            if (existingPopover) {
+                existingPopover.dispose();
+            }
+
+            var popover = new bootstrap.Popover(element, {
+                content: message,
+                trigger: 'manual'
+            });
+            popover.show();
+
+            setTimeout(function() {
+                popover.hide();
+                popover.dispose();
+            }, 2000);
+        }
     </script>
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

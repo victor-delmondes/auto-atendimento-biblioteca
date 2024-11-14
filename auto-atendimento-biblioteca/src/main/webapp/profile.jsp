@@ -2,6 +2,7 @@
 <html data-bs-theme="light" lang="pt-br">
 
 <head>
+    <%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Profile - Brand</title>
@@ -13,6 +14,7 @@
 </head>
 
 <body id="page-top">
+
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" style="background: linear-gradient(rgb(2,72,115), #022840), rgb(2,72,115);">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
@@ -22,7 +24,7 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link" href="index"><i class="fa fa-book"></i><span>Livros</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="alugar.html"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-upc-scan" style="margin-right: 4px;font-size: 19px;">
+                    <li class="nav-item"><a class="nav-link" href="scanner.html"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-upc-scan" style="margin-right: 4px;font-size: 19px;">
                                 <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0z"></path>
                             </svg><span>Alugar</span></a></li>
                     <li class="nav-item"><a class="nav-link active" href="profile.html"><i class="fas fa-user"></i><span>Perfil</span></a></li>
@@ -35,9 +37,13 @@
             <div id="content">
                 <nav class="navbar navbar-expand bg-white shadow mb-4 topbar">
                     <div class="container-fluid">
-                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Pesquisar"><button class="btn btn-primary py-0" type="button" style="background: rgb(2,72,115);"><i class="fas fa-search"></i></button></div>
-                        </form>
+                        <c:if test="${sessionScope.user != null}">
+                            <div>
+                                <button class="btn btn-primary" type="button" onclick="window.location.href='${pageContext.request.contextPath}/logout'" style="background: rgb(2,72,115);border-color: rgb(2,72,115);">
+                                        ${sessionScope.user.email} - Sair
+                                </button>
+                            </div>
+                        </c:if>
                         <div class="dropdown"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: #3a3b45;margin-left: 10px;">Categorias</a>
                             <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
                         </div>
@@ -51,53 +57,55 @@
                                 <div class="col">
                                     <div class="card shadow mb-3">
                                         <div class="card-header py-3">
-                                            <p class="text-primary m-0 fw-bold">ConfiguraÃ§Ãµes de usuÃ¡rio</p>
+                                            <p class="text-primary m-0 fw-bold">Configurações de usuário</p>
                                         </div>
                                         <div class="card-body">
-                                            <form>
+                                            <form action="/update-user" method="post">
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="username"><strong>Nome</strong></label><input class="form-control" type="text" id="nomeinput" placeholder="Nome" name="nome"></div>
+                                                        <div class="mb-3"><label class="form-label" for="nomeinput"><strong>Nome</strong></label><input class="form-control" type="text" id="nomeinput" placeholder="Nome" name="nome" value="${sessionScope.user.nome}"></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="email"><strong>EndereÃ§o de Email</strong></label><input class="form-control" type="email" id="emailinput" placeholder="Email" name="email"></div>
+                                                        <div class="mb-3"><label class="form-label" for="emailinput"><strong>Endereço de Email</strong></label><input class="form-control" type="email" id="emailinput" placeholder="Email" name="email" value="${sessionScope.user.email}"></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="email"><strong>Senha</strong></label><input class="form-control" type="password" id="senhainput" name="senha"></div>
+                                                        <div class="mb-3"><label class="form-label" for="senhainput"><strong>Senha</strong></label><input class="form-control" type="password" id="senhainput" name="senha" value="${sessionScope.user.senha}"></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="first_name"><strong>EndereÃ§o</strong></label><input class="form-control" type="text" id="enderecoinput" placeholder="EndereÃ§o" name="endereco"></div>
+                                                        <div class="mb-3"><label class="form-label" for="enderecoinput"><strong>Endereço</strong></label><input class="form-control" type="text" id="enderecoinput" placeholder="Endereço" name="endereco" value="${sessionScope.user.endereco}"></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="first_name-1"><strong>CPF</strong></label><input class="form-control" type="text" id="cpfinput" placeholder="CPF" name="cpf"></div>
+                                                        <div class="mb-3"><label class="form-label" for="cpfinput"><strong>CPF</strong></label><input class="form-control" type="text" id="cpfinput" placeholder="CPF" name="cpf" value="${sessionScope.user.CPF}"></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="first_name-2"><strong>Telefone</strong></label><input class="form-control" type="text" id="telefoneinput" placeholder="Telefone" name="telefone"></div>
+                                                        <div class="mb-3"><label class="form-label" for="telefoneinput"><strong>Telefone</strong></label><input class="form-control" type="text" id="telefoneinput" placeholder="Telefone" name="telefone" value="${sessionScope.user.telefone}"></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="first_name-1"><strong>Cidade</strong></label><input class="form-control" type="text" id="cidade-input" placeholder="Cidade" name="cidade"></div>
+                                                        <div class="mb-3"><label class="form-label" for="cidade-input"><strong>Cidade</strong></label><input class="form-control" type="text" id="cidade-input" placeholder="Cidade" name="cidade" value="${sessionScope.user.cidade}"></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="first_name-4"><strong>Estado</strong></label><input class="form-control" type="text" id="estadoinput" placeholder="Estado" name="estado"></div>
+                                                        <div class="mb-3"><label class="form-label" for="estadoinput"><strong>Estado</strong></label><input class="form-control" type="text" id="estadoinput" placeholder="Estado" name="estado" value="${sessionScope.user.estado}"></div>
                                                     </div>
                                                 </div>
+                                                <input type="hidden" name="id" value="${sessionScope.user.id}">
+                                                <input type="hidden" name="tipo" value="${sessionScope.user.tipo}">
                                                 <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Salvar</button></div>
                                             </form>
                                         </div>
                                     </div>
                                     <div class="card shadow mb-3" style="margin-top: 10px;overflow: visible;">
                                         <div class="card-header py-3">
-                                            <p class="text-primary m-0 fw-bold">EmprÃ©stimos ativos</p>
+                                            <p class="text-primary m-0 fw-bold">Empréstimos ativos</p>
                                         </div>
                                         <div class="card-body">
                                             <div class="table-responsive" style="overflow: visible;">
@@ -105,9 +113,9 @@
                                                     <thead>
                                                     <tr>
                                                         <th style="width: 300px;">Nome do livro</th>
-                                                        <th style="width: 100px;">LocaÃ§Ã£o</th>
-                                                        <th style="width: 100px;">DevoluÃ§Ã£o</th>
-                                                        <th style="width: 100px;">SituaÃ§Ã£o</th>
+                                                        <th style="width: 100px;">Locação</th>
+                                                        <th style="width: 100px;">Devolução</th>
+                                                        <th style="width: 100px;">Situação</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -124,7 +132,7 @@
                                     </div>
                                     <div class="card shadow mb-3" style="margin-top: 10px;overflow: visible;">
                                         <div class="card-header py-3">
-                                            <p class="text-primary m-0 fw-bold">HistÃ³rico de emprÃ©stimos</p>
+                                            <p class="text-primary m-0 fw-bold">Histórico de empréstimos</p>
                                         </div>
                                         <div class="card-body">
                                             <div class="table-responsive" style="overflow: visible;">
@@ -132,9 +140,9 @@
                                                     <thead>
                                                     <tr>
                                                         <th style="width: 300px;">Nome do livro</th>
-                                                        <th style="width: 100px;">LocaÃ§Ã£o</th>
-                                                        <th style="width: 100px;">DevoluÃ§Ã£o</th>
-                                                        <th style="width: 100px;">SituaÃ§Ã£o</th>
+                                                        <th style="width: 100px;">Locação</th>
+                                                        <th style="width: 100px;">Devolução</th>
+                                                        <th style="width: 100px;">Situação</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
