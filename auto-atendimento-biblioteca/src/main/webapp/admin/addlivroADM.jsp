@@ -22,7 +22,7 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="indexADM.jsp"><i class="fa fa-book"></i><span>Livros</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="indexADM"><i class="fa fa-book"></i><span>Livros</span></a></li>
                     <li class="nav-item"><a class="nav-link active" href="addlivroADM.jsp"><i class="far fa-edit" style="margin-right: 4px;font-size: 12px;"></i><span>Adicionar livro</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="gerenciarusersADM.html"><i class="fas fa-user"></i><span>Gerenciar usuários</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="gerenciaremprestimosADM.html"><i class="far fa-calendar-alt"></i><span>Gerenciar empréstimos</span></a></li>

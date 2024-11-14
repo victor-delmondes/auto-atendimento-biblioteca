@@ -141,44 +141,38 @@ public class UsuariosDao {
         }
     }
 
-    public Boolean verificaCredencial(Usuarios usuarios) {
+    public Usuarios findUserByEmailAndPassword(String email, String senha) {
+        String SQL = "SELECT * FROM USUARIOS WHERE e_mail = ? AND senha = ?";
 
-        String SQL = "SELECT * FROM USUARIOS WHERE E_MAIL = ?";
+        try (Connection connection = ConnectionpoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
 
-        try {
-
-            Connection connection = ConnectionpoolConfig.getConnection();
-
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-
-            preparedStatement.setString(1, usuarios.getEmail());
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, senha);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()) {
-
-                String senha = resultSet.getString("senha");
-
-                if (senha.equals(usuarios.getSenha())) {
-
-                    return true;
-
-                }
-
+            if (resultSet.next()) {
+                // Cria o objeto Usuarios usando o construtor
+                Usuarios user = new Usuarios(
+                        resultSet.getString("nome"),
+                        resultSet.getString("CPF"),
+                        resultSet.getString("endereco"),
+                        resultSet.getString("telefone"),
+                        resultSet.getString("cidade"),
+                        resultSet.getString("estado"),
+                        resultSet.getString("e_mail"),
+                        resultSet.getString("senha"),
+                        resultSet.getBoolean("tipo")
+                );
+                return user;
             }
-
-            connection.close();
-
-            return true;
-
-        } catch (Exception e) {
-
-            System.out.println("Error: " + e.getMessage());
-
-            return false;
-
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
+        return null;
     }
+
+
 
 }

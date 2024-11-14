@@ -40,13 +40,14 @@
                         <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" method="get" action="index">
                             <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Pesquisar" name="pesquisa"><button class="btn btn-primary py-0" type="submit" style="background: rgb(2,72,115);"><i class="fas fa-search"></i></button></div>
                         </form>
-                        <c:if test="${sessionScope.loggedUser != null}">
-                            <div class="container-fluid">
-                                <button class="btn btn-primary" type="button" onclick="window.location.href='/logout'" style="background: rgb(2,72,115);border-color: rgb(2,72,115);">
-                                        ${sessionScope.loggedUser} - Sair
+                        <c:if test="${sessionScope.user != null}">
+                            <div>
+                                <button class="btn btn-primary" type="button" onclick="window.location.href='${pageContext.request.contextPath}/logout'" style="background: rgb(2,72,115);border-color: rgb(2,72,115);">
+                                        ${sessionScope.user.email} - Sair
                                 </button>
                             </div>
                         </c:if>
+
                         <div class="dropdown"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: #3a3b45;margin-left: 10px;">Categorias</a>
                             <div class="dropdown-menu dropdown-menu-lg-end">
                                 <a class="dropdown-item" href="index">Todos os Livros</a>

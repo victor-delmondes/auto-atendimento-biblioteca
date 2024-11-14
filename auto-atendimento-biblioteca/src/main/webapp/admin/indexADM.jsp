@@ -23,7 +23,7 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar-1">
-                    <li class="nav-item"><a class="nav-link active" href="indexADM.html"><i class="fa fa-book"></i><span>Livros</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="indexADM"><i class="fa fa-book"></i><span>Livros</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="addlivroADM.jsp"><i class="far fa-edit" style="margin-right: 4px;font-size: 12px;"></i><span>Adicionar livro</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="gerenciarusersADM.html"><i class="fas fa-user"></i><span>Gerenciar usuários</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="gerenciaremprestimosADM.html"><i class="far fa-calendar-alt"></i><span>Gerenciar empréstimos</span></a></li>
@@ -54,11 +54,19 @@
                                         <tbody>
                                         <c:forEach var="livro" items="${livros}">
                                             <tr>
-                                                <td><img src="${livro.image}" alt="imagem de um livro" style="height: 150px;"></td>
+                                                <td>
+                                                    <!-- Adiciona o contextPath antes do caminho salvo no banco -->
+                                                    <img src="${pageContext.request.contextPath}/${livro.image}" alt="imagem de um livro" style="height: 150px;">
+                                                </td>
                                                 <td>${livro.titulo}</td>
                                                 <td>${livro.quantidade}</td>
                                                 <td style="text-align: center;">
-                                                    <div class="dropdown" style="text-align: right;"><button class="btn btn-primary dropdown-toggle data-bs-container" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="border-color: rgb(2,72,115);background: rgb(2,72,115);overflow: visible;" data-bs-container="body">Ações</button>
+                                                    <div class="dropdown" style="text-align: right;">
+                                                        <button class="btn btn-primary dropdown-toggle data-bs-container"
+                                                                aria-expanded="false" data-bs-toggle="dropdown"
+                                                                type="button"
+                                                                style="border-color: rgb(2,72,115);background: rgb(2,72,115);overflow: visible;"
+                                                                data-bs-container="body">Ações</button>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="#modal-editar"
                                                                data-bs-toggle="modal"
@@ -73,14 +81,13 @@
                                                                data-locationEditar="${livro.location}"
                                                                data-idLivroEditar="${livro.id}"
                                                                data-isbnEditar="${livro.isbn}"
-                                                               data-imageEditar="${livro.image}"
-                                                            >Editar</a>
+                                                               data-imageEditar="${pageContext.request.contextPath}/${livro.image}">Editar</a>
 
                                                             <a class="dropdown-item" href="#modal-info"
                                                                data-bs-target="#modal-info"
                                                                data-bs-toggle="modal"
                                                                data-titulo="${livro.titulo}"
-                                                               data-imagem="${livro.image}"
+                                                               data-imagem="${pageContext.request.contextPath}/${livro.image}"
                                                                data-autor="${livro.autor}"
                                                                data-editora="${livro.editora}"
                                                                data-ano="${livro.anoPublicacao}"

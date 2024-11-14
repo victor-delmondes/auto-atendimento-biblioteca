@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
@@ -48,6 +49,15 @@ public class ListLivrosServlet extends HttpServlet {
 
         req.setAttribute("livros", livros);
 
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        // Verifica o tipo de usuário para redirecionamento
+        HttpSession session = req.getSession(false);
+        String userType = (session != null) ? (String) session.getAttribute("userType") : "user"; // Assume "user" se não estiver logado
+
+        // Redireciona para a página apropriada com base no tipo de usuário
+        if ("admin".equals(userType)) {
+            req.getRequestDispatcher("/admin/indexADM.jsp").forward(req, resp);
+        } else {
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        }
     }
 }
