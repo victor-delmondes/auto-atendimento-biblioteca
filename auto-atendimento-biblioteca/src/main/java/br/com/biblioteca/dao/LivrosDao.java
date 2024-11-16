@@ -162,16 +162,19 @@ public class LivrosDao {
     }
 
     public List<Livros> findLivrosByTitulo(String titulo) {
-        String SQL = "SELECT * FROM livros WHERE titulo = ?";
+        String SQL = "SELECT * FROM livros WHERE " +
+                "LOWER(TRANSLATE(titulo, 'áéíóúãõâêîôûç', 'aeiouaoaeiouc')) LIKE " +
+                "LOWER(TRANSLATE(?, 'áéíóúãõâêîôûç', 'aeiouaoaeiouc'))";
         List<Livros> livros = new ArrayList<>();
 
         try (Connection connection = ConnectionpoolConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
 
-            preparedStatement.setString(1, titulo);
+            preparedStatement.setString(1, "%" + titulo.toLowerCase() + "%");
 
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 while (resultSet.next()) {
+                    String BookTitulo = resultSet.getString("titulo");
                     String id = resultSet.getString("id_livros");
                     String categoria = resultSet.getString("categoria");
                     String autor = resultSet.getString("autor");
@@ -183,7 +186,7 @@ public class LivrosDao {
                     String image = resultSet.getString("image");
                     String location = resultSet.getString("location");
 
-                    Livros livro = new Livros(titulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria, image, location);
+                    Livros livro = new Livros(BookTitulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria, image, location);
                     livros.add(livro);
                 }
             }
