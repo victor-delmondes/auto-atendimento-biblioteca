@@ -4,6 +4,7 @@
 
 
 ## Intruções de Configuração do banco de dados H2DB ## 
+OBS: O aplicativo ja cria automaticamente as tabelas do banco de dados com uma conta de administrador padrão: email "admin@admin.com" e senha "admin"
 1. com o app em execução rodando o tomcat7.
 2. abra a URL: http://localhost:8080/console
 3. usuario: sa
