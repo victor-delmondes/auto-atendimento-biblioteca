@@ -71,9 +71,19 @@ Descrição: Registra os empréstimos de livros realizados pelos usuários.
 Exclusão: Quando um usuário ou livro é excluido, os registros associados na tabela Emprestimo também são deletados.
 
 
+**Tabela ListaDesejos**
 
+Descrição: Permite que os úsuarios adicionem livros de interesse em uma lista de desejos.
 
++ **Colunas**
 
++ ID_ListaDesejos: Identificador único da lista (PRIMARY_KEY, AUTO_INCREMENT).
++ ID_User: ID do úsuario associado a lista
++ ID_Livro: ID do livro incluido  na lista de desejos.
++ fk_User_ID: Chave estrangeira para a tabela Usuarios (liga ao campo ID).
++ fk_Livros_ID_Livros: Chave estrangeira para a tabela Livros (liga ao campo ID_Livros).
+
+Exclusão: Quando um usuário ou livro é excluido, os registros associados na tabela ListaDesejos também são deletados.
 
 
 ## Instruções de conexão do banco de dados MySQL ##
