@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/update-user")
+@WebServlet({"/update-user", "/update-users"})
 public class UpdateUserServlet extends HttpServlet {
 
     @Override
@@ -32,11 +32,20 @@ public class UpdateUserServlet extends HttpServlet {
 
         usuariosDao.updateUsuario(usuarios);
 
-        // Adiciona o parâmetro de sucesso na URL
-        if (userTipo) {
-            resp.sendRedirect("/admin/confADM.jsp?success=true");
-        } else {
-            resp.sendRedirect("/profile.jsp?success=true");
+        // Verifica qual caminho foi chamado
+        String path = req.getServletPath();
+
+        if ("/update-users".equals(path)) {
+            resp.sendRedirect("/admin/gerenciarusersADM");
+        } else if ("/update-user".equals(path)) {
+            // Redireciona com base no tipo de usuário
+            if (userTipo) {
+                resp.sendRedirect("/admin/confADM.jsp?success=true");
+            } else {
+                resp.sendRedirect("/profile.jsp?success=true");
+            }
         }
     }
 }
+
+

@@ -57,7 +57,7 @@
                 <li class="nav-item"><a class="nav-link" href="addlivroADM.jsp"><i class="far fa-edit"
                                                                                    style="margin-right: 4px;font-size: 12px;"></i><span>Adicionar livro</span></a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="gerenciarusersADM.html"><i class="fas fa-user"></i><span>Gerenciar usuários</span></a>
+                <li class="nav-item"><a class="nav-link" href="gerenciarusersADM"><i class="fas fa-user"></i><span>Gerenciar usuários</span></a>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="gerenciaremprestimosADM.html"><i
                         class="far fa-calendar-alt"></i><span>Gerenciar empréstimos</span></a></li>

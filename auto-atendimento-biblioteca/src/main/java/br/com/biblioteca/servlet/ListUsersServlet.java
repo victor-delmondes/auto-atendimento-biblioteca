@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/list-users")
+@WebServlet({"/admin/gerenciarusersADM"})
 public class ListUsersServlet extends HttpServlet {
 
     @Override
@@ -21,7 +21,7 @@ public class ListUsersServlet extends HttpServlet {
 
         req.setAttribute("users", users);
 
-        req.getRequestDispatcher("profile.jsp").forward(req, resp);
+        req.getRequestDispatcher("gerenciarusersADM.jsp").forward(req, resp);
 
     }
 }

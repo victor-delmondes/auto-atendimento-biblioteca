@@ -87,7 +87,7 @@ public class UsuariosDao {
         }
     }
 
-    public void deleteUsuario(int id) {
+    public void deleteUsuario(String id) {
         String SQL = "DELETE FROM USUARIOS WHERE id =?";
 
         try {
@@ -96,7 +96,7 @@ public class UsuariosDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
 
             preparedStatement.execute();
 
