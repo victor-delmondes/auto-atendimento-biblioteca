@@ -32,7 +32,7 @@
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <nav class="navbar navbar-expand bg-white shadow mb-4 topbar">
-                    <div class="container-fluid"><button class="btn btn-primary" type="button" style="width: 100.7656px;background: rgb(2,72,115);border-color: rgb(2,72,115);">Sair</button></div>
+                    <button class="btn btn-primary" type="button" onclick="window.location.href='${pageContext.request.contextPath}/logout'" style="width: 100.7656px;background: rgb(2,72,115);border-color: rgb(2,72,115);">Sair</button>
                 </nav>
                 <div class="container-fluid">
                     <h3 class="text-dark mb-1">Gerenciar empréstimos</h3>

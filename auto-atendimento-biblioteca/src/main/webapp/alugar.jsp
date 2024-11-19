@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
+<html data-bs-theme="light" lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
+    <%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Register - Brand</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -21,13 +21,19 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center" style="margin-bottom: 30px;">
-                                <h4 class="text-dark mb-4">Confirme o emprÃ©stimo</h4>
+                                <h4 class="text-dark mb-4">Confirme o empréstimo</h4>
                                 <div class="row">
                                     <div class="col-xxl-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="card-title">Title</h4><img style="width: 200px;height: 300px;">
-                                                <p class="card-text" style="margin-top: 16px;">Confirme a data de devoluÃ§Ã£o</p><input type="date" style="height: 50px;width: 220px;text-align: center;">
+                                                <h4 class="card-title">${livro.titulo}</h4><img src="${livro.image}" style="width: 200px;height: 300px;">
+                                                <p class="card-text" style="margin-top: 16px;">Confirme a data de devolução</p>
+                                                <form action="/aluguel-confirm" method="post" id="emprestimoForm">
+                                                    <input type="date" name="dataDevolucao" id="datadev" style="height: 50px;width: 220px;text-align: center;">
+                                                    <input type="text" id="dateini" name="dataEmprestimo">
+                                                    <input type="text" id="cidlivro" name="idLivro" value="${livro.id}">
+                                                    <input type="text" id="iduser" name="idUsuario" value="${sessionScope.user.id}">
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -35,8 +41,8 @@
                             </div>
                             <div style="text-align: center;">
                                 <div class="row" style="text-align: center;display: inline-flex;">
-                                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4" style="text-align: center;display: block;"><a href="scanner.html"><i class="far fa-arrow-alt-circle-left" style="font-size: 43px;color: rgb(2,72,115);" href="scanner.html"></i></a></div>
-                                    <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 col-xxl-7" style="text-align: center;"><button class="btn btn-primary" type="button" style="background: rgb(2,72,115);border-color: rgb(2,72,115);text-align: center;overflow: visible;">Confirmar</button></div>
+                                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4" style="text-align: center;display: block;"><a href="scanner.jsp"><i class="far fa-arrow-alt-circle-left" style="font-size: 43px;color: rgb(2,72,115);" href="scanner.html"></i></a></div>
+                                    <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 col-xxl-7" style="text-align: center;"><button class="btn btn-primary" type="button" style="background: rgb(2,72,115);border-color: rgb(2,72,115);text-align: center;overflow: visible;" onclick="document.getElementById('emprestimoForm').submit();">Confirmar</button></div>
                                 </div>
                             </div>
                         </div>
@@ -47,6 +53,11 @@
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script>
+        const today = new Date();
+        const formattedDate = today.toISOString().split('T')[0];
+        document.getElementById('dateini').value = formattedDate;
+    </script>
 </body>
 
 </html>

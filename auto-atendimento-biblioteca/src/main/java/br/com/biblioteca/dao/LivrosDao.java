@@ -196,5 +196,41 @@ public class LivrosDao {
         return livros;
     }
 
+    public List<Livros> findLivrosByCode(String code) {
+
+        String SQL = "SELECT * FROM LIVROS WHERE ISBN = ?";
+
+        List<Livros> livros = new ArrayList<>();
+
+        try (Connection connection = ConnectionpoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, code);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    String Titulo = resultSet.getString("titulo");
+                    String id = resultSet.getString("id_livros");
+                    String categoria = resultSet.getString("categoria");
+                    String autor = resultSet.getString("autor");
+                    String isbn = resultSet.getString("isbn");
+                    String editora = resultSet.getString("editora");
+                    String quantidade = resultSet.getString("quantidade");
+                    String anoPublicacao = resultSet.getString("ano_publicacao");
+                    String sinopse = resultSet.getString("sinopse");
+                    String image = resultSet.getString("image");
+                    String location = resultSet.getString("location");
+
+                    Livros livro = new Livros(Titulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria, image, location);
+                    livros.add(livro);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Falha ao conectar no banco de dados " + e.getMessage());
+        }
+        return livros;
+
+    }
+
 }
 

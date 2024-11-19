@@ -59,7 +59,7 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="gerenciarusersADM"><i class="fas fa-user"></i><span>Gerenciar usuários</span></a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="gerenciaremprestimosADM.html"><i
+                <li class="nav-item"><a class="nav-link" href="gerenciaremprestimosADM.jsp"><i
                         class="far fa-calendar-alt"></i><span>Gerenciar empréstimos</span></a></li>
                 <li class="nav-item"><a class="nav-link active" href="confADM.html"><i
                         class="fas fa-user-circle"></i><span>Configurações de ADM</span></a></li>
@@ -70,9 +70,7 @@
         <div id="content">
             <nav class="navbar navbar-expand bg-white shadow mb-4 topbar">
                 <div class="container-fluid">
-                    <button class="btn btn-primary" type="button"
-                            style="width: 100.7656px;background: rgb(2,72,115);border-color: rgb(2,72,115);">Sair
-                    </button>
+                    <button class="btn btn-primary" type="button" onclick="window.location.href='${pageContext.request.contextPath}/logout'" style="width: 100.7656px;background: rgb(2,72,115);border-color: rgb(2,72,115);">Sair</button>
                 </div>
             </nav>
             <div class="container-fluid">

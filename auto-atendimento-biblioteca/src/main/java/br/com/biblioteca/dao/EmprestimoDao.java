@@ -12,7 +12,7 @@ public class EmprestimoDao {
 
     public void createEmprestimo(Emprestimo emprestimo) {
 
-        String SQL = "INSERT INTO EMPRESTIMO (ID_USUARIOS, ID_LIVROS, DATA_EMPRESTIMO, DATA_DEVOLUCAO, STATUS) VALUES (?, ? , ? , ?, ?)";
+        String SQL = "INSERT INTO EMPRESTIMO (ID_USUARIOS, ID_LIVRO, DATA_EMPRESTIMO, DATA_DEVOLUCAO, STATUS) VALUES (?, ? , ? , ?, ?)";
 
         try {
 
@@ -20,11 +20,10 @@ public class EmprestimoDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setInt(1, emprestimo.getIdUsuarios());
-            preparedStatement.setInt(2, emprestimo.getIdLivro());
-            preparedStatement.setDate(3, emprestimo.getDataEmprestimo());
-            preparedStatement.setDate(4, emprestimo.getDataDevolucao());
-
+            preparedStatement.setString(1, emprestimo.getIdUsuarios());
+            preparedStatement.setString(2, emprestimo.getIdLivro());
+            preparedStatement.setString(3, emprestimo.getDataEmprestimo());
+            preparedStatement.setString(4, emprestimo.getDataDevolucao());
             preparedStatement.setString(5, emprestimo.getStatus());
 
             preparedStatement.execute();
@@ -56,11 +55,11 @@ public class EmprestimoDao {
 
             while (resultSet.next()) {
 
-                int emprestimoId = resultSet.getInt("id_emprestimo");
-                int usuarioId = resultSet.getInt("id_usuarios");
-                int livroId = resultSet.getInt("id_livros");
-                Date dataEmprestimo = resultSet.getDate("data_emprestimo");
-                Date dataDevolucao = resultSet.getDate("data_devolucao");
+                String emprestimoId = resultSet.getString("id_emprestimo");
+                String usuarioId = resultSet.getString("id_usuarios");
+                String livroId = resultSet.getString("id_livros");
+                String dataEmprestimo = resultSet.getString("data_emprestimo");
+                String dataDevolucao = resultSet.getString("data_devolucao");
                 String status = resultSet.getString("status");
 
                 Emprestimo emprestimo = new Emprestimo(emprestimoId, usuarioId, livroId, dataEmprestimo, dataDevolucao, status);
@@ -83,7 +82,7 @@ public class EmprestimoDao {
         }
     }
 
-    public void deleteEmprestimo(int id) {
+    public void deleteEmprestimo(String id) {
 
         String SQL = "DELETE FROM EMPRESTIMO WHERE id_emprestimo =?";
 
@@ -93,7 +92,7 @@ public class EmprestimoDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
 
             preparedStatement.execute();
 
@@ -115,12 +114,12 @@ public class EmprestimoDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setInt(1, emprestimo.getIdUsuarios());
-            preparedStatement.setInt(2, emprestimo.getIdLivro());
-            preparedStatement.setDate(3, emprestimo.getDataEmprestimo());
-            preparedStatement.setDate(4, emprestimo.getDataDevolucao());
+            preparedStatement.setString(1, emprestimo.getIdUsuarios());
+            preparedStatement.setString(2, emprestimo.getIdLivro());
+            preparedStatement.setString(3, emprestimo.getDataEmprestimo());
+            preparedStatement.setString(4, emprestimo.getDataDevolucao());
             preparedStatement.setString(5, emprestimo.getStatus());
-            preparedStatement.setInt(6, emprestimo.getIdEmprestimo());
+            preparedStatement.setString(6, emprestimo.getIdEmprestimo());
 
             preparedStatement.execute();
 

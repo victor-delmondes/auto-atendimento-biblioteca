@@ -25,7 +25,7 @@
                     <li class="nav-item"><a class="nav-link active" href="index"><i class="fa fa-book"></i><span>Livros</span></a></li>
                     <!-- Link Alugar com Popover -->
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:if test='${sessionScope.user != null}'>scanner.html</c:if>"
+                        <a class="nav-link" href="<c:if test='${sessionScope.user != null}'>scanner.jsp</c:if>"
                                 <c:if test="${sessionScope.user == null}">
                                     onclick="showLoginPopover(this, 'Faça login para alugar um livro'); return false;"
                                     data-bs-toggle="popover" data-bs-content="Faça login para alugar um livro"

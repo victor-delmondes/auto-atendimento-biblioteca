@@ -1,19 +1,17 @@
 package br.com.biblioteca.model;
 
-import java.sql.Date;
-
 public class Emprestimo {
-    private int idEmprestimo;
-    private int idUsuarios;
-    private int idLivro;
-    private Date dataEmprestimo;
-    private Date dataDevolucao;
+    private String idEmprestimo;
+    private String idUsuarios;
+    private String idLivro;
+    private String dataEmprestimo;
+    private String dataDevolucao;
     private String status;
 
     public Emprestimo() {
     }
 
-    public Emprestimo(int idEmprestimo, int idUsuarios, int idLivro, Date dataEmprestimo, Date dataDevolucao, String status) {
+    public Emprestimo(String idEmprestimo, String idUsuarios, String idLivro, String dataEmprestimo, String dataDevolucao, String status) {
         this.idEmprestimo = idEmprestimo;
         this.idUsuarios = idUsuarios;
         this.idLivro = idLivro;
@@ -22,7 +20,7 @@ public class Emprestimo {
         this.status = status;
     }
 
-    public Emprestimo(int idUsuarios, int idLivro, Date dataEmprestimo, Date dataDevolucao, String status) {
+    public Emprestimo(String idUsuarios, String idLivro, String dataEmprestimo, String dataDevolucao, String status) {
         this.idUsuarios = idUsuarios;
         this.idLivro = idLivro;
         this.dataEmprestimo = dataEmprestimo;
@@ -30,39 +28,39 @@ public class Emprestimo {
         this.status = status;
     }
 
-    public int getIdEmprestimo() {
+    public String getIdEmprestimo() {
         return idEmprestimo;
     }
 
-    public int getIdUsuarios() {
+    public String getIdUsuarios() {
         return idUsuarios;
     }
 
-    public void setIdUsuarios(int idUsuarios) {
+    public void setIdUsuarios(String idUsuarios) {
         this.idUsuarios = idUsuarios;
     }
 
-    public int getIdLivro() {
+    public String getIdLivro() {
         return idLivro;
     }
 
-    public void setIdLivro(int idLivro) {
+    public void setIdLivro(String idLivro) {
         this.idLivro = idLivro;
     }
 
-    public Date getDataEmprestimo() {
+    public String getDataEmprestimo() {
         return dataEmprestimo;
     }
 
-    public void setDataEmprestimo(Date dataEmprestimo) {
+    public void setDataEmprestimo(String dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
     }
 
-    public Date getDataDevolucao() {
+    public String getDataDevolucao() {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(Date dataDevolucao) {
+    public void setDataDevolucao(String dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 
