@@ -28,7 +28,7 @@
                                 <div class="row mb-3" style="padding-left: 0px;margin-left: 0px;margin-right: 0px;"><input class="form-control form-control-user" type="text" id="nomeinput" placeholder="Nome completo" name="nome" style="width: 636px;" required></div>
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="cpfinput" placeholder="CPF" name="cpf" required maxlength="14"></div>
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="telefoneinput" placeholder="Telefone" name="telefone" required></div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="telefoneinput" placeholder="Telefone" name="telefone" required maxlength="20"></div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 0px;margin-left: 0px;margin-right: 0px;"><input class="form-control form-control-user" type="text" id="enderecoinput" placeholder="Endereço" name="endereco" style="width: 636px;" required></div>
                                 <div class="row mb-3">

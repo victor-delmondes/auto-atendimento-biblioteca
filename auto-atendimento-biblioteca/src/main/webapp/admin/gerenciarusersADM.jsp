@@ -195,10 +195,10 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="mb-3"><label class="form-label" for="modal-cpfEditar"><strong>CPF</strong></label><input class="form-control" type="text" id="modal-cpfEditar" placeholder="CPF" name="cpf"></div>
+                            <div class="mb-3"><label class="form-label" for="modal-cpfEditar"><strong>CPF</strong></label><input class="form-control" type="text" id="modal-cpfEditar" placeholder="CPF" maxlength="14" name="cpf"></div>
                         </div>
                         <div class="col">
-                            <div class="mb-3"><label class="form-label" for="modal-telefoneEditar"><strong>Telefone</strong></label><input class="form-control" type="text" id="modal-telefoneEditar" placeholder="Telefone" name="telefone"></div>
+                            <div class="mb-3"><label class="form-label" for="modal-telefoneEditar"><strong>Telefone</strong></label><input class="form-control" type="text" id="modal-telefoneEditar" placeholder="Telefone" maxlength="20" name="telefone"></div>
                         </div>
                     </div>
                     <div class="row">
@@ -206,7 +206,7 @@
                             <div class="mb-3"><label class="form-label" for="modal-cidadeEditar"><strong>Cidade</strong></label><input class="form-control" type="text" id="modal-cidadeEditar" placeholder="Cidade" name="cidade"></div>
                         </div>
                         <div class="col">
-                            <div class="mb-3"><label class="form-label" for="modal-estadoEditar"><strong>Estado</strong></label><input class="form-control" type="text" id="modal-estadoEditar" placeholder="Estado" name="estado"></div>
+                            <div class="mb-3"><label class="form-label" for="modal-estadoEditar"><strong>Estado</strong></label><input class="form-control" type="text" id="modal-estadoEditar" placeholder="Estado" maxlength="2" name="estado"></div>
                         </div>
                     </div>
                     <input type="hidden" name="id" id="modal-idEditar">

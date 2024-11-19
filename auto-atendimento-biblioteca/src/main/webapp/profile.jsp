@@ -111,7 +111,7 @@
                                                         <div class="mb-3"><label class="form-label" for="cpfinput"><strong>CPF</strong></label><input class="form-control" type="text" id="cpfinput" placeholder="CPF" maxlength="14" name="cpf" value="${sessionScope.user.CPF}"></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="telefoneinput"><strong>Telefone</strong></label><input class="form-control" type="text" id="telefoneinput" placeholder="Telefone" name="telefone" value="${sessionScope.user.telefone}"></div>
+                                                        <div class="mb-3"><label class="form-label" for="telefoneinput"><strong>Telefone</strong></label><input class="form-control" type="text" id="telefoneinput" placeholder="Telefone" name="telefone" maxlength="20" value="${sessionScope.user.telefone}"></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
