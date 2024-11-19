@@ -113,7 +113,6 @@ public class LivrosDao {
 
         try {
 
-
             Connection connection = ConnectionpoolConfig.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -229,6 +228,46 @@ public class LivrosDao {
             System.out.println("Falha ao conectar no banco de dados " + e.getMessage());
         }
         return livros;
+
+    }
+
+    public void aumentaQuantidade(String id) {
+
+        String SQL = "UPDATE livros SET quantidade = quantidade + 1 WHERE id = ?";
+
+        try (Connection connection = ConnectionpoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, id);
+
+            preparedStatement.executeUpdate();
+            System.out.println("Quantidade do livro aumentada com sucesso");
+
+        } catch (Exception e) {
+
+            System.out.println("Falha ao conectar no banco de dados " + e.getMessage());
+
+        }
+
+    }
+
+    public void diminuiQuantidade(String id) {
+
+        String SQL = "UPDATE livros SET quantidade = quantidade + 1 WHERE id = ?";
+
+        try (Connection connection = ConnectionpoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, id);
+
+            preparedStatement.executeUpdate();
+            System.out.println("Quantidade do livro subtraida com sucesso");
+
+        } catch (Exception e) {
+
+            System.out.println("Falha ao conectar no banco de dados " + e.getMessage());
+
+        }
 
     }
 

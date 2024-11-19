@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("user", user);
             if (user.getTipo()) {  // Verifica se o usuário é administrador
                 session.setAttribute("userType", "admin");
-                response.sendRedirect(request.getContextPath() + "/admin/indexADM");  // Caminho absoluto para evitar duplicação
+                response.sendRedirect(request.getContextPath() + "/admin/indexADM");
             } else {
                 session.setAttribute("userType", "user");
                 response.sendRedirect(request.getContextPath() + "/index");

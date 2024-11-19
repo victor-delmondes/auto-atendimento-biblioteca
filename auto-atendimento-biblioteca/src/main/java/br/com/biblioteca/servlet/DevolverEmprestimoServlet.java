@@ -11,24 +11,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/aluguel-confirm")
-public class CreateEmprestimoServlet extends HttpServlet {
+@WebServlet({"/devolucao", "/admin/devolucao"})
+public class DevolverEmprestimoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String idLivro = req.getParameter("idLivro");
-        String idUsuario = req.getParameter("idUsuario");
-        String dataEmprestimo = req.getParameter("dataEmprestimo");
-        String dataDevolucao = req.getParameter("dataDevolucao");
+        String idEmprestimo = req.getParameter("idEmprestimo");
 
-        Emprestimo emprestimo = new Emprestimo(idUsuario, idLivro, dataEmprestimo, dataDevolucao, "Em aberto");
         EmprestimoDao emprestimoDao = new EmprestimoDao();
-        emprestimoDao.createEmprestimo(emprestimo);
+
+        emprestimoDao.deleteEmprestimo(idEmprestimo);
+
+        String idLivro = emprestimoDao.getIdLivroByIdEmprestimo(idEmprestimo);
 
         LivrosDao livrosDao = new LivrosDao();
-        livrosDao.diminuiQuantidade(idLivro);
 
-        resp.sendRedirect("scanner.jsp?success=true");
+        livrosDao.aumentaQuantidade(idLivro);
+
+        if (req.getServletPath().equals("/devolucao")) {
+
+            resp.sendRedirect("profile.jsp");
+
+        } else if (req.getServletPath().equals("/admin/devolucao")) {
+
+            resp.sendRedirect("/admin/gerenciaremprestimosADM");
+
+        }
+
     }
 }

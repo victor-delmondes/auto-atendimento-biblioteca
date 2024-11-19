@@ -132,4 +132,28 @@ public class EmprestimoDao {
         }
     }
 
+    public String getIdLivroByIdEmprestimo(String idEmprestimo) {
+
+        String SQL = "SELECT id_livro FROM EMPRESTIMO WHERE id_emprestimo = ?";
+
+        try (Connection connection = ConnectionpoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, idEmprestimo);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getString("id_livro");
+            } else {
+                throw new RuntimeException("Nenhum empréstimo encontrado com o ID: " + idEmprestimo);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar o ID do livro: " + e.getMessage());
+            throw new RuntimeException("Erro ao buscar o ID do livro", e);
+        }
+    }
+
+
 }
