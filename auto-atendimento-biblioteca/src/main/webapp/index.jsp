@@ -36,7 +36,7 @@
                                 <span>Alugar</span>
                             </a>
                         </li>
-                    <!-- Link Perfil com Popover -->
+                    <!-- Link Perfil com Popover / alterado para não exibir mais a opção caso não haja usuario logado -->
                     <c:if test='${sessionScope.user != null}'>
                         <li class="nav-item">
                             <a class="nav-link" href="<c:if test='${sessionScope.user != null}'>profile.jsp</c:if>"

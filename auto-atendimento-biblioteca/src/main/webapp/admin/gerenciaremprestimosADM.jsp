@@ -2,7 +2,7 @@
 <html data-bs-theme="light" lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
+    <%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>biblioteca</title>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
@@ -23,9 +23,9 @@
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link" href="indexADM"><i class="fa fa-book"></i><span>Livros</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="addlivroADM.jsp"><i class="far fa-edit" style="margin-right: 4px;font-size: 12px;"></i><span>Adicionar livro</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="gerenciarusersADM"><i class="fas fa-user"></i><span>Gerenciar usu√°rios</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="gerenciaremprestimosADM.html"><i class="far fa-calendar-alt"></i><span>Gerenciar empr√©stimos</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="confADM.jsp"><i class="fas fa-user-circle"></i><span>Configura√ß√µes de ADM</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="gerenciarusersADM"><i class="fas fa-user"></i><span>Gerenciar usu·rios</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gerenciaremprestimosADM.html"><i class="far fa-calendar-alt"></i><span>Gerenciar emprÈstimos</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="confADM.jsp"><i class="fas fa-user-circle"></i><span>ConfiguraÁıes de ADM</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -35,12 +35,12 @@
                     <button class="btn btn-primary" type="button" onclick="window.location.href='${pageContext.request.contextPath}/logout'" style="width: 100.7656px;background: rgb(2,72,115);border-color: rgb(2,72,115);">Sair</button>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-1">Gerenciar empr√©stimos</h3>
+                    <h3 class="text-dark mb-1">Gerenciar emprÈstimos</h3>
                     <div>
                         <div class="card"></div>
                         <div class="card" style="margin-top: 10px;overflow: visible;">
                             <div class="card-header py-3">
-                                <p class="text-primary m-0 fw-bold">Empr√©stimos ativos</p>
+                                <p class="text-primary m-0 fw-bold">EmprÈstimos ativos</p>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive" style="overflow: visible;">
@@ -48,10 +48,10 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 300px;">Nome do livro</th>
-                                                <th style="width: 300px;">Usu√°rio</th>
-                                                <th style="width: 100px;">Loca√ß√£o</th>
-                                                <th style="width: 100px;">Devolu√ß√£o</th>
-                                                <th style="width: 100px;">Situa√ß√£o</th>
+                                                <th style="width: 300px;">Usu·rio</th>
+                                                <th style="width: 100px;">LocaÁ„o</th>
+                                                <th style="width: 100px;">DevoluÁ„o</th>
+                                                <th style="width: 100px;">SituaÁ„o</th>
                                                 <th style="width: 100px;"></th>
                                             </tr>
                                         </thead>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="card" style="margin-top: 10px;overflow: visible;">
                             <div class="card-header py-3">
-                                <p class="text-primary m-0 fw-bold">Hist√≥rico</p>
+                                <p class="text-primary m-0 fw-bold">HistÛrico</p>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive" style="overflow: visible;">
@@ -79,10 +79,10 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 300px;">Nome do livro</th>
-                                                <th style="width: 300px;">Usu√°rio</th>
-                                                <th style="width: 100px;">Loca√ß√£o</th>
-                                                <th style="width: 100px;">Devolu√ß√£o</th>
-                                                <th style="width: 100px;">Situa√ß√£o</th>
+                                                <th style="width: 300px;">Usu·rio</th>
+                                                <th style="width: 100px;">LocaÁ„o</th>
+                                                <th style="width: 100px;">DevoluÁ„o</th>
+                                                <th style="width: 100px;">SituaÁ„o</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -112,10 +112,10 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Confirmar devolu√ß√£o</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                    <h4 class="modal-title">Confirmar devoluÁ„o</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Deseja confirmar a devolu√ß√£o desse livro?</p>
+                    <p>Deseja confirmar a devoluÁ„o desse livro?</p>
                 </div>
                 <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Fechar</button><button class="btn btn-primary" type="button" style="background: rgb(2,72,115);border-color: rgb(2,72,115);">Sim</button></div>
             </div>
