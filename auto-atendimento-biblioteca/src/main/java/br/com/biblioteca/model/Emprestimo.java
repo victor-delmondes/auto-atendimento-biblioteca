@@ -28,6 +28,11 @@ public class Emprestimo {
         this.status = status;
     }
 
+    public Emprestimo(String idEmprestimo, String status) {
+        this.idEmprestimo = idEmprestimo;
+        this.status = status;
+    }
+
     public String getIdEmprestimo() {
         return idEmprestimo;
     }

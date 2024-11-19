@@ -132,6 +132,30 @@ public class EmprestimoDao {
         }
     }
 
+    public void updateEmprestimoStatus(Emprestimo emprestimo) {
+
+        String SQL = "UPDATE EMPRESTIMO SET STATUS =? WHERE ID_EMPRESTIMO =?";
+
+        try {
+
+            Connection connection = ConnectionpoolConfig.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            preparedStatement.setString(1, emprestimo.getStatus());
+            preparedStatement.setString(2, emprestimo.getIdEmprestimo());
+
+            preparedStatement.execute();
+
+            System.out.println("Empréstimo atualizado com sucesso!");
+
+            connection.close();
+
+        } catch (Exception e) {
+            System.out.println("Falha ao conectar com o banco de dados: " + e.getMessage());
+        }
+    }
+
     public String getIdLivroByIdEmprestimo(String idEmprestimo) {
 
         String SQL = "SELECT id_livro FROM EMPRESTIMO WHERE id_emprestimo = ?";

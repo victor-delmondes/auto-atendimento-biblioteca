@@ -18,15 +18,14 @@ public class DevolverEmprestimoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String idEmprestimo = req.getParameter("idEmprestimo");
+        String status = "Devolvido";
 
         EmprestimoDao emprestimoDao = new EmprestimoDao();
-
-        emprestimoDao.deleteEmprestimo(idEmprestimo);
+        Emprestimo emprestimo = new Emprestimo(idEmprestimo, status);
+        emprestimoDao.updateEmprestimoStatus(emprestimo);
 
         String idLivro = emprestimoDao.getIdLivroByIdEmprestimo(idEmprestimo);
-
         LivrosDao livrosDao = new LivrosDao();
-
         livrosDao.aumentaQuantidade(idLivro);
 
         if (req.getServletPath().equals("/devolucao")) {
