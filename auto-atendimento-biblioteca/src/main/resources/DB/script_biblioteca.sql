@@ -4,9 +4,9 @@ CREATE TABLE Usuarios
     Nome     VARCHAR(100),
     E_Mail   VARCHAR(100),
     Senha    VARCHAR(100),
-    CPF      VARCHAR(11),
+    CPF      VARCHAR(14),
     Endereco VARCHAR(200),
-    Telefone VARCHAR(15),
+    Telefone VARCHAR(20),
     Cidade   VARCHAR(100),
     Estado   VARCHAR(2),
     Tipo     BOOLEAN
@@ -45,8 +45,6 @@ CREATE TABLE ListaDesejos
     ID_ListaDesejos     INTEGER PRIMARY KEY AUTO_INCREMENT,
     ID_User             INTEGER,
     ID_Livro            INTEGER,
-    fk_User_ID          INTEGER,
-    fk_Livros_ID_Livros INTEGER,
     FOREIGN KEY (ID_User) REFERENCES Usuarios (ID) ON DELETE CASCADE,
     FOREIGN KEY (ID_Livro) REFERENCES Livros (ID_Livros) ON DELETE CASCADE
 );

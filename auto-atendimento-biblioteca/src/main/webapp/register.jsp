@@ -27,13 +27,13 @@
                             <form class="user" action="/register" method="post">
                                 <div class="row mb-3" style="padding-left: 0px;margin-left: 0px;margin-right: 0px;"><input class="form-control form-control-user" type="text" id="nomeinput" placeholder="Nome completo" name="nome" style="width: 636px;" required></div>
                                 <div class="row mb-3">
-                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="cpfinput" placeholder="CPF" name="cpf" required></div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="cpfinput" placeholder="CPF" name="cpf" required maxlength="14"></div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="telefoneinput" placeholder="Telefone" name="telefone" required></div>
                                 </div>
                                 <div class="row mb-3" style="padding-left: 0px;margin-left: 0px;margin-right: 0px;"><input class="form-control form-control-user" type="text" id="enderecoinput" placeholder="Endereço" name="endereco" style="width: 636px;" required></div>
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="cidadeinput" placeholder="Cidade" name="cidade" required></div>
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="estadoinput" placeholder="Estado" name="estado" required></div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="estadoinput" placeholder="Estado" name="estado" required maxlength="2"></div>
                                 </div>
                                 <div class="mb-3"><input class="form-control form-control-user" type="email" id="emailinput" aria-describedby="emailHelp" placeholder="Endereço de email" name="email" required></div>
                                 <div class="row mb-3">
