@@ -66,10 +66,10 @@ Descrição: Registra os empréstimos de livros realizados pelos usuários.
 + Data_emprestimo: Data em que o livro foi emprestado.
 + Data_devolucao: Data em que o livro tem que ser devolvido.
 + Status: Estado do empréstimo do livro(pendente,devolvido,atrasado).
-+ fk_User_ID: Chave estrangeira relacionada à tabela Usuarios (liga ao campo ID).
-+ fk_Livros_ID_Livros: Chave estrangeira relacionada à tabela Livros(liga ao campo ID_Livros).
++ FOREIGN KEY (ID_Usuarios): Define que a coluna ID_Usuarios da tabela Emprestimo esta vinculada à coluna ID da tabela Usuarios.
++ FOREIGN KEY (ID_Livros): Define que a coluna ID_Livros da tabela Emprestimo está vinculada à coluna ID_Livros da tabela Livros.
 
-Exclusão: Quando um usuário ou livro é excluido, os registros associados na tabela Emprestimo também são deletados.
+**Exclusão** ON DELETE CASCADE: Garante que ao excluir um registro na tabela pai (Usuarios ou Livros), os registros relacionados na tabela Emprestimo sejam automaticamente removidos.
 
 
 **Tabela ListaDesejos**
@@ -81,10 +81,10 @@ Descrição: Permite que os úsuarios adicionem livros de interesse em uma lista
 + ID_ListaDesejos: Identificador único da lista (PRIMARY_KEY, AUTO_INCREMENT).
 + ID_User: ID do úsuario associado a lista
 + ID_Livro: ID do livro incluido  na lista de desejos.
-+ fk_User_ID: Chave estrangeira para a tabela Usuarios (liga ao campo ID).
-+ fk_Livros_ID_Livros: Chave estrangeira para a tabela Livros (liga ao campo ID_Livros).
++ FOREIGN KEY (ID_User): Relaciona a coluna ID_User da tabela ListaDesejos à coluna ID da tabela Usuarios.
++ FOREIGN KEY (ID_Livro): Relaciona a coluna ID_Livro da tabela ListaDesejos à coluna ID_Livros da tabela Livros.
 
-Exclusão: Quando um usuário ou livro é excluido, os registros associados na tabela ListaDesejos também são deletados.
+**Exclusão** ON DELETE CASCADE: Garante que ao excluir um registro em Usuarios ou Livros, os registros relacionados  na tabela ListaDesejos sejam automaticamente removidos.
 
 
 ## Instruções de conexão do banco de dados MySQL ##
