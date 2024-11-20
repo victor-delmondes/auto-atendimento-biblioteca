@@ -9,6 +9,17 @@
 
     <display-name>biblioteca</display-name>
 
+    <!-- Listener para inicializar o banco de dados -->
+    <listener>
+        <listener-class>br.com.biblioteca.config.DatabaseInitializer</listener-class>
+    </listener>
+
+    <!-- Listener para atualizar empréstimos -->
+    <listener>
+        <listener-class>br.com.biblioteca.config.AtualizarEmprestimos</listener-class>
+    </listener>
+
+    <!-- Listener do H2 Console -->
     <listener>
         <listener-class>org.h2.server.web.DbStarter</listener-class>
     </listener>
