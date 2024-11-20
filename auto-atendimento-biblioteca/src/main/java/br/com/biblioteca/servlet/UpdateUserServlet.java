@@ -18,7 +18,7 @@ public class UpdateUserServlet extends HttpServlet {
 
         String userName = req.getParameter("nome");
         String userEmail = req.getParameter("email");
-        String userId = req.getParameter("id");
+        String userId = req.getParameter("userid");
         String userSenha = req.getParameter("senha");
         String userTelefone = req.getParameter("telefone");
         String userEndereco = req.getParameter("endereco");
@@ -38,7 +38,7 @@ public class UpdateUserServlet extends HttpServlet {
         if ("/update-users".equals(path)) {
             resp.sendRedirect("/admin/gerenciarusersADM");
         } else if ("/update-user".equals(path)) {
-            // Redireciona com base no tipo de usuário
+            // Redireciona com base no tipo de usuário - ta redundante
             if (userTipo) {
                 resp.sendRedirect("/admin/confADM.jsp?success=true");
             } else {

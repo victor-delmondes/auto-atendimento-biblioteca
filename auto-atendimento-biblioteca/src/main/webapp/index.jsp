@@ -38,15 +38,7 @@
                         </li>
                     <!-- Link Perfil com Popover / alterado para não exibir mais a opção caso não haja usuario logado -->
                     <c:if test='${sessionScope.user != null}'>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<c:if test='${sessionScope.user != null}'>profile.jsp</c:if>"
-                                    <c:if test="${sessionScope.user == null}">
-                                        onclick="showLoginPopover(this, 'Por favor, faça login para acessar o perfil'); return false;"
-                                        data-bs-toggle="popover" data-bs-content="Por favor, faça login para acessar o perfil"
-                                    </c:if>>
-                                <i class="fas fa-user"></i><span>Perfil</span>
-                            </a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="profile"><i class="fas fa-user"></i><span>Perfil</span></a></li>
                     </c:if>
                     <li class="nav-item"><a class="nav-link" href="login.jsp"><i class="far fa-user-circle"></i><span>Login</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="register.jsp"><i class="fas fa-user-circle"></i><span>Registro</span></a></li>

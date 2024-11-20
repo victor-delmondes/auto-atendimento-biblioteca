@@ -57,7 +57,7 @@ public class EmprestimoDao {
 
                 String emprestimoId = resultSet.getString("id_emprestimo");
                 String usuarioId = resultSet.getString("id_usuarios");
-                String livroId = resultSet.getString("id_livros");
+                String livroId = resultSet.getString("id_livro");
                 String dataEmprestimo = resultSet.getString("data_emprestimo");
                 String dataDevolucao = resultSet.getString("data_devolucao");
                 String status = resultSet.getString("status");
@@ -80,6 +80,43 @@ public class EmprestimoDao {
 
             return Collections.emptyList();
         }
+    }
+
+    public List<Emprestimo> findAllEmprestimosByUserId(String userId) {
+
+        String SQL = "SELECT * FROM EMPRESTIMO WHERE ID_Usuarios =?";
+
+        List<Emprestimo> emprestimos = new ArrayList<>();
+
+        try (Connection connection = ConnectionpoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, userId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery();) {
+
+                while (resultSet.next()) {
+
+                    String emprestimoId = resultSet.getString("id_emprestimo");
+                    String usuarioId = resultSet.getString("id_usuarios");
+                    String livroId = resultSet.getString("id_livro");
+                    String dataEmprestimo = resultSet.getString("data_emprestimo");
+                    String dataDevolucao = resultSet.getString("data_devolucao");
+                    String status = resultSet.getString("status");
+
+                    Emprestimo emprestimo = new Emprestimo(emprestimoId, usuarioId, livroId, dataEmprestimo, dataDevolucao, status);
+                    emprestimos.add(emprestimo);
+                }
+            }
+
+        } catch (Exception e) {
+
+            System.out.println("Falha ao buscar empréstimos: " + e.getMessage());
+
+        }
+
+        return emprestimos;
+
     }
 
     public void deleteEmprestimo(String id) {
@@ -106,7 +143,7 @@ public class EmprestimoDao {
 
     public void updateEmprestimo(Emprestimo emprestimo) {
 
-        String SQL = "UPDATE EMPRESTIMO SET ID_USUARIOS =?, ID_LIVROS =?, DATA_EMPRESTIMO =?, DATA_DEVOLUCAO =?, STATUS =? WHERE ID_EMPRESTIMO =?";
+        String SQL = "UPDATE EMPRESTIMO SET ID_USUARIOS =?, ID_LIVRO =?, DATA_EMPRESTIMO =?, DATA_DEVOLUCAO =?, STATUS =? WHERE ID_EMPRESTIMO =?";
 
         try {
 
@@ -176,6 +213,23 @@ public class EmprestimoDao {
         } catch (SQLException e) {
             System.out.println("Erro ao buscar o ID do livro: " + e.getMessage());
             throw new RuntimeException("Erro ao buscar o ID do livro", e);
+        }
+    }
+
+    public void atualizarEmprestimosAtrasados() {
+        String SQL = "UPDATE EMPRESTIMO " +
+                "SET STATUS = 'Em atraso' " +
+                "WHERE STATUS = 'Em aberto' " +
+                "AND DATA_DEVOLUCAO < CURRENT_DATE";
+
+        try (Connection conn = ConnectionpoolConfig.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(SQL)) {
+
+            int rowsUpdated = stmt.executeUpdate();
+            System.out.println(rowsUpdated + " empréstimos atualizados para 'Em atraso'.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Erro ao atualizar empréstimos atrasados", e);
         }
     }
 

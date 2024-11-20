@@ -231,9 +231,45 @@ public class LivrosDao {
 
     }
 
+    public List<Livros> findLivrosById(String livroId){
+
+        String SQL = "SELECT * FROM LIVROS WHERE id_livros =?";
+
+        List<Livros> livros = new ArrayList<>();
+
+        try (Connection connection = ConnectionpoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, livroId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    String Titulo = resultSet.getString("titulo");
+                    String id = resultSet.getString("id_livros");
+                    String categoria = resultSet.getString("categoria");
+                    String autor = resultSet.getString("autor");
+                    String isbn = resultSet.getString("isbn");
+                    String editora = resultSet.getString("editora");
+                    String quantidade = resultSet.getString("quantidade");
+                    String anoPublicacao = resultSet.getString("ano_publicacao");
+                    String sinopse = resultSet.getString("sinopse");
+                    String image = resultSet.getString("image");
+                    String location = resultSet.getString("location");
+
+                    Livros livro = new Livros(Titulo, autor, isbn, editora, quantidade, anoPublicacao, id, sinopse, categoria, image, location);
+                    livros.add(livro);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Falha ao conectar no banco de dados " + e.getMessage());
+        }
+        return livros;
+
+    }
+
     public void aumentaQuantidade(String id) {
 
-        String SQL = "UPDATE livros SET quantidade = quantidade + 1 WHERE id = ?";
+        String SQL = "UPDATE livros SET quantidade = quantidade + 1 WHERE id_livros = ?";
 
         try (Connection connection = ConnectionpoolConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
@@ -253,7 +289,7 @@ public class LivrosDao {
 
     public void diminuiQuantidade(String id) {
 
-        String SQL = "UPDATE livros SET quantidade = quantidade + 1 WHERE id = ?";
+        String SQL = "UPDATE livros SET quantidade = quantidade + 1 WHERE id_livros = ?";
 
         try (Connection connection = ConnectionpoolConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {

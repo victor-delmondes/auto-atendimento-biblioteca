@@ -100,7 +100,5 @@ public class DatabaseInitializer implements ServletContextListener {
     }
 
     @Override
-    public void contextDestroyed(ServletContextEvent sce) {
-        // Código opcional ao encerrar a aplicação
-    }
+    public void contextDestroyed(ServletContextEvent sce) { }
 }
