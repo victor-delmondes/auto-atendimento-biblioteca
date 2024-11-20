@@ -87,6 +87,52 @@ public class UsuariosDao {
         }
     }
 
+    public List<Usuarios> findUserById(String id) {
+
+        String SQL = "SELECT * FROM USUARIOS WHERE id =?";
+
+        List<Usuarios> usuarios = new ArrayList<>();
+
+        try (Connection connection = ConnectionpoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL);) {
+
+            preparedStatement.setString(1, id);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()){
+
+                while (resultSet.next()) {
+
+                    String userNome = resultSet.getString("nome");
+                    String userCPF = resultSet.getString("cpf");
+                    String userEndereco = resultSet.getString("endereco");
+                    String userTelefone = resultSet.getString("telefone");
+                    String userCidade = resultSet.getString("cidade");
+                    String userEstado = resultSet.getString("estado");
+                    String userEmail = resultSet.getString("e_mail");
+                    String userSenha = resultSet.getString("senha");
+                    String userId = resultSet.getString("id");
+                    Boolean userTipo = resultSet.getBoolean("tipo");
+
+                    Usuarios user = new Usuarios(userNome, userCPF, userEndereco, userTelefone, userCidade, userEstado, userEmail, userSenha, userId, userTipo);
+
+                    usuarios.add(user);
+
+                }
+
+            System.out.println("Sucesso no resultado");
+
+            return usuarios;
+
+            }
+
+        } catch (Exception e) {
+
+            System.out.println("Falha ao Conectar no Banco de dados " + e.getMessage());
+
+            return Collections.emptyList();
+        }
+    }
+
     public void deleteUsuario(String id) {
         String SQL = "DELETE FROM USUARIOS WHERE id =?";
 
@@ -175,7 +221,6 @@ public class UsuariosDao {
         }
         return null;
     }
-
 
 
 }

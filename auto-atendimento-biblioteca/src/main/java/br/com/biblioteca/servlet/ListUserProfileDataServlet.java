@@ -2,6 +2,7 @@ package br.com.biblioteca.servlet;
 
 import br.com.biblioteca.dao.EmprestimoDao;
 import br.com.biblioteca.dao.LivrosDao;
+import br.com.biblioteca.dao.UsuariosDao;
 import br.com.biblioteca.model.Emprestimo;
 import br.com.biblioteca.model.Livros;
 import br.com.biblioteca.model.Usuarios;
@@ -17,8 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet({"/profile","/profile.jsp?success=true", "/admin/gerenciaremprestimosADM"})
-public class ListEmprestimosServlet extends HttpServlet {
+@WebServlet({"/profile"})
+public class ListUserProfileDataServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,32 +31,44 @@ public class ListEmprestimosServlet extends HttpServlet {
         processRequest(req, resp);
     }
 
-    protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        listEmprestimos(req);
+        listUser(req);
 
+        req.getRequestDispatcher("/profile.jsp").forward(req, resp);
+    }
+
+    protected void listEmprestimos(HttpServletRequest req) {
         HttpSession session = req.getSession(false);
         Usuarios user = (Usuarios) session.getAttribute("user");
         String userId = user.getId();
         System.out.println("User ID recebido: " + userId);
 
-
         EmprestimoDao emprestimoDao = new EmprestimoDao();
         List<Emprestimo> emprestimos = emprestimoDao.findAllEmprestimosByUserId(userId);
 
         Map<Emprestimo, String> emprestimosComTitulos = new HashMap<>();
-
         LivrosDao livrosDao = new LivrosDao();
 
-        for(Emprestimo emprestimo : emprestimos) {
-
+        for (Emprestimo emprestimo : emprestimos) {
             String livroId = emprestimo.getIdLivro();
             List<Livros> livrosEncontrados = livrosDao.findLivrosById(livroId);
             String livroTitulo = livrosEncontrados.get(0).getTitulo();
-            emprestimosComTitulos.put(emprestimo, livroTitulo); // Associar empréstimo ao título
-
+            emprestimosComTitulos.put(emprestimo, livroTitulo);
         }
 
         req.setAttribute("emprestimosComTitulos", emprestimosComTitulos);
-        req.getRequestDispatcher("/profile.jsp").forward(req, resp);
+    }
 
+    protected void listUser(HttpServletRequest req) {
+        HttpSession session = req.getSession(false);
+        Usuarios user = (Usuarios) session.getAttribute("user");
+        String userId = user.getId();
+        System.out.println("User ID recebido: " + userId);
+
+        List<Usuarios> userDados = new UsuariosDao().findUserById(userId);
+
+        req.setAttribute("user", userDados.get(0));
     }
 }
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html data-bs-theme="light" lang="pt-br">
 
 <head>
@@ -15,31 +15,6 @@
 </head>
 
 <body id="page-top">
-
-<!-- Toast Notification -->
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-    <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert"
-         aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-            <div class="toast-body">
-                Dados alterados com sucesso, reinicie a sessão para atualizar.
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                    aria-label="Close"></button>
-        </div>
-    </div>
-</div>
-
-<!-- Verifica o parâmetro "success" na URL e ativa o toast -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('success')) {
-            const successToast = new bootstrap.Toast(document.getElementById('successToast'));
-            successToast.show();
-        }
-    });
-</script>
 
 <div id="wrapper">
     <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" style="background: linear-gradient(rgb(2,72,115), #022840), rgb(2,72,115);">
@@ -91,38 +66,38 @@
                                         <form action="/update-user" method="post">
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="nomeinput"><strong>Nome</strong></label><input class="form-control" type="text" id="nomeinput" placeholder="Nome" name="nome" value="${sessionScope.user.nome}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="nomeinput"><strong>Nome</strong></label><input class="form-control" type="text" id="nomeinput" placeholder="Nome" name="nome" value="${user.nome}"></div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="emailinput"><strong>Endereço de Email</strong></label><input class="form-control" type="email" id="emailinput" placeholder="Email" name="email" value="${sessionScope.user.email}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="emailinput"><strong>Endereço de Email</strong></label><input class="form-control" type="email" id="emailinput" placeholder="Email" name="email" value="${user.email}"></div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="senhainput"><strong>Senha</strong></label><input class="form-control" type="password" id="senhainput" name="senha" value="${sessionScope.user.senha}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="senhainput"><strong>Senha</strong></label><input class="form-control" type="password" id="senhainput" name="senha" value="${user.senha}"></div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="enderecoinput"><strong>Endereço</strong></label><input class="form-control" type="text" id="enderecoinput" placeholder="Endereço" name="endereco" value="${sessionScope.user.endereco}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="enderecoinput"><strong>Endereço</strong></label><input class="form-control" type="text" id="enderecoinput" placeholder="Endereço" name="endereco" value="${user.endereco}"></div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="cpfinput"><strong>CPF</strong></label><input class="form-control" type="text" id="cpfinput" placeholder="CPF" maxlength="14" name="cpf" value="${sessionScope.user.CPF}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="cpfinput"><strong>CPF</strong></label><input class="form-control" type="text" id="cpfinput" placeholder="CPF" maxlength="14" name="cpf" value="${user.CPF}"></div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="telefoneinput"><strong>Telefone</strong></label><input class="form-control" type="text" id="telefoneinput" placeholder="Telefone" name="telefone" maxlength="20" value="${sessionScope.user.telefone}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="telefoneinput"><strong>Telefone</strong></label><input class="form-control" type="text" id="telefoneinput" placeholder="Telefone" name="telefone" maxlength="20" value="${user.telefone}"></div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="cidade-input"><strong>Cidade</strong></label><input class="form-control" type="text" id="cidade-input" placeholder="Cidade" name="cidade" value="${sessionScope.user.cidade}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="cidade-input"><strong>Cidade</strong></label><input class="form-control" type="text" id="cidade-input" placeholder="Cidade" name="cidade" value="${user.cidade}"></div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="estadoinput"><strong>Estado</strong></label><input class="form-control" type="text" id="estadoinput" placeholder="Estado" name="estado" maxlength="2" value="${sessionScope.user.estado}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="estadoinput"><strong>Estado</strong></label><input class="form-control" type="text" id="estadoinput" placeholder="Estado" name="estado" maxlength="2" value="${user.estado}"></div>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="userid" value="${sessionScope.user.id}">
@@ -150,21 +125,23 @@
                                                 </thead>
                                                 <tbody>
                                                 <c:forEach var="emprestimo" items="${emprestimosComTitulos}">
-                                                    <tr>
-                                                        <td>${emprestimo.value}</td>
-                                                        <td>${emprestimo.key.dataEmprestimo}</td>
-                                                        <td>${emprestimo.key.dataDevolucao}</td>
-                                                        <td style="width: 100px;">
-                                                            <c:choose>
-                                                                <c:when test="${emprestimo.key.status == 'Em atraso'}">
-                                                                    <span class="text-danger">${emprestimo.key.status}</span>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    ${emprestimo.key.status}
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                        </td>
-                                                    </tr>
+                                                    <c:if test="${emprestimo.key.status == 'Em aberto' || emprestimo.key.status == 'Em atraso'}">
+                                                        <tr>
+                                                            <td>${emprestimo.value}</td>
+                                                            <td>${emprestimo.key.dataEmprestimo}</td>
+                                                            <td>${emprestimo.key.dataDevolucao}</td>
+                                                            <td>
+                                                                <c:choose>
+                                                                    <c:when test="${emprestimo.key.status == 'Em atraso'}">
+                                                                        <span class="text-danger">${emprestimo.key.status}</span>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        ${emprestimo.key.status}
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </td>
+                                                        </tr>
+                                                    </c:if>
                                                 </c:forEach>
                                                 </tbody>
                                             </table>
@@ -187,12 +164,16 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>Cell 1</td>
-                                                    <td>00/00/0000</td>
-                                                    <td>11/11/1111</td>
-                                                    <td style="width: 100px;">Devolvido</td>
-                                                </tr>
+                                                <c:forEach var="emprestimo" items="${emprestimosComTitulos}">
+                                                    <c:if test="${emprestimo.key.status == 'Devolvido'}">
+                                                        <tr>
+                                                            <td>${emprestimo.value}</td>
+                                                            <td>${emprestimo.key.dataEmprestimo}</td>
+                                                            <td>${emprestimo.key.dataDevolucao}</td>
+                                                            <td>${emprestimo.key.status}</td>
+                                                        </tr>
+                                                    </c:if>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>

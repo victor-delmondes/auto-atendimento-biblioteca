@@ -38,11 +38,11 @@ public class UpdateUserServlet extends HttpServlet {
         if ("/update-users".equals(path)) {
             resp.sendRedirect("/admin/gerenciarusersADM");
         } else if ("/update-user".equals(path)) {
-            // Redireciona com base no tipo de usuário - ta redundante
+            // Redireciona com base no tipo de usuário
             if (userTipo) {
                 resp.sendRedirect("/admin/confADM.jsp?success=true");
             } else {
-                resp.sendRedirect("/profile.jsp?success=true");
+                resp.sendRedirect("/profile");
             }
         }
     }
