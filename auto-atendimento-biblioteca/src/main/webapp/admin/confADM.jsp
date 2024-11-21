@@ -59,9 +59,9 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="gerenciarusersADM"><i class="fas fa-user"></i><span>Gerenciar usuários</span></a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="gerenciaremprestimosADM.jsp"><i
+                <li class="nav-item"><a class="nav-link" href="gerenciaremprestimosADM"><i
                         class="far fa-calendar-alt"></i><span>Gerenciar empréstimos</span></a></li>
-                <li class="nav-item"><a class="nav-link active" href="confADM.html"><i
+                <li class="nav-item"><a class="nav-link active" href="confADM.jsp"><i
                         class="fas fa-user-circle"></i><span>Configurações de ADM</span></a></li>
             </ul>
         </div>
@@ -144,7 +144,7 @@
                                                 name="estado" estado value="${sessionScope.user.estado}"></div>
                                     </div>
                                 </div>
-                                <input type="hidden" name="id" value="${sessionScope.user.id}">
+                                <input type="hidden" name="userid" value="${sessionScope.user.id}">
                                 <input type="hidden" name="tipo" value="${sessionScope.user.tipo}">
                                 <div class="mb-3">
                                     <button class="btn btn-primary btn-sm" type="submit">Salvar</button>

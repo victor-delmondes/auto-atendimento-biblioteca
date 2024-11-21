@@ -25,7 +25,7 @@
                 <li class="nav-item"><a class="nav-link" href="indexADM"><i class="fa fa-book"></i><span>Livros</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="addlivroADM.jsp"><i class="far fa-edit" style="margin-right: 4px;font-size: 12px;"></i><span>Adicionar livro</span></a></li>
                 <li class="nav-item"><a class="nav-link active" href="gerenciarusersADM"><i class="fas fa-user"></i><span>Gerenciar usuários</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="gerenciaremprestimosADM.jsp"><i class="far fa-calendar-alt"></i><span>Gerenciar empréstimos</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="gerenciaremprestimosADM"><i class="far fa-calendar-alt"></i><span>Gerenciar empréstimos</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="confADM.jsp"><i class="fas fa-user-circle"></i><span>Configurações de ADM</span></a></li>
             </ul>
         </div>
@@ -47,8 +47,8 @@
                                     <thead>
                                     <tr>
                                         <th style="width: 300px;">Usuário</th>
-                                        <th style="width: 190.312px;">Alugueis ativos</th>
-                                        <th style="width: 300.562px;">Email</th>
+                                        <th style="width: 300px;">Email</th>
+                                        <th style="width: 100px;">Tipo</th>
                                         <th style="width: 41.312px;"></th>
                                     </tr>
                                     </thead>
@@ -56,10 +56,17 @@
                                     <c:forEach var="user" items="${users}">
                                         <tr>
                                             <td>${user.nome}</td>
-                                            <td><span style="margin-right: 10px;">Text</span>
-                                                <button class="btn btn-primary" type="button" style="background: rgb(2,72,115);border-color: rgb(2,72,115);" data-bs-target="#modal-emprestimos" data-bs-toggle="modal">Ver</button>
-                                            </td>
                                             <td>${user.email}</td>
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${user.tipo == true}">
+                                                        Administrador
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        Usuário Comum
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </td>
                                             <td>
                                                 <div class="dropdown" style="text-align: right;">
                                                     <button class="btn btn-primary dropdown-toggle data-bs-container" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="border-color: rgb(2,72,115);background: rgb(2,72,115);overflow: visible;" data-bs-container="body">Ações</button>
@@ -137,15 +144,28 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Cell 1</td>
-                            <td>Cell 2</td>
-                            <td>Cell 3</td>
-                            <td>Cell 4</td>
-                            <td>
-                                <button class="btn btn-primary" type="button" style="background: rgb(2,72,115);border-color: rgb(2,72,115);">Devolver</button>
-                            </td>
-                        </tr>
+                        <c:forEach var="emprestimo" items="${emprestimosComTitulos}">
+                            <c:if test="${emprestimo.key.status == 'Em aberto' || emprestimo.key.status == 'Em atraso'}">
+                                <tr>
+                                    <td>${emprestimo.value}</td>
+                                    <td>${emprestimo.key.dataEmprestimo}</td>
+                                    <td>${emprestimo.key.dataDevolucao}</td>
+                                    <td>
+                                        <c:choose>
+                                            <c:when test="${emprestimo.key.status == 'Em atraso'}">
+                                                <span class="text-danger">${emprestimo.key.status}</span>
+                                            </c:when>
+                                            <c:otherwise>
+                                                ${emprestimo.key.status}
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" type="button" style="background: rgb(2,72,115);border-color: rgb(2,72,115);">Devolver</button>
+                                    </td>
+                                </tr>
+                            </c:if>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -209,7 +229,7 @@
                             <div class="mb-3"><label class="form-label" for="modal-estadoEditar"><strong>Estado</strong></label><input class="form-control" type="text" id="modal-estadoEditar" placeholder="Estado" maxlength="2" name="estado"></div>
                         </div>
                     </div>
-                    <input type="hidden" name="id" id="modal-idEditar">
+                    <input type="hidden" name="userid" id="modal-idEditar">
                 </form>
             </div>
             <div class="modal-footer">

@@ -22,7 +22,7 @@ public class DevolverEmprestimoServlet extends HttpServlet {
 
         EmprestimoDao emprestimoDao = new EmprestimoDao();
         Emprestimo emprestimo = new Emprestimo(idEmprestimo, status);
-        emprestimoDao.updateEmprestimoStatus(emprestimo);
+        emprestimoDao.updateEmprestimoStatusAndDate(emprestimo); //isso aqui alem de devolver o livro vai atualizar a data de devolução pra data do dia
 
         String idLivro = emprestimoDao.getIdLivroByIdEmprestimo(idEmprestimo);
         LivrosDao livrosDao = new LivrosDao();

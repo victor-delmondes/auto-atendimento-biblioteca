@@ -119,7 +119,7 @@
                                                 <tr>
                                                     <th style="width: 300px;">Nome do livro</th>
                                                     <th style="width: 100px;">Locação</th>
-                                                    <th style="width: 100px;">Devolução</th>
+                                                    <th style="width: 130px;">Devolução Prevista</th>
                                                     <th style="width: 100px;">Situação</th>
                                                 </tr>
                                                 </thead>
@@ -159,7 +159,7 @@
                                                 <tr>
                                                     <th style="width: 300px;">Nome do livro</th>
                                                     <th style="width: 100px;">Locação</th>
-                                                    <th style="width: 100px;">Devolução</th>
+                                                    <th style="width: 100px;">Devolvido em</th>
                                                     <th style="width: 100px;">Situação</th>
                                                 </tr>
                                                 </thead>

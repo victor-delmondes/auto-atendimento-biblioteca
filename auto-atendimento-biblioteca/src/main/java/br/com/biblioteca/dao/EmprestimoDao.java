@@ -169,9 +169,9 @@ public class EmprestimoDao {
         }
     }
 
-    public void updateEmprestimoStatus(Emprestimo emprestimo) {
+    public void updateEmprestimoStatusAndDate(Emprestimo emprestimo) {
 
-        String SQL = "UPDATE EMPRESTIMO SET STATUS =? WHERE ID_EMPRESTIMO =?";
+        String SQL = "UPDATE EMPRESTIMO SET STATUS =?, DATA_DEVOLUCAO = CURRENT_DATE  WHERE ID_EMPRESTIMO =?";
 
         try {
 
