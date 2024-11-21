@@ -18,7 +18,7 @@ INSERT INTO Livros (Titulo, Autor, Quantidade, ISBN, Editora, Ano_publicacao, Ca
 ('Hamlet', 'William Shakespeare', 12, '9780743477123', 'Simon & Schuster', 1603, 'Tragédia', 'A famosa história do príncipe da Dinamarca.', 'img/image17.jpg', 'Estante P1'),
 ('O Morro dos Ventos Uivantes', 'Emily Brontë', 8, '9780553212587', 'Thomas Cautley Newby', 1847, 'Romance', 'Um romance intenso e dramático.', 'img/image18.jpg', 'Estante Q2'),
 ('Crime e Castigo', 'Fyodor Dostoyevsky', 10, '9780143058144', 'Penguin Books', 1866, 'Filosófico', 'A história de um jovem estudante e seu conflito moral.', 'img/image19.jpg', 'Estante R3'),
-('A Biblioteca da Meia-Noite', 'Matt Haig', 5, '9786555651926', 'Bertrand Brasil', 2020, 'Ficção',
+('A Biblioteca da Meia-Noite', 'Matt Haig', 5, '9786558380542', 'Bertrand Brasil', 2020, 'Ficção',
  'Uma história sobre escolhas, segundas chances e como cada decisão pode mudar o rumo de nossas vidas.',
  'img/81iqH8dpjuL.jpg', 'Estante D4'),
 ('Memórias Póstumas de Brás Cubas', 'Machado de Assis', 15, '9780195106812', 'Nova Fronteira', 1881, 'Literatura Brasileira', 'O livro que desafia as convenções literárias.', 'img/image20.jpg', 'Estante S4');

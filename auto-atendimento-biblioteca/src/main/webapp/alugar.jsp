@@ -29,7 +29,7 @@
                                                 <h4 class="card-title">${livro.titulo}</h4><img src="${livro.image}" style="width: 200px;height: 300px;">
                                                 <p class="card-text" style="margin-top: 16px;">Confirme a data de devolução</p>
                                                 <form action="/aluguel-confirm" method="post" id="emprestimoForm">
-                                                    <input type="date" name="dataDevolucao" id="datadev" style="height: 50px;width: 220px;text-align: center;">
+                                                    <input type="date" name="dataDevolucao" id="datadev" style="height: 50px;width: 220px;text-align: center;" min="">
                                                     <input type="hidden" id="dateini" name="dataEmprestimo">
                                                     <input type="hidden" id="cidlivro" name="idLivro" value="${livro.id}">
                                                     <input type="hidden" id="iduser" name="idUsuario" value="${sessionScope.user.id}">
@@ -57,6 +57,10 @@
         const today = new Date();
         const formattedDate = today.toISOString().split('T')[0];
         document.getElementById('dateini').value = formattedDate;
+    </script>
+    <script>
+        //trava o seletor de data pra selecionar apenas do dia seguinte
+        document.getElementById('datadev').min = new Date().toISOString().split('T')[0];
     </script>
 </body>
 
