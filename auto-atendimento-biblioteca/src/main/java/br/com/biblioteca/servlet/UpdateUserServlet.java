@@ -32,6 +32,8 @@ public class UpdateUserServlet extends HttpServlet {
 
         usuariosDao.updateUsuario(usuarios);
 
+        req.getSession().setAttribute("user", usuarios);
+
         // Verifica qual caminho foi chamado
         String path = req.getServletPath();
 
@@ -40,6 +42,9 @@ public class UpdateUserServlet extends HttpServlet {
         } else if ("/update-user".equals(path)) {
             // Redireciona com base no tipo de usuário
             if (userTipo) {
+
+
+
                 resp.sendRedirect("/admin/confADM.jsp?success=true");
             } else {
                 resp.sendRedirect("/profile");
