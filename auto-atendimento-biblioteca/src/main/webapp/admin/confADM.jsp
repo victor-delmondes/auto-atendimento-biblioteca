@@ -87,7 +87,7 @@
                                         <div class="mb-3"><label class="form-label"
                                                                  for="nomeinput"><strong>Nome</strong></label><input
                                                 class="form-control" type="text" id="nomeinput" placeholder="Nome"
-                                                name="nome" value="${sessionScope.user.nome}"></div>
+                                                name="nome" value="${sessionScope.user.nome}" required></div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -96,7 +96,7 @@
                                             Email</strong></label><input class="form-control" type="email"
                                                                          id="emailinput" placeholder="Email"
                                                                          name="email"
-                                                                         value="${sessionScope.user.email}"></div>
+                                                                         value="${sessionScope.user.email}" required</div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -104,7 +104,7 @@
                                         <div class="mb-3"><label class="form-label"
                                                                  for="senhainput"><strong>Senha</strong></label><input
                                                 class="form-control" type="password" id="senhainput" name="senha"
-                                                value="${sessionScope.user.senha}"></div>
+                                                value="${sessionScope.user.senha}" required></div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -113,21 +113,21 @@
                                                                  for="enderecoinput"><strong>Endereço</strong></label><input
                                                 class="form-control" type="text" id="enderecoinput"
                                                 placeholder="Endereço" name="endereco"
-                                                value="${sessionScope.user.endereco}"></div>
+                                                value="${sessionScope.user.endereco}" required></div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="mb-3"><label class="form-label" for="cpfinput"><strong>CPF</strong></label><input
                                                 class="form-control" type="text" id="cpfinput" placeholder="CPF"
-                                                name="cpf" value="${sessionScope.user.CPF}"></div>
+                                                name="cpf" value="${sessionScope.user.CPF}" required></div>
                                     </div>
                                     <div class="col">
                                         <div class="mb-3"><label class="form-label"
                                                                  for="telefoneinput"><strong>Telefone</strong></label><input
                                                 class="form-control" type="text" id="telefoneinput"
                                                 placeholder="Telefone" name="telefone"
-                                                value="${sessionScope.user.telefone}"></div>
+                                                value="${sessionScope.user.telefone}" required></div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -135,13 +135,13 @@
                                         <div class="mb-3"><label class="form-label"
                                                                  for="cidade-input"><strong>Cidade</strong></label><input
                                                 class="form-control" type="text" id="cidade-input" placeholder="Cidade"
-                                                name="cidade" value="${sessionScope.user.cidade}"></div>
+                                                name="cidade" value="${sessionScope.user.cidade}" required></div>
                                     </div>
                                     <div class="col">
                                         <div class="mb-3"><label class="form-label"
                                                                  for="estadoinput"><strong>Estado</strong></label><input
                                                 class="form-control" type="text" id="estadoinput" placeholder="Estado"
-                                                name="estado" estado value="${sessionScope.user.estado}"></div>
+                                                name="estado" estado value="${sessionScope.user.estado}" required></div>
                                     </div>
                                 </div>
                                 <input type="hidden" name="userid" value="${sessionScope.user.id}">

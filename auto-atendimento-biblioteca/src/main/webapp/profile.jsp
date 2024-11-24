@@ -66,38 +66,38 @@
                                         <form action="/update-user" method="post">
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="nomeinput"><strong>Nome</strong></label><input class="form-control" type="text" id="nomeinput" placeholder="Nome" name="nome" value="${user.nome}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="nomeinput"><strong>Nome</strong></label><input class="form-control" type="text" id="nomeinput" placeholder="Nome" name="nome" value="${user.nome}" required></div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="emailinput"><strong>Endereço de Email</strong></label><input class="form-control" type="email" id="emailinput" placeholder="Email" name="email" value="${user.email}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="emailinput"><strong>Endereço de Email</strong></label><input class="form-control" type="email" id="emailinput" placeholder="Email" name="email" value="${user.email}" required></div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="senhainput"><strong>Senha</strong></label><input class="form-control" type="password" id="senhainput" name="senha" value="${user.senha}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="senhainput"><strong>Senha</strong></label><input class="form-control" type="password" id="senhainput" name="senha" value="${user.senha}" required></div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="enderecoinput"><strong>Endereço</strong></label><input class="form-control" type="text" id="enderecoinput" placeholder="Endereço" name="endereco" value="${user.endereco}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="enderecoinput"><strong>Endereço</strong></label><input class="form-control" type="text" id="enderecoinput" placeholder="Endereço" name="endereco" value="${user.endereco}" required></div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="cpfinput"><strong>CPF</strong></label><input class="form-control" type="text" id="cpfinput" placeholder="CPF" maxlength="14" name="cpf" value="${user.CPF}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="cpfinput"><strong>CPF</strong></label><input class="form-control" type="text" id="cpfinput" placeholder="CPF" maxlength="14" name="cpf" value="${user.CPF}" required></div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="telefoneinput"><strong>Telefone</strong></label><input class="form-control" type="text" id="telefoneinput" placeholder="Telefone" name="telefone" maxlength="20" value="${user.telefone}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="telefoneinput"><strong>Telefone</strong></label><input class="form-control" type="text" id="telefoneinput" placeholder="Telefone" name="telefone" maxlength="20" value="${user.telefone}" required></div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="cidade-input"><strong>Cidade</strong></label><input class="form-control" type="text" id="cidade-input" placeholder="Cidade" name="cidade" value="${user.cidade}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="cidade-input"><strong>Cidade</strong></label><input class="form-control" type="text" id="cidade-input" placeholder="Cidade" name="cidade" value="${user.cidade}" required></div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="mb-3"><label class="form-label" for="estadoinput"><strong>Estado</strong></label><input class="form-control" type="text" id="estadoinput" placeholder="Estado" name="estado" maxlength="2" value="${user.estado}"></div>
+                                                    <div class="mb-3"><label class="form-label" for="estadoinput"><strong>Estado</strong></label><input class="form-control" type="text" id="estadoinput" placeholder="Estado" name="estado" maxlength="2" value="${user.estado}" required></div>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="userid" value="${sessionScope.user.id}">

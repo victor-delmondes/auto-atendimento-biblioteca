@@ -187,17 +187,17 @@
                 <form id="form-editar" action="/update-users" method="post">
                     <div class="row">
                         <div class="col">
-                            <div class="mb-3"><label class="form-label" for="modal-nomeEditar"><strong>Nome</strong></label><input class="form-control" type="text" id="modal-nomeEditar" placeholder="Nome" name="nome"></div>
+                            <div class="mb-3"><label class="form-label" for="modal-nomeEditar"><strong>Nome</strong></label><input class="form-control" type="text" id="modal-nomeEditar" placeholder="Nome" name="nome" required></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="mb-3"><label class="form-label" for="modal-emailEditar"><strong>Endereço de Email</strong></label><input class="form-control" type="email" id="modal-emailEditar" placeholder="Email" name="email"></div>
+                            <div class="mb-3"><label class="form-label" for="modal-emailEditar"><strong>Endereço de Email</strong></label><input class="form-control" type="email" id="modal-emailEditar" placeholder="Email" name="email" required></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-8">
-                            <div class="mb-3"><label class="form-label" for="modal-senhaEditar"><strong>Senha</strong></label><input class="form-control" type="password" id="modal-senhaEditar" name="senha"></div>
+                            <div class="mb-3"><label class="form-label" for="modal-senhaEditar"><strong>Senha</strong></label><input class="form-control" type="password" id="modal-senhaEditar" name="senha" required></div>
                         </div>
                         <div class="col">
                             <div class="mb-3"><label class="form-label" for="modal-tipoEditar"><strong>Tipo</strong></label><select class="form-select" id="modal-tipoEditar" name="tipo">
@@ -210,23 +210,23 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="mb-3"><label class="form-label" for="modal-enderecoEditar"><strong>Endereço</strong></label><input class="form-control" type="text" id="modal-enderecoEditar" placeholder="Endereço" name="endereco"></div>
+                            <div class="mb-3"><label class="form-label" for="modal-enderecoEditar"><strong>Endereço</strong></label><input class="form-control" type="text" id="modal-enderecoEditar" placeholder="Endereço" name="endereco" required></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="mb-3"><label class="form-label" for="modal-cpfEditar"><strong>CPF</strong></label><input class="form-control" type="text" id="modal-cpfEditar" placeholder="CPF" maxlength="14" name="cpf"></div>
+                            <div class="mb-3"><label class="form-label" for="modal-cpfEditar"><strong>CPF</strong></label><input class="form-control" type="text" id="modal-cpfEditar" placeholder="CPF" maxlength="14" name="cpf" required></div>
                         </div>
                         <div class="col">
-                            <div class="mb-3"><label class="form-label" for="modal-telefoneEditar"><strong>Telefone</strong></label><input class="form-control" type="text" id="modal-telefoneEditar" placeholder="Telefone" maxlength="20" name="telefone"></div>
+                            <div class="mb-3"><label class="form-label" for="modal-telefoneEditar"><strong>Telefone</strong></label><input class="form-control" type="text" id="modal-telefoneEditar" placeholder="Telefone" maxlength="20" name="telefone" required></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="mb-3"><label class="form-label" for="modal-cidadeEditar"><strong>Cidade</strong></label><input class="form-control" type="text" id="modal-cidadeEditar" placeholder="Cidade" name="cidade"></div>
+                            <div class="mb-3"><label class="form-label" for="modal-cidadeEditar"><strong>Cidade</strong></label><input class="form-control" type="text" id="modal-cidadeEditar" placeholder="Cidade" name="cidade" required></div>
                         </div>
                         <div class="col">
-                            <div class="mb-3"><label class="form-label" for="modal-estadoEditar"><strong>Estado</strong></label><input class="form-control" type="text" id="modal-estadoEditar" placeholder="Estado" maxlength="2" name="estado"></div>
+                            <div class="mb-3"><label class="form-label" for="modal-estadoEditar"><strong>Estado</strong></label><input class="form-control" type="text" id="modal-estadoEditar" placeholder="Estado" maxlength="2" name="estado" required></div>
                         </div>
                     </div>
                     <input type="hidden" name="userid" id="modal-idEditar">
