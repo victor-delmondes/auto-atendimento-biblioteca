@@ -84,7 +84,7 @@
                                                            data-locationEditar="${livro.location}"
                                                            data-idLivroEditar="${livro.id}"
                                                            data-isbnEditar="${livro.isbn}"
-                                                           data-imageEditar="${pageContext.request.contextPath}/${livro.image}">Editar</a>
+                                                           data-imageEditar="${livro.image}">Editar</a>
 
                                                         <a class="dropdown-item" href="#modal-info"
                                                            data-bs-target="#modal-info"
@@ -227,7 +227,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <div class="mb-3"><label class="form-label" for="modal-imageEditar"><strong>Imagem de capa</strong></label><input class="form-control" type="file" id="image" name="image"></div>
+                                <div class="mb-3"><label class="form-label"><strong>Imagem de capa</strong></label><input class="form-control" type="file" id="image" name="image"></div>
                             </div>
                         </div>
                         <div><input type="hidden" id="modal-idLivroEditar" name="id">

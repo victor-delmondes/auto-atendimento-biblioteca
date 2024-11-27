@@ -10,34 +10,41 @@ import java.util.List;
 
 public class UsuariosDao {
 
-    public void createUsuario(Usuarios usuario) {
-
-        String SQL = "INSERT INTO USUARIOS (nome,CPF,endereco, telefone, cidade, estado, e_mail, senha, tipo) VALUES (?,?,?,?,?,?,?,?, ?)";
+    public String createUsuario(Usuarios usuario) {
+        String verificarEmailSQL = "SELECT COUNT(*) AS total FROM USUARIOS WHERE e_mail = ?";
+        String inserirUsuarioSQL = "INSERT INTO USUARIOS (nome, CPF, endereco, telefone, cidade, estado, e_mail, senha, tipo) VALUES (?,?,?,?,?,?,?,?,?)";
 
         try {
-
             Connection connection = ConnectionpoolConfig.getConnection();
 
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            // Verifica se o e-mail já existe
+            PreparedStatement verificarStmt = connection.prepareStatement(verificarEmailSQL);
+            verificarStmt.setString(1, usuario.getEmail());
+            ResultSet rs = verificarStmt.executeQuery();
 
-            //Recebendo os parametros da Classe Usuarios , p/ gravar no DB
-            preparedStatement.setString(1, usuario.getNome());//Recebendo o parametro 1 nome da classe Usuarios
-            preparedStatement.setString(2, usuario.getCPF());//recebendo o parametro CPF
-            preparedStatement.setString(3, usuario.getEndereco());//Recebendo os parametros Endereço
-            preparedStatement.setString(4, usuario.getTelefone());//recebendo os parametros Telefone
-            preparedStatement.setString(5, usuario.getCidade());//Recebendo os parametros cidade
-            preparedStatement.setString(6, usuario.getEstado());//Recebendo os parametros estado
-            preparedStatement.setString(7, usuario.getEmail());//Recebendo os parametros email
-            preparedStatement.setString(8, usuario.getSenha());//Recebendo os parametros senha
-            preparedStatement.setBoolean(9, false);
+            if (rs.next() && rs.getInt("total") > 0) {
+                connection.close();
+                return "erro";
+            }
 
-            preparedStatement.execute();//Executando o envio para o banco
-            System.out.println("Sucesso em Inserir os dados no DB ");
+            PreparedStatement inserirStmt = connection.prepareStatement(inserirUsuarioSQL);
+            inserirStmt.setString(1, usuario.getNome());
+            inserirStmt.setString(2, usuario.getCPF());
+            inserirStmt.setString(3, usuario.getEndereco());
+            inserirStmt.setString(4, usuario.getTelefone());
+            inserirStmt.setString(5, usuario.getCidade());
+            inserirStmt.setString(6, usuario.getEstado());
+            inserirStmt.setString(7, usuario.getEmail());
+            inserirStmt.setString(8, usuario.getSenha());
+            inserirStmt.setBoolean(9, false);
 
-            connection.close();//Fechando a conexão com o DB
+            inserirStmt.execute();
+            connection.close();
+            return "sucesso";
 
         } catch (Exception e) {
-            System.out.println("Falha ao Conectar no Banco de dados " + e.getMessage());//Imprimndo mensagem de Falha de Conexão c/ DB
+            System.out.println("Erro ao conectar no banco: " + e.getMessage());
+            return "erro";
         }
     }
 

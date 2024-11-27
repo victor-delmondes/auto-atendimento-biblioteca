@@ -48,41 +48,41 @@
                                 <form action="/create-livro" method="post" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="titulo"><strong>Titulo</strong></label><input class="form-control" type="text" id="titulo" placeholder="Titulo" name="titulo"></div>
+                                            <div class="mb-3"><label class="form-label" for="titulo"><strong>Titulo</strong></label><input class="form-control" type="text" id="titulo" placeholder="Titulo" name="titulo" required></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="autor"><strong>Autor</strong></label><input class="form-control" type="text" id="autor" placeholder="Autor" name="autor"></div>
+                                            <div class="mb-3"><label class="form-label" for="autor"><strong>Autor</strong></label><input class="form-control" type="text" id="autor" placeholder="Autor" name="autor" required></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="editora"><strong>Editora</strong></label><input class="form-control" type="text" id="editora" placeholder="Editora" name="editora"></div>
+                                            <div class="mb-3"><label class="form-label" for="editora"><strong>Editora</strong></label><input class="form-control" type="text" id="editora" placeholder="Editora" name="editora" required></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="quantidade"><strong>Quantidade</strong></label><input class="form-control" type="text" id="quantidade" placeholder="Quantidade" name="quantidade"></div>
+                                            <div class="mb-3"><label class="form-label" for="quantidade"><strong>Quantidade</strong></label><input class="form-control" type="text" id="quantidade" placeholder="Quantidade" name="quantidade" required></div>
                                         </div>
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="anoPublicacao"><strong>Ano de publicação</strong></label><input class="form-control" type="text" id="anoPublicacao" placeholder="Ano de publicação" name="anoPublicacao"></div>
+                                            <div class="mb-3"><label class="form-label" for="anoPublicacao"><strong>Ano de publicação</strong></label><input class="form-control" type="text" id="anoPublicacao" placeholder="Ano de publicação" name="anoPublicacao" required></div>
                                         </div>
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="isbn"><strong>ISBN 10 ou 13</strong></label><input class="form-control" type="text" id="isbn" placeholder="ISBN" name="isbn"></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="location"><strong>Localização</strong></label><input class="form-control" type="text" id="location" placeholder="Localização" name="location"></div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="categoria"><strong>Categoria</strong></label><input class="form-control" type="text" id="categoria" placeholder="Categoria" name="categoria"></div>
+                                            <div class="mb-3"><label class="form-label" for="isbn"><strong>ISBN 10 ou 13</strong></label><input class="form-control" type="text" id="isbn" placeholder="ISBN" name="isbn" required></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="sinopse"><strong>Sinopse</strong></label><textarea class="form-control" id="sinopse" style="height: 160px;" name="sinopse"></textarea></div>
+                                            <div class="mb-3"><label class="form-label" for="location"><strong>Localização</strong></label><input class="form-control" type="text" id="location" placeholder="Localização" name="location" required></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label" for="categoria"><strong>Categoria</strong></label><input class="form-control" type="text" id="categoria" placeholder="Categoria" name="categoria" required></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label" for="sinopse"><strong>Sinopse</strong></label><textarea class="form-control" id="sinopse" style="height: 160px;" name="sinopse" required></textarea></div>
                                         </div>
                                     </div>
                                     <div class="row">

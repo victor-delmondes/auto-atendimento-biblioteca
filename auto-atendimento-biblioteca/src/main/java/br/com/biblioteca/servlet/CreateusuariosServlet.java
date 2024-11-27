@@ -58,9 +58,13 @@ public class CreateusuariosServlet extends HttpServlet { // Define uma classe p�
         System.out.println("Senha Usuario " + senha);// Imprime no console o valor do parâmetro "senha".
 
 
+        String resultado = usuarioDao.createUsuario(usuario);
 
-
-        usuarioDao.createUsuario(usuario);
+        if (resultado.equals("sucesso")) {
+            request.setAttribute("status", "sucesso");
+        } else {
+            request.setAttribute("status", "erro");
+        }
 
         request.getRequestDispatcher("register.jsp").forward(request, response);// Encaminha a requisição e resposta para a página "register.jsp".
 

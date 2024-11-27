@@ -9,9 +9,43 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <style>
+        .toast-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1055;
+        }
+    </style>
+</head>
 </head>
 
 <body class="bg-gradient-primary" style="background: rgb(2,72,115);">
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3 toast-center">
+    <!-- Toast de sucesso -->
+    <div id="successToast" class="toast bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
+        <div class="toast-header">
+            <strong class="me-auto">Sucesso</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Usuário cadastrado com sucesso!
+        </div>
+    </div>
+    <!-- Toast de erro -->
+    <div id="errorToast" class="toast bg-danger text-white" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
+        <div class="toast-header">
+            <strong class="me-auto">Erro</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            E-mail já cadastrado.
+        </div>
+    </div>
+</div>
+
     <div class="container">
         <div class="card shadow-lg o-hidden border-0 my-5">
             <div class="card-body p-0">
@@ -83,6 +117,22 @@
             });
         });
     </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const status = '<%= request.getAttribute("status") %>';
+
+        if (status === "erro") {
+            // Mostra o toast de erro
+            const errorToast = new bootstrap.Toast(document.getElementById("errorToast"));
+            errorToast.show();
+        } else if (status === "sucesso") {
+            // Mostra o toast de sucesso
+            const successToast = new bootstrap.Toast(document.getElementById("successToast"));
+            successToast.show();
+        }
+    });
+</script>
 
 </body>
 
